@@ -1,0 +1,44 @@
+{
+    "events": [
+        {
+            "id": "concert1",
+            "name": "Summer Music Festival",
+            "date": "2025-06-15",
+            "location": "Central Park",
+            "seats": 200,
+            "category": "music"
+        },
+        {
+            "id": "workshop1",
+            "name": "Dance show",
+            "date": "2025-07-01",
+            "location": "Town Square",
+            "seats": 30,
+            "category": "entertainment"
+        },
+        {
+            "id": "fair1",
+            "name": "Community Fair",
+            "date": "2025-05-30",
+            "location": "Town Square",
+            "seats": 500,
+            "category": "community"
+        },
+        {
+            "id": "concert2",
+            "name": "Jazz Night",
+            "date": "2025-06-20",
+            "location": "Jazz Club",
+            "seats": 100,
+            "category": "music"
+        },
+        {
+            "id": "show1",
+            "name": "Comedy Night",
+            "date": "2025-06-10",
+            "location": "Comedy Club",
+            "seats": 150,
+            "category": "entertainment"
+        }
+    ]
+}

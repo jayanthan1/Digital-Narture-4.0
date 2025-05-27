@@ -1,0 +1,1308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Local Community Event Portal</title>
+    <style>
+        /* Welcome Banner Styles */
+        #welcomeBanner {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            padding: 25px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        #welcomeBanner::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(255,255,255,0.05) 10px, rgba(255,255,255,0.05) 20px);
+            animation: shimmer 30s linear infinite;
+            pointer-events: none;
+        }
+        
+        @keyframes shimmer {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50%, 50%); }
+        }
+        
+        #welcomeBanner h3 {
+            font-size: 1.6em;
+            margin-bottom: 15px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+        }
+        
+        #welcomeBanner p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+        
+        .highlight {
+            background-color: #f1c40f;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-weight: bold;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            display: inline-block;
+            transform: rotate(-1deg);
+            transition: transform 0.3s ease;
+        }
+        
+        .highlight:hover {
+            transform: rotate(1deg) scale(1.05);
+        }
+        
+        /* Image Gallery Styles */
+        .event-image {
+            width: 200px;
+            height: 150px;
+            border: 3px solid #3498db;
+            border-radius: 5px;
+            transition: transform 0.3s ease;
+        }
+        
+        .event-image:hover {
+            transform: scale(1.05);
+            border-color: #2980b9;
+        }
+        
+        .gallery-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 10px;
+            margin: 20px 0;
+        }
+        
+        .gallery-table caption {
+            font-weight: bold;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+            color: #2c3e50;
+        }
+        
+        .gallery-table td {
+            text-align: center;
+            padding: 10px;
+            vertical-align: top;
+        }
+        
+        .image-caption {
+            margin-top: 8px;
+            font-size: 0.9em;
+            color: #7f8c8d;
+        }
+        
+        /* Form Styles */
+        .registration-form {
+            background-color: #f8f9fa;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        
+        .form-control:focus {
+            border-color: #3498db;
+            outline: none;
+            box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+        }
+        
+        .form-control::placeholder {
+            color: #95a5a6;
+        }
+        
+        textarea.form-control {
+            min-height: 100px;
+            resize: vertical;
+        }
+        
+        .submit-btn {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .submit-btn:hover {
+            background-color: #2980b9;
+        }
+        
+        .form-output {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 4px;
+            display: none;
+        }
+        
+        .success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        
+        /* Preferences Button Styles */
+        .preferences-section {
+            margin-top: 15px;
+            padding: 10px;
+            background-color: #f8f9fa;
+            border-radius: 4px;
+            border: 1px solid #eee;
+        }
+        
+        .preferences-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+        
+        .clear-btn {
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            font-size: 14px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .clear-btn:hover {
+            background-color: #c0392b;
+        }
+        
+        .storage-info {
+            font-size: 0.85em;
+            color: #7f8c8d;
+            margin-top: 8px;
+        }
+        
+        /* Geolocation Styles */
+        .geolocation-section {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            margin: 20px auto;
+            max-width: 800px;
+        }
+        
+        .geolocation-btn {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 16px;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            font-weight: bold;
+        }
+        
+        .geolocation-btn:hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0,0,0,0.15);
+        }
+        
+        .geolocation-btn:hover {
+            background-color: #2980b9;
+        }
+        
+        .geolocation-btn:disabled {
+            background-color: #95a5a6;
+            cursor: not-allowed;
+        }
+        
+        .geolocation-results {
+            margin-top: 15px;
+            padding: 15px;
+            background-color: #fff;
+            border-radius: 4px;
+            border: 1px solid #eee;
+            display: none;
+        }
+        
+        .geolocation-error {
+            color: #e74c3c;
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #fadbd8;
+            border-radius: 4px;
+            display: none;
+        }
+        
+        .nearby-events {
+            margin-top: 15px;
+        }
+        
+        .nearby-event-item {
+            padding: 10px;
+            margin-bottom: 10px;
+            background-color: #f1f9ff;
+            border-radius: 4px;
+            border-left: 4px solid #3498db;
+        }
+        
+        .event-distance {
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        
+        .location-icon {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            background-color: white;
+            -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 384 512'%3E%3Cpath d='M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 256c-35.3 0-64-28.7-64-64s28.7-64 64-64s64 28.7 64 64s-28.7 64-64 64z'/%3E%3C/svg%3E") no-repeat 50% 50%;
+            mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 384 512'%3E%3Cpath d='M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 256c-35.3 0-64-28.7-64-64s28.7-64 64-64s64 28.7 64 64s-28.7 64-64 64z'/%3E%3C/svg%3E") no-repeat 50% 50%;
+            -webkit-mask-size: cover;
+            mask-size: cover;
+            vertical-align: middle;
+            margin-right: 8px;
+        }
+        
+        /* Feedback Form Styles */
+        .feedback-form {
+            background-color: #f8f9fa;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .char-counter {
+            font-size: 0.8em;
+            color: #7f8c8d;
+            text-align: right;
+            margin-top: 5px;
+        }
+        
+        .validation-message {
+            font-size: 0.9em;
+            margin-top: 5px;
+        }
+        
+        .valid {
+            color: #27ae60;
+        }
+        
+        .invalid {
+            color: #e74c3c;
+        }
+        
+        .fee-display {
+            font-weight: bold;
+            margin-top: 10px;
+            padding: 8px;
+            background-color: #f1f1f1;
+            border-radius: 4px;
+            display: none;
+        }
+        
+        .enlarged {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            max-width: 80%;
+            max-height: 80vh;
+            z-index: 1000;
+            border: 5px solid white;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+            cursor: pointer;
+        }
+        
+        .event-thumbnail {
+            width: 150px;
+            height: 100px;
+            object-fit: cover;
+            cursor: pointer;
+            border: 2px solid #ddd;
+            border-radius: 4px;
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+        
+        .event-thumbnail:hover {
+            transform: scale(1.05);
+            border-color: #3498db;
+        }
+        
+        .event-thumbnails-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 15px;
+        }
+        
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.7);
+            z-index: 999;
+            display: none;
+        }
+        
+        /* Video Section Styles */
+        .video-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .video-element {
+            width: 100%;
+            border-radius: 4px;
+            outline: none;
+        }
+        
+        .video-status {
+            margin-top: 10px;
+            padding: 8px;
+            border-radius: 4px;
+            text-align: center;
+            display: none;
+            background-color: #d4edda;
+            color: #155724;
+        }
+        /* Base styles for Local Community Event Portal */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            padding: 20px 0;
+            border-bottom: 1px solid #eee;
+            margin-bottom: 20px;
+        }
+
+        header h1 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+
+        /* Navigation Styles */
+        nav ul {
+            display: flex;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+
+        nav ul li {
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #3498db;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #2980b9;
+        }
+
+        /* Main Content Styles */
+        main {
+            min-height: 70vh;
+        }
+
+        section {
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            padding-bottom: 5px;
+            border-bottom: 2px solid #eee;
+        }
+
+        /* Event Styles */
+        .event {
+            background-color: #f9f9f9;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .event h3 {
+            color: #3498db;
+            margin-bottom: 10px;
+        }
+
+        .event a {
+            display: inline-block;
+            margin-top: 10px;
+            color: #3498db;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .event a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer Styles */
+        footer {
+            margin-top: 30px;
+            padding: 20px 0;
+            border-top: 1px solid #eee;
+            text-align: center;
+        }
+
+        .footer-links {
+            margin-top: 10px;
+        }
+
+        .footer-links a {
+            margin: 0 10px;
+            color: #7f8c8d;
+            text-decoration: none;
+        }
+
+        .footer-links a:hover {
+            color: #3498db;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+            }
+            
+            nav ul li {
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <script>
+        // Log when the page loads - useful for debugging
+        console.log('Local Community Event Portal loaded at:', new Date().toLocaleString());
+        
+        // Check for unfinished forms when user tries to leave the page
+        window.addEventListener('beforeunload', function(e) {
+            // Check if registration form has been started but not submitted
+            const regForm = document.getElementById('eventRegistration');
+            if (regForm) {
+                const nameField = document.getElementById('fullName');
+                const emailField = document.getElementById('email');
+                const dateField = document.getElementById('eventDate');
+                
+                // Check if any fields have been filled but form is incomplete
+                if ((nameField && nameField.value) || 
+                    (emailField && emailField.value) || 
+                    (dateField && dateField.value)) {
+                    
+                    // Check if all required fields are filled
+                    const allFilled = nameField && nameField.value && 
+                                     emailField && emailField.value && 
+                                     dateField && dateField.value;
+                    
+                    if (!allFilled) {
+                        // Show warning message
+                        const message = 'You have unsaved changes in your registration form. Are you sure you want to leave?';
+                        e.returnValue = message;
+                        return message;
+                    }
+                }
+            }
+            
+            // Check if feedback form has been started but not submitted
+            const feedbackForm = document.getElementById('feedbackForm');
+            if (feedbackForm) {
+                const nameField = document.getElementById('feedbackName');
+                const eventField = document.getElementById('feedbackEvent');
+                const textField = document.getElementById('feedbackText');
+                
+                // Check if any fields have been filled but form is incomplete
+                if ((nameField && nameField.value) || 
+                    (eventField && eventField.value !== '') || 
+                    (textField && textField.value)) {
+                    
+                    // Check if all required fields are filled
+                    const allFilled = nameField && nameField.value && 
+                                     eventField && eventField.value !== '' && 
+                                     textField && textField.value;
+                    
+                    if (!allFilled) {
+                        // Show warning message
+                        const message = 'You have unsaved changes in your feedback form. Are you sure you want to leave?';
+                        e.returnValue = message;
+                        return message;
+                    }
+                }
+            }
+        });
+    </script>
+    <!-- Header Section -->
+    <header>
+        <h1>Local Community Event Portal</h1>
+        
+        <!-- Welcome Banner with ID and special styling -->
+        <div id="welcomeBanner">
+            <h3>Welcome to Our Vibrant Community!</h3>
+            <p>Thank you for being part of our <span class="highlight">local community</span>. We're excited to bring you the latest events and activities!</p>
+            <p>We have <span style="color: #e74c3c; font-weight: bold; font-size: 1.1em; text-shadow: 1px 1px 2px rgba(0,0,0,0.2);">special offers</span> for early registrations!</p>
+            <p>Check out the <span class="highlight">6 amazing events</span> available this season, with <span class="highlight">3 new additions</span> this week.</p>
+            <p style="margin-top: 15px;"><a href="#events" style="display: inline-block; background-color: white; color: #3498db; padding: 8px 20px; border-radius: 30px; text-decoration: none; font-weight: bold; transition: all 0.3s ease; box-shadow: 0 3px 6px rgba(0,0,0,0.1);">Explore Events</a></p>
+        </div>
+        <!-- Navigation Section -->
+        <nav style="margin: 20px 0;">
+            <ul style="display: flex; list-style: none; gap: 20px;">
+                <li><a href="#home" style="text-decoration: none; color: #3498db; font-weight: bold;">Home</a></li>
+                <li><a href="#events" style="text-decoration: none; color: #3498db; font-weight: bold;">Events</a></li>
+                <li><a href="#gallery" style="text-decoration: none; color: #3498db; font-weight: bold;">Gallery</a></li>
+                <li><a href="#video" style="text-decoration: none; color: #3498db; font-weight: bold;">Video</a></li>
+                <li><a href="#register" style="text-decoration: none; color: #3498db; font-weight: bold;">Register</a></li>
+                <li><a href="#feedback" style="text-decoration: none; color: #3498db; font-weight: bold;">Feedback</a></li>
+                <li><a href="#contact" style="text-decoration: none; color: #3498db; font-weight: bold;">Contact</a></li>
+                <li><a href="help.html" target="_blank" style="text-decoration: none; color: #e74c3c; font-weight: bold;">Help</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content Section -->
+    <main>
+        <section id="home" style="padding: 20px; margin-bottom: 30px; background-color: #f8f9fa; border-radius: 5px;">
+            <h2 style="color: #2c3e50; margin-bottom: 15px; border-bottom: 2px solid #eee; padding-bottom: 5px;">Welcome to Our Community Portal</h2>
+            <p>Find local events, check locations, and access city services all in one place.</p>
+        </section>
+        
+        <section id="events" style="padding: 20px; margin-bottom: 30px; background-color: #f8f9fa; border-radius: 5px;">
+            <!-- Geolocation Section -->
+            <div class="geolocation-section">
+                <h3 style="color: #2c3e50; margin-bottom: 15px;">Find Events Near You</h3>
+                <p>Discover community events happening close to your location:</p>
+                
+                <button id="findNearbyBtn" class="geolocation-btn" onclick="findNearbyEvents()">
+                    <span class="location-icon"></span> Find Nearby Events
+                </button>
+                
+                <div id="geolocationError" class="geolocation-error"></div>
+                
+                <div id="geolocationResults" class="geolocation-results">
+                    <div id="coordinates"></div>
+                    <div id="nearbyEvents" class="nearby-events"></div>
+                </div>
+                
+                <script>
+                    // Sample event locations (latitude, longitude) - will be adjusted based on user's location
+                    // to show distances between 5-10 km
+                    const eventLocations = [
+                        { name: "Spring Festival", venue: "Central Park" },
+                        { name: "Community Cleanup Day", venue: "Downtown Square" },
+                        { name: "Tree Planting Event", venue: "Riverside Park" },
+                        { name: "Summer Camp", venue: "Community Center" },
+                        { name: "Art Exhibition", venue: "City Gallery" },
+                        { name: "Farmers Market", venue: "Market Square" }
+                    ];
+                    
+                    // Calculate distance between two coordinates in kilometers
+                    function calculateDistance(lat1, lon1, lat2, lon2) {
+                        const R = 6371; // Radius of the earth in km
+                        const dLat = deg2rad(lat2 - lat1);
+                        const dLon = deg2rad(lon2 - lon1);
+                        const a = 
+                            Math.sin(dLat/2) * Math.sin(dLat/2) +
+                            Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) * 
+                            Math.sin(dLon/2) * Math.sin(dLon/2); 
+                        const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
+                        const distance = R * c; // Distance in km
+                        return distance;
+                    }
+                    
+                    function deg2rad(deg) {
+                        return deg * (Math.PI/180);
+                    }
+                    
+                    // Find nearby events based on user's location
+                    function findNearbyEvents() {
+                        console.log('Finding nearby events...');
+                        const nearbyBtn = document.getElementById('findNearbyBtn');
+                        const errorDiv = document.getElementById('geolocationError');
+                        const resultsDiv = document.getElementById('geolocationResults');
+                        
+                        // Reset previous results
+                        errorDiv.style.display = 'none';
+                        resultsDiv.style.display = 'none';
+                        nearbyBtn.disabled = true;
+                        nearbyBtn.innerHTML = '<span class="location-icon"></span> Getting your location...';
+                        
+                        // Geolocation options for high accuracy
+                        const options = {
+                            enableHighAccuracy: true,
+                            timeout: 10000,        // 10 seconds timeout
+                            maximumAge: 0          // Don't use cached position
+                        };
+                        
+                        // Check if geolocation is supported
+                        if (!navigator.geolocation) {
+                            errorDiv.textContent = 'Geolocation is not supported by your browser';
+                            errorDiv.style.display = 'block';
+                            nearbyBtn.disabled = false;
+                            nearbyBtn.innerHTML = '<span class="location-icon"></span> Find Nearby Events';
+                            return;
+                        }
+                        
+                        // Get current position
+                        navigator.geolocation.getCurrentPosition(
+                            // Success callback
+                            function(position) {
+                                // Add a debugger statement for Chrome DevTools
+                                // debugger; // Uncomment this line to activate the breakpoint
+                                
+                                console.log('Geolocation success:', position);
+                                const latitude = position.coords.latitude;
+                                const longitude = position.coords.longitude;
+                                const accuracy = position.coords.accuracy;
+                                
+                                console.log(`User location: ${latitude}, ${longitude} (accuracy: ${accuracy}m)`);
+                                
+                                // Display coordinates
+                                const coordsDiv = document.getElementById('coordinates');
+                                coordsDiv.innerHTML = `<strong>Your Location:</strong><br>
+                                    Latitude: ${latitude.toFixed(6)}<br>
+                                    Longitude: ${longitude.toFixed(6)}<br>
+                                    Accuracy: ${(accuracy / 1000).toFixed(2)} km`;
+                                
+                                // Find and display nearby events
+                                const nearbyEventsDiv = document.getElementById('nearbyEvents');
+                                nearbyEventsDiv.innerHTML = '<h4>Nearby Events:</h4>';
+                                
+                                // Create events with realistic distances between 5-10 km
+                                // We'll generate coordinates that are approximately the right distance from the user
+                                const eventsWithDistance = eventLocations.map((event, index) => {
+                                    // Generate a distance between 5-10 km, different for each event
+                                    const distance = 5 + (index % 6) * 0.8; // Creates distances from ~5 to ~9 km
+                                    
+                                    // Calculate a point that's approximately that distance away
+                                    // This is a simplification that works for small distances
+                                    const randomAngle = Math.random() * 2 * Math.PI; // Random direction
+                                    const lat_offset = distance * Math.cos(randomAngle) / 111.32; // ~111.32 km per degree of latitude
+                                    const lng_offset = distance * Math.sin(randomAngle) / (111.32 * Math.cos(latitude * Math.PI / 180)); // Adjust for longitude
+                                    
+                                    const lat = latitude + lat_offset;
+                                    const lng = longitude + lng_offset;
+                                    
+                                    // Return event with distance and calculated coordinates
+                                    return { ...event, distance, lat, lng };
+                                }).sort((a, b) => a.distance - b.distance);
+                                
+                                // Display only the 3 nearest events
+                                eventsWithDistance.slice(0, 3).forEach(event => {
+                                    const eventDiv = document.createElement('div');
+                                    eventDiv.className = 'nearby-event-item';
+                                    eventDiv.innerHTML = `
+                                        <strong>${event.name}</strong><br>
+                                        Venue: ${event.venue}<br>
+                                        <span class="event-distance">Distance: ${event.distance.toFixed(2)} km</span>
+                                    `;
+                                    nearbyEventsDiv.appendChild(eventDiv);
+                                });
+                                
+                                // Add a message showing how many events were found
+                                const summaryDiv = document.createElement('p');
+                                summaryDiv.innerHTML = `<em>Showing the 3 closest events within 10 km of your location.</em>`;
+                                nearbyEventsDiv.appendChild(summaryDiv);
+                                
+                                // Show results
+                                resultsDiv.style.display = 'block';
+                                nearbyBtn.disabled = false;
+                                nearbyBtn.innerHTML = '<span class="location-icon"></span> Find Nearby Events';
+                            },
+                            // Error callback
+                            function(error) {
+                                console.error('Geolocation error:', error);
+                                let errorMessage = '';
+                                
+                                switch(error.code) {
+                                    case error.PERMISSION_DENIED:
+                                        errorMessage = 'Location access was denied. Please allow location access to find nearby events.';
+                                        break;
+                                    case error.POSITION_UNAVAILABLE:
+                                        errorMessage = 'Location information is unavailable. Please try again later.';
+                                        break;
+                                    case error.TIMEOUT:
+                                        errorMessage = 'The request to get your location timed out. Please try again.';
+                                        break;
+                                    case error.UNKNOWN_ERROR:
+                                        errorMessage = 'An unknown error occurred while trying to get your location.';
+                                        break;
+                                }
+                                
+                                errorDiv.textContent = errorMessage;
+                                errorDiv.style.display = 'block';
+                                nearbyBtn.disabled = false;
+                                nearbyBtn.innerHTML = '<span class="location-icon"></span> Find Nearby Events';
+                            },
+                            // Options
+                            options
+                        );
+                    }
+                </script>
+            </div>
+            <h2 style="color: #2c3e50; margin-bottom: 15px; border-bottom: 2px solid #eee; padding-bottom: 5px;">Upcoming Events</h2>
+            <!-- Event listings would go here -->
+            <article style="background-color: #fff; padding: 15px; margin-bottom: 15px; border-radius: 5px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+                <h3 style="color: #3498db; margin-bottom: 10px;">Community Clean-up Day</h3>
+                <p>Date: June 15, 2025</p>
+                <p>Location: Central Park</p>
+                <a href="#events-cleanup" style="display: inline-block; margin-top: 10px; color: #3498db; text-decoration: none; font-weight: bold;">Learn More</a>
+            </article>
+            
+            <article style="background-color: #fff; padding: 15px; margin-bottom: 15px; border-radius: 5px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+                <h3 style="color: #3498db; margin-bottom: 10px;">Summer Festival</h3>
+                <p>Date: July 4-6, 2025</p>
+                <p>Location: Downtown Square</p>
+                <a href="#events-festival" style="display: inline-block; margin-top: 10px; color: #3498db; text-decoration: none; font-weight: bold;">Learn More</a>
+            </article>
+        </section>
+        
+        <!-- Image Gallery Section -->        
+        <section id="gallery" style="padding: 20px; margin-bottom: 30px; background-color: #f8f9fa; border-radius: 5px;">
+            <h2 style="color: #2c3e50; margin-bottom: 15px; border-bottom: 2px solid #eee; padding-bottom: 5px;">Event Gallery</h2>
+            <p>Take a look at some of our past community events:</p>
+            
+            <table class="gallery-table">
+                <caption>Community Events 2024-2025</caption>
+                <tr>
+                    <td>
+                        <img src="spring.jpeg" alt="Spring Festival" title="Spring Festival 2024" class="event-image">
+                        <div class="image-caption">Spring Festival with over 500 attendees enjoying local music and food</div>
+                    </td>
+                    <td>
+                        <img src="cleanupday.png" alt="Community Cleanup Day" title="Cleanup Day 2024" class="event-image">
+                        <div class="image-caption">Volunteers helped clean up the downtown area during our annual event</div>
+                    </td>
+                    <td>
+                        <img src="treeplants.jpeg" alt="Tree Planting Event" title="Tree Planting 2024" class="event-image">
+                        <div class="image-caption">Our environmental initiative planted 100 new trees in the city park</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <img src="summercamp.webp" alt="Summer Camp" title="Summer Camp 2024" class="event-image">
+                        <div class="image-caption">Children enjoying our annual summer camp with outdoor activities</div>
+                    </td>
+                    <td>
+                        <img src="artexibition.jpg" alt="Local Art Exhibition" title="Art Exhibition 2025" class="event-image">
+                        <div class="image-caption">Local artists showcased their work at the community center</div>
+                    </td>
+                    <td>
+                        <img src="farmermarket.jpeg" alt="Farmers Market" title="Farmers Market 2025" class="event-image">
+                        <div class="image-caption">Weekly farmers market featuring local produce and handcrafted goods</div>
+                    </td>
+                </tr>
+            </table>
+        </section>
+        
+        <!-- Registration Form Section -->        
+        <section id="register" style="padding: 20px; margin-bottom: 30px; background-color: #f8f9fa; border-radius: 5px;">
+            <h2 style="color: #2c3e50; margin-bottom: 15px; border-bottom: 2px solid #eee; padding-bottom: 5px;">Event Registration</h2>
+            <p>Fill out the form below to register for upcoming community events:</p>
+            
+            <form id="eventRegistration" class="registration-form" onsubmit="return handleFormSubmit(event)">
+                <div class="form-group">
+                    <label for="fullName">Full Name:</label>
+                    <input type="text" id="fullName" name="fullName" class="form-control" placeholder="Enter your full name" required autofocus>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email Address:</label>
+                    <input type="email" id="email" name="email" class="form-control" placeholder="your.email@example.com" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="eventDate">Event Date:</label>
+                    <input type="date" id="eventDate" name="eventDate" class="form-control" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="eventType">Event Type:</label>
+                    <select id="eventType" name="eventType" class="form-control" required>
+                        <option value="" disabled selected>Select an event type</option>
+                        <option value="Spring Festival">Spring Festival 2024</option>
+                        <option value="Community Cleanup Day">Cleanup Day 2024</option>
+                        <option value="Tree Planting Event">Tree Planting 2024</option>
+                        <option value="Summer Camp">Summer Camp 2024</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Additional Information:</label>
+                    <textarea id="message" name="message" class="form-control" placeholder="Any specific requirements or questions?"></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <button type="submit" class="submit-btn">Register for Event</button>
+                </div>
+                
+                <output id="formOutput" class="form-output" for="eventRegistration"></output>
+                
+                <!-- User Preferences Section -->
+                <div class="preferences-section">
+                    <div class="preferences-title">User Preferences</div>
+                    <p>We save your event preferences to make future registrations easier.</p>
+                    <button type="button" class="clear-btn" onclick="clearStoredPreferences()">Clear Preferences</button>
+                    <div id="storageInfo" class="storage-info"></div>
+                </div>
+            </form>
+            
+            <script>
+                // Load saved preferences when page loads
+                window.addEventListener('DOMContentLoaded', function() {
+                    console.log('DOM fully loaded - initializing preferences');
+                    loadSavedPreferences();
+                    displayStorageInfo();
+                });
+                
+                // Save preferences to localStorage
+                function savePreferences() {
+                    // Add a debugger statement for Chrome DevTools
+                    // debugger; // Uncomment this line to activate the breakpoint
+                    
+                    const eventType = document.getElementById('eventType').value;
+                    console.log('Saving preference:', eventType);
+                    
+                    if (eventType) {
+                        localStorage.setItem('preferredEventType', eventType);
+                        console.log('Saved to localStorage:', eventType);
+                        
+                        // Also save to sessionStorage for demonstration
+                        sessionStorage.setItem('lastEventType', eventType);
+                        console.log('Saved to sessionStorage:', eventType);
+                        
+                        // Update storage info display
+                        displayStorageInfo();
+                    } else {
+                        console.warn('No event type selected, nothing saved');
+                    }
+                }
+                
+                // Load saved preferences
+                function loadSavedPreferences() {
+                    const savedEventType = localStorage.getItem('preferredEventType');
+                    if (savedEventType) {
+                        const eventTypeSelect = document.getElementById('eventType');
+                        
+                        // Find and select the option with the saved value
+                        for (let i = 0; i < eventTypeSelect.options.length; i++) {
+                            if (eventTypeSelect.options[i].value === savedEventType) {
+                                eventTypeSelect.selectedIndex = i;
+                                break;
+                            }
+                        }
+                    }
+                }
+                
+                // Clear all stored preferences
+                function clearStoredPreferences() {
+                    localStorage.removeItem('preferredEventType');
+                    sessionStorage.removeItem('lastEventType');
+                    
+                    // Reset select to default
+                    const eventTypeSelect = document.getElementById('eventType');
+                    eventTypeSelect.selectedIndex = 0;
+                    
+                    // Update storage info
+                    displayStorageInfo();
+                    
+                    // Show confirmation
+                    alert('All stored preferences have been cleared!');
+                }
+                
+                // Display storage information
+                function displayStorageInfo() {
+                    const storageInfo = document.getElementById('storageInfo');
+                    const localPref = localStorage.getItem('preferredEventType');
+                    const sessionPref = sessionStorage.getItem('lastEventType');
+                    
+                    let infoText = '';
+                    
+                    if (localPref) {
+                        infoText += `localStorage: Preferred event type is set to "${localPref}"<br>`;
+                    } else {
+                        infoText += 'localStorage: No preferences saved<br>';
+                    }
+                    
+                    if (sessionPref) {
+                        infoText += `sessionStorage: Last selected event was "${sessionPref}"`;
+                    } else {
+                        infoText += 'sessionStorage: No session data';
+                    }
+                    
+                    storageInfo.innerHTML = infoText;
+                }
+                
+                function handleFormSubmit(event) {
+                    event.preventDefault();
+                    console.log('Form submission started');
+                    
+                    // Add a debugger statement for Chrome DevTools
+                    // debugger; // Uncomment this line to activate the breakpoint
+                    
+                    // Get form values
+                    const name = document.getElementById('fullName').value;
+                    const email = document.getElementById('email').value;
+                    const date = document.getElementById('eventDate').value;
+                    const eventType = document.getElementById('eventType').value;
+                    
+                    console.log('Form data:', { name, email, date, eventType });
+                    
+                    // Get event type text
+                    const eventTypeText = document.getElementById('eventType').options[document.getElementById('eventType').selectedIndex].text;
+                    
+                    // Format date for display
+                    const formattedDate = new Date(date).toLocaleDateString('en-US', {
+                        weekday: 'long',
+                        year: 'numeric',
+                        month: 'long',
+                        day: 'numeric'
+                    });
+                    
+                    // Display confirmation message
+                    const output = document.getElementById('formOutput');
+                    output.innerHTML = `<strong>Thank you, ${name}!</strong><br>Your registration for ${eventTypeText} on ${formattedDate} has been received. A confirmation email has been sent to ${email}.`;
+                    output.classList.add('success');
+                    output.style.display = 'block';
+                    
+                    // Save preferences before resetting form
+                    savePreferences();
+                    
+                    // Reset form after successful submission
+                    setTimeout(() => {
+                        document.getElementById('eventRegistration').reset();
+                        // Reload preferences after form reset
+                        loadSavedPreferences();
+                        // Update storage info
+                        displayStorageInfo();
+                    }, 5000);
+                    
+                    return false;
+                }
+            </script>
+        </section>
+        
+        <!-- Event Feedback Section -->        
+        <!-- Video Invite Section -->        
+        <section id="video" style="padding: 20px; margin-bottom: 30px; background-color: #f8f9fa; border-radius: 5px;">
+            <h2 style="color: #2c3e50; margin-bottom: 15px; border-bottom: 2px solid #eee; padding-bottom: 5px;">Event Promo Video</h2>
+            <p>Watch our short promotional video about upcoming community events:</p>
+            
+            <div class="video-container">
+                <video id="promoVideo" class="video-element" controls poster="https://via.placeholder.com/800x450/3498db/ffffff?text=Community+Events+Promo" oncanplay="videoReady()">
+                    <!-- Using a placeholder video URL since we don't have an actual video file -->
+                    <source src="promo.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div id="videoStatus" class="video-status"></div>
+            </div>
+            
+            <script>
+                function videoReady() {
+                    const videoStatus = document.getElementById('videoStatus');
+                    videoStatus.textContent = 'Video ready to play! Click the play button to start.';
+                    videoStatus.style.display = 'block';
+                    
+                    // Hide the message after 5 seconds
+                    setTimeout(() => {
+                        videoStatus.style.display = 'none';
+                    }, 5000);
+                }
+            </script>
+        </section>
+        
+        <section id="feedback" style="padding: 20px; margin-bottom: 30px; background-color: #f8f9fa; border-radius: 5px;">
+            <h2 style="color: #2c3e50; margin-bottom: 15px; border-bottom: 2px solid #eee; padding-bottom: 5px;">Event Feedback</h2>
+            <p>Share your thoughts about events you've attended:</p>
+            
+            <div id="overlay" class="overlay" onclick="closeEnlargedImage()"></div>
+            
+            <form id="feedbackForm" class="feedback-form">
+                <div class="form-group">
+                    <label for="feedbackName">Your Name:</label>
+                    <input type="text" id="feedbackName" name="feedbackName" class="form-control" placeholder="Enter your name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="phoneNumber">Phone Number:</label>
+                    <input type="tel" id="phoneNumber" name="phoneNumber" class="form-control" placeholder="(555) 123-4567" onblur="validatePhoneNumber()">
+                    <div id="phoneValidation" class="validation-message"></div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="feedbackEvent">Event Attended:</label>
+                    <select id="feedbackEvent" name="feedbackEvent" class="form-control" onchange="displayEventFee()" required>
+                        <option value="" disabled selected>Select an event</option>
+                        <option value="Spring Festival" data-fee="15">Spring Festival 2024</option>
+                        <option value="Community Cleanup Day" data-fee="0">Cleanup Day 2024</option>
+                        <option value="Tree Planting Event" data-fee="5">Tree Planting 2024</option>
+                        <option value="Summer Camp" data-fee="25">Summer Camp 2024</option>
+                        <option value="Art Exhibition" data-fee="8">Art Exhibition 2025</option>
+                        <option value="Farmers Market" data-fee="0">Farmers Market 2025</option>
+                        <option value="other" data-fee="10">Other</option>
+                    </select>
+                    <div id="feeDisplay" class="fee-display"></div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="rating">Rating:</label>
+                    <div style="display: flex; gap: 10px;">
+                        <input type="radio" id="rating1" name="rating" value="1"> <label for="rating1">1</label>
+                        <input type="radio" id="rating2" name="rating" value="2"> <label for="rating2">2</label>
+                        <input type="radio" id="rating3" name="rating" value="3"> <label for="rating3">3</label>
+                        <input type="radio" id="rating4" name="rating" value="4"> <label for="rating4">4</label>
+                        <input type="radio" id="rating5" name="rating" value="5" checked> <label for="rating5">5</label>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="feedbackText">Your Feedback:</label>
+                    <textarea id="feedbackText" name="feedbackText" class="form-control" placeholder="Share your experience..." onkeyup="countCharacters()" required></textarea>
+                    <div id="charCounter" class="char-counter">0 characters</div>
+                </div>
+                
+                <div class="form-group">
+                    <p>Select an event image to provide specific feedback (double-click to enlarge):</p>
+                    <div class="event-thumbnails-container">
+                        <img src="spring.jpeg" alt="Spring Festival" class="event-thumbnail" ondblclick="enlargeImage(this)">
+                        <img src="cleanupday.png" alt="Community Cleanup Day" class="event-thumbnail" ondblclick="enlargeImage(this)">
+                        <img src="treeplants.jpeg" alt="Tree Planting Event" class="event-thumbnail" ondblclick="enlargeImage(this)">
+                        <img src="summercamp.webp" alt="Summer Camp" class="event-thumbnail" ondblclick="enlargeImage(this)">
+                        <img src="artexibition.jpg" alt="Art Exhibition" class="event-thumbnail" ondblclick="enlargeImage(this)">
+                        <img src="farmermarket.jpeg" alt="Farmers Market" class="event-thumbnail" ondblclick="enlargeImage(this)">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <button type="button" class="submit-btn" onclick="submitFeedback()">Submit Feedback</button>
+                </div>
+                
+                <div id="feedbackConfirmation" class="form-output"></div>
+            </form>
+            
+            <script>
+                // Phone number validation on blur
+                function validatePhoneNumber() {
+                    // Add a debugger statement for Chrome DevTools
+                    // debugger; // Uncomment this line to activate the breakpoint
+                    
+                    const phoneInput = document.getElementById('phoneNumber');
+                    const validationMessage = document.getElementById('phoneValidation');
+                    const phoneRegex = /^\(\d{3}\)\s\d{3}-\d{4}$|^\d{3}-\d{3}-\d{4}$|^\d{10}$/;
+                    
+                    console.log('Validating phone number:', phoneInput.value);
+                    
+                    if (phoneInput.value === '') {
+                        validationMessage.textContent = '';
+                        validationMessage.className = 'validation-message';
+                        return;
+                    }
+                    
+                    if (phoneRegex.test(phoneInput.value)) {
+                        validationMessage.textContent = '✓ Valid phone number';
+                        validationMessage.className = 'validation-message valid';
+                    } else {
+                        validationMessage.textContent = '✗ Please enter a valid phone number format: (555) 123-4567 or 555-123-4567 or 5551234567';
+                        validationMessage.className = 'validation-message invalid';
+                    }
+                }
+                
+                // Display event fee on change
+                function displayEventFee() {
+                    const eventSelect = document.getElementById('feedbackEvent');
+                    const feeDisplay = document.getElementById('feeDisplay');
+                    
+                    if (eventSelect.value === '') {
+                        feeDisplay.style.display = 'none';
+                        return;
+                    }
+                    
+                    const selectedOption = eventSelect.options[eventSelect.selectedIndex];
+                    const fee = selectedOption.getAttribute('data-fee');
+                    const eventName = selectedOption.text;
+                    
+                    if (fee === '0') {
+                        feeDisplay.textContent = `${eventName} was a free event!`;
+                    } else {
+                        feeDisplay.textContent = `${eventName} had an entry fee of $${fee}.00`;
+                    }
+                    
+                    feeDisplay.style.display = 'block';
+                }
+                
+                // Character counter for textarea
+                function countCharacters() {
+                    const textarea = document.getElementById('feedbackText');
+                    const counter = document.getElementById('charCounter');
+                    const count = textarea.value.length;
+                    
+                    counter.textContent = `${count} character${count !== 1 ? 's' : ''}`;
+                    
+                    // Change color based on length
+                    if (count > 200) {
+                        counter.style.color = '#e74c3c';
+                    } else if (count > 100) {
+                        counter.style.color = '#f39c12';
+                    } else {
+                        counter.style.color = '#7f8c8d';
+                    }
+                }
+                
+                // Enlarge image on double-click
+                function enlargeImage(img) {
+                    const overlay = document.getElementById('overlay');
+                    const enlargedImg = document.createElement('img');
+                    
+                    enlargedImg.src = img.src;
+                    enlargedImg.alt = img.alt;
+                    enlargedImg.className = 'enlarged';
+                    enlargedImg.onclick = function(e) {
+                        e.stopPropagation();
+                        closeEnlargedImage();
+                    };
+                    
+                    overlay.style.display = 'block';
+                    document.body.appendChild(enlargedImg);
+                }
+                
+                // Close enlarged image
+                function closeEnlargedImage() {
+                    const overlay = document.getElementById('overlay');
+                    const enlargedImg = document.querySelector('.enlarged');
+                    
+                    if (enlargedImg) {
+                        document.body.removeChild(enlargedImg);
+                    }
+                    
+                    overlay.style.display = 'none';
+                }
+                
+                // Submit feedback with click event
+                function submitFeedback() {
+                    const name = document.getElementById('feedbackName').value;
+                    const event = document.getElementById('feedbackEvent').value;
+                    const confirmation = document.getElementById('feedbackConfirmation');
+                    
+                    if (!name || !event || !document.getElementById('feedbackText').value) {
+                        confirmation.textContent = 'Please fill in all required fields.';
+                        confirmation.className = 'form-output invalid';
+                        confirmation.style.display = 'block';
+                        return;
+                    }
+                    
+                    // Get selected rating
+                    let rating = 5; // Default
+                    const ratingInputs = document.getElementsByName('rating');
+                    for (let i = 0; i < ratingInputs.length; i++) {
+                        if (ratingInputs[i].checked) {
+                            rating = ratingInputs[i].value;
+                            break;
+                        }
+                    }
+                    
+                    confirmation.innerHTML = `<strong>Thank you, ${name}!</strong><br>Your feedback for ${event} with a rating of ${rating}/5 has been submitted successfully.`;
+                    confirmation.className = 'form-output success';
+                    confirmation.style.display = 'block';
+                    
+                    // Reset form
+                    setTimeout(() => {
+                        document.getElementById('feedbackForm').reset();
+                        document.getElementById('charCounter').textContent = '0 characters';
+                        document.getElementById('charCounter').style.color = '#7f8c8d';
+                        document.getElementById('phoneValidation').textContent = '';
+                        document.getElementById('feeDisplay').style.display = 'none';
+                    }, 3000);
+                }
+            </script>
+        </section>
+        
+        <section id="contact" style="padding: 20px; margin-bottom: 30px; background-color: #f8f9fa; border-radius: 5px;">
+            <h2 style="color: #2c3e50; margin-bottom: 15px; border-bottom: 2px solid #eee; padding-bottom: 5px;">Contact Us</h2>
+            <p>Have questions about community events or services? Reach out to us!</p>
+            <div style="margin-top: 20px;">
+                <p><strong>Email:</strong> community@cityevents.gov</p>
+                <p><strong>Phone:</strong> 9876543210</p>
+                <p><strong>Address:</strong> 123 Main Street, City Hall, Downtown</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer style="margin-top: 30px; padding: 20px 0; border-top: 1px solid #eee; text-align: center;">
+        <p>&copy; 2025 Local City Council. All rights reserved.</p>
+        <div style="margin-top: 10px;">
+            <a href="about.html" style="margin: 0 10px; color: #7f8c8d; text-decoration: none;">About</a>
+            <a href="#contact" style="margin: 0 10px; color: #7f8c8d; text-decoration: none;">Contact</a>
+            <a href="privacy.html" style="margin: 0 10px; color: #7f8c8d; text-decoration: none;">Privacy Policy</a>
+            <a href="help.html" target="_blank" style="margin: 0 10px; color: #e74c3c; text-decoration: none;">Help</a>
+        </div>
+    </footer>
+
+</body>
+</html>
