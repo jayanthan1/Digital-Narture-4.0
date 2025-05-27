@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap Container, Row, and Column Classes</title>
+    
+    <!-- Bootstrap 5 CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    
+    <style>
+        body {
+            padding-bottom: 50px;
+        }
+        
+        .demo-section {
+            margin-bottom: 50px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #dee2e6;
+        }
+        
+        .demo-box {
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 15px;
+            min-height: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .container-highlight {
+            background-color: rgba(13, 110, 253, 0.1);
+            border: 2px dashed #0d6efd;
+            border-radius: 5px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .row-highlight {
+            background-color: rgba(25, 135, 84, 0.1);
+            border: 2px dashed #198754;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .col-highlight-1 .demo-box { background-color: #cfe2ff; border-color: #9ec5fe; }
+        .col-highlight-2 .demo-box { background-color: #d1e7dd; border-color: #a3cfbb; }
+        .col-highlight-3 .demo-box { background-color: #f8d7da; border-color: #f5c2c7; }
+        
+        .code-block {
+            background-color: #f1f1f1;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            font-family: monospace;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Bootstrap Container, Row, and Column Classes</h1>
+        <p class="lead text-center mb-5">This example demonstrates the proper use of <code>.container</code>, <code>.row</code>, and <code>.col-*</code> classes for responsive design.</p>
+        
+        <!-- Container Types Section -->
+        <div class="demo-section">
+            <h2 class="mb-4">1. Container Types</h2>
+            
+            <div class="row mb-4">
+                <div class="col-md-6">
+                    <h4>Fixed-Width Container</h4>
+                    <p>The <code>.container</code> class provides a responsive fixed-width container with different max-widths at each breakpoint.</p>
+                    <div class="code-block">&lt;div class="container"&gt;
+  Content here
+&lt;/div&gt;</div>
+                </div>
+                <div class="col-md-6">
+                    <h4>Fluid Container</h4>
+                    <p>The <code>.container-fluid</code> class provides a full-width container that spans the entire width of the viewport.</p>
+                    <div class="code-block">&lt;div class="container-fluid"&gt;
+  Content here
+&lt;/div&gt;</div>
+                </div>
+            </div>
+            
+            <div class="row mb-4">
+                <div class="col-md-6">
+                    <h4>Breakpoint-Specific Containers</h4>
+                    <p>Bootstrap also provides breakpoint-specific containers that are 100% wide until the specified breakpoint.</p>
+                    <div class="code-block">&lt;div class="container-sm"&gt;
+&lt;div class="container-md"&gt;
+&lt;div class="container-lg"&gt;
+&lt;div class="container-xl"&gt;
+&lt;div class="container-xxl"&gt;</div>
+                </div>
+                <div class="col-md-6">
+                    <h4>Container Max-Widths</h4>
+                    <ul>
+                        <li><code>.container</code> has different max-widths for each breakpoint:</li>
+                        <li>Small (≥576px): 540px</li>
+                        <li>Medium (≥768px): 720px</li>
+                        <li>Large (≥992px): 960px</li>
+                        <li>X-Large (≥1200px): 1140px</li>
+                        <li>XX-Large (≥1400px): 1320px</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Container Demo -->
+            <h4 class="mt-4 mb-3">Container Demo</h4>
+            <div class="container container-highlight">
+                <p class="text-center mb-0"><code>.container</code> (fixed-width, responsive)</p>
+            </div>
+            <div class="container-fluid container-highlight">
+                <p class="text-center mb-0"><code>.container-fluid</code> (full-width)</p>
+            </div>
+        </div>
+        
+        <!-- Row Class Section -->
+        <div class="demo-section">
+            <h2 class="mb-4">2. Row Class</h2>
+            
+            <div class="row mb-4">
+                <div class="col-md-6">
+                    <h4>Basic Row</h4>
+                    <p>The <code>.row</code> class creates a horizontal group of columns with proper gutters. It must be placed within a container.</p>
+                    <div class="code-block">&lt;div class="container"&gt;
+  &lt;div class="row"&gt;
+    &lt;!-- Columns go here --&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</div>
+                </div>
+                <div class="col-md-6">
+                    <h4>Row with No Gutters</h4>
+                    <p>Use <code>.g-0</code> to remove gutters between columns.</p>
+                    <div class="code-block">&lt;div class="row g-0"&gt;
+  &lt;!-- Columns with no gutters --&gt;
+&lt;/div&gt;</div>
+                </div>
+            </div>
+            
+            <!-- Row Demo -->
+            <h4 class="mt-4 mb-3">Row Demo</h4>
+            <div class="container container-highlight">
+                <div class="row row-highlight">
+                    <div class="col-4 col-highlight-1">
+                        <div class="demo-box">Column 1</div>
+                    </div>
+                    <div class="col-4 col-highlight-2">
+                        <div class="demo-box">Column 2</div>
+                    </div>
+                    <div class="col-4 col-highlight-3">
+                        <div class="demo-box">Column 3</div>
+                    </div>
+                </div>
+                <p class="text-center">Standard row with gutters</p>
+                
+                <div class="row g-0 row-highlight">
+                    <div class="col-4 col-highlight-1">
+                        <div class="demo-box">Column 1</div>
+                    </div>
+                    <div class="col-4 col-highlight-2">
+                        <div class="demo-box">Column 2</div>
+                    </div>
+                    <div class="col-4 col-highlight-3">
+                        <div class="demo-box">Column 3</div>
+                    </div>
+                </div>
+                <p class="text-center">Row with no gutters (<code>.g-0</code>)</p>
+            </div>
+        </div>
+        
+        <!-- Column Classes Section -->
+        <div class="demo-section">
+            <h2 class="mb-4">3. Column Classes</h2>
+            
+            <div class="row mb-4">
+                <div class="col-md-6">
+                    <h4>Basic Column Classes</h4>
+                    <p>Bootstrap's grid system uses a series of containers, rows, and columns to layout and align content. It's built with flexbox and is fully responsive.</p>
+                    <div class="code-block">&lt;div class="col-12"&gt;Full width&lt;/div&gt;
+&lt;div class="col-6"&gt;Half width&lt;/div&gt;
+&lt;div class="col-4"&gt;One-third width&lt;/div&gt;
+&lt;div class="col"&gt;Auto width&lt;/div&gt;</div>
+                </div>
+                <div class="col-md-6">
+                    <h4>Responsive Column Classes</h4>
+                    <p>Use breakpoint-specific column classes for responsive layouts.</p>
+                    <div class="code-block">&lt;div class="col-12 col-md-6 col-lg-4"&gt;
+  &lt;!-- Full width on mobile, half on medium, 
+       one-third on large screens --&gt;
+&lt;/div&gt;</div>
+                </div>
+            </div>
+            
+            <!-- Column Demo -->
+            <h4 class="mt-4 mb-3">Column Demo</h4>
+            <div class="container container-highlight">
+                <h5 class="text-center mb-3">Equal-Width Columns</h5>
+                <div class="row row-highlight">
+                    <div class="col col-highlight-1">
+                        <div class="demo-box">col</div>
+                    </div>
+                    <div class="col col-highlight-2">
+                        <div class="demo-box">col</div>
+                    </div>
+                    <div class="col col-highlight-3">
+                        <div class="demo-box">col</div>
+                    </div>
+                </div>
+                
+                <h5 class="text-center mb-3 mt-4">Setting Column Widths</h5>
+                <div class="row row-highlight">
+                    <div class="col-6 col-highlight-1">
+                        <div class="demo-box">col-6</div>
+                    </div>
+                    <div class="col-6 col-highlight-2">
+                        <div class="demo-box">col-6</div>
+                    </div>
+                </div>
+                
+                <div class="row row-highlight">
+                    <div class="col-3 col-highlight-1">
+                        <div class="demo-box">col-3</div>
+                    </div>
+                    <div class="col-6 col-highlight-2">
+                        <div class="demo-box">col-6</div>
+                    </div>
+                    <div class="col-3 col-highlight-3">
+                        <div class="demo-box">col-3</div>
+                    </div>
+                </div>
+                
+                <h5 class="text-center mb-3 mt-4">Responsive Columns</h5>
+                <div class="row row-highlight">
+                    <div class="col-12 col-md-6 col-lg-4 col-highlight-1">
+                        <div class="demo-box">
+                            <div>col-12 col-md-6 col-lg-4</div>
+                            <small>Full width on mobile, half on medium, one-third on large screens</small>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-4 col-highlight-2">
+                        <div class="demo-box">
+                            <div>col-12 col-md-6 col-lg-4</div>
+                            <small>Full width on mobile, half on medium, one-third on large screens</small>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-4 col-highlight-3">
+                        <div class="demo-box">
+                            <div>col-12 col-md-6 col-lg-4</div>
+                            <small>Full width on mobile, half on medium, one-third on large screens</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Putting it All Together -->
+        <div class="demo-section">
+            <h2 class="mb-4">4. Putting it All Together</h2>
+            
+            <div class="alert alert-info">
+                <h4 class="alert-heading">Best Practices</h4>
+                <ol>
+                    <li>Always start with a <code>.container</code> or <code>.container-fluid</code></li>
+                    <li>Add <code>.row</code> as a direct child of the container</li>
+                    <li>Place <code>.col-*</code> classes as direct children of the row</li>
+                    <li>Content should go inside the columns</li>
+                    <li>Use responsive column classes to control layout across different screen sizes</li>
+                </ol>
+            </div>
+            
+            <div class="code-block">&lt;div class="container"&gt;
+  &lt;div class="row"&gt;
+    &lt;div class="col-12 col-md-6 col-lg-4"&gt;
+      &lt;!-- Content here --&gt;
+    &lt;/div&gt;
+    &lt;div class="col-12 col-md-6 col-lg-4"&gt;
+      &lt;!-- Content here --&gt;
+    &lt;/div&gt;
+    &lt;div class="col-12 col-md-6 col-lg-4"&gt;
+      &lt;!-- Content here --&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</div>
+            
+            <div class="alert alert-warning mt-4">
+                <h4 class="alert-heading">Common Mistakes to Avoid</h4>
+                <ul>
+                    <li>Placing a <code>.row</code> directly in the <code>&lt;body&gt;</code> without a container</li>
+                    <li>Nesting a <code>.container</code> inside another <code>.container</code></li>
+                    <li>Placing content directly in a <code>.row</code> without a column</li>
+                    <li>Using column classes that add up to more than 12 in a single row</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+</body>
+</html>

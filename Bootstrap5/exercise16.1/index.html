@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 16.1 - Fixed Footer</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <style>
+        /* Custom styles for the demo */
+        body {
+            padding-bottom: 70px; /* Add padding to prevent content from being hidden behind the fixed footer */
+        }
+        
+        .demo-section {
+            padding: 2rem;
+            margin-bottom: 2rem;
+            background-color: #f8f9fa;
+            border-radius: 0.5rem;
+        }
+        
+        .demo-title {
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #dee2e6;
+        }
+        
+        .code-example {
+            background-color: #f1f1f1;
+            padding: 0.5rem;
+            border-radius: 0.25rem;
+            margin-top: 0.5rem;
+            font-family: monospace;
+            font-size: 0.9rem;
+        }
+        
+        .utility-description {
+            font-size: 0.9rem;
+            color: #6c757d;
+            margin-top: 0.5rem;
+        }
+        
+        .footer-example {
+            padding: 1rem 0;
+            background-color: #f8f9fa;
+            border-top: 1px solid #dee2e6;
+        }
+        
+        .footer-example.dark {
+            background-color: #343a40;
+            color: white;
+        }
+        
+        .footer-example.primary {
+            background-color: #0d6efd;
+            color: white;
+        }
+        
+        .footer-toggle {
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            z-index: 1030;
+        }
+    </style>
+</head>
+<body>
+    <div class="container py-5">
+        <h1 class="text-center mb-5">Fixed Footer with Bootstrap Positioning Utilities</h1>
+        
+        <!-- Introduction -->
+        <div class="alert alert-primary mb-5">
+            <h4 class="alert-heading">About This Exercise</h4>
+            <p>This exercise demonstrates how to create a fixed footer using Bootstrap's positioning utilities:</p>
+            <ul>
+                <li><code>position-fixed</code> - Positions an element relative to the viewport</li>
+                <li><code>bottom-0</code> - Positions the element at the bottom of its container</li>
+                <li><code>w-100</code> - Makes the element take up 100% width</li>
+            </ul>
+            <p>The footer will remain visible at the bottom of the screen even as you scroll through the page content.</p>
+            <p class="mb-0">You can use the buttons in the bottom-right corner to toggle between different footer styles.</p>
+        </div>
+        
+        <!-- How It Works -->
+        <section class="demo-section">
+            <h2 class="demo-title">How Fixed Positioning Works</h2>
+            <p>When an element is set to <code>position-fixed</code>, it is removed from the normal document flow and positioned relative to the viewport. This means it will stay in the same position even when the page is scrolled.</p>
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>Key Utilities Used:</h5>
+                    <ul>
+                        <li><code>position-fixed</code> - Fixes the element relative to the viewport</li>
+                        <li><code>bottom-0</code> - Positions the element at the bottom (0px from bottom)</li>
+                        <li><code>start-0</code> or <code>end-0</code> - Positions horizontally (0px from left or right)</li>
+                        <li><code>w-100</code> - Makes the element take up 100% width</li>
+                    </ul>
+                </div>
+                
+                <div class="col-md-6">
+                    <h5>Important Considerations:</h5>
+                    <ul>
+                        <li>Fixed elements are removed from the normal document flow</li>
+                        <li>Content can be hidden behind fixed elements</li>
+                        <li>Add padding to <code>body</code> to prevent content from being hidden</li>
+                        <li>Consider z-index for proper stacking of fixed elements</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="code-example mt-4">
+                <pre>&lt;footer class="position-fixed bottom-0 w-100"&gt;
+    &lt;!-- Footer content here --&gt;
+&lt;/footer&gt;</pre>
+            </div>
+        </section>
+        
+        <!-- Basic Example -->
+        <section class="demo-section">
+            <h2 class="demo-title">Basic Fixed Footer Example</h2>
+            <p>Below is the code for a basic fixed footer that stays at the bottom of the viewport:</p>
+            
+            <div class="code-example">
+                <pre>&lt;footer class="position-fixed bottom-0 start-0 w-100 bg-light border-top p-3"&gt;
+    &lt;div class="container"&gt;
+        &lt;div class="d-flex justify-content-between align-items-center"&gt;
+            &lt;span&gt;&copy; 2025 Company Name&lt;/span&gt;
+            &lt;ul class="list-inline mb-0"&gt;
+                &lt;li class="list-inline-item"&gt;&lt;a href="#"&gt;Privacy&lt;/a&gt;&lt;/li&gt;
+                &lt;li class="list-inline-item"&gt;&lt;a href="#"&gt;Terms&lt;/a&gt;&lt;/li&gt;
+                &lt;li class="list-inline-item"&gt;&lt;a href="#"&gt;Support&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/footer&gt;</pre>
+            </div>
+            
+            <div class="utility-description">
+                <p>This creates a footer that:</p>
+                <ul>
+                    <li>Stays fixed at the bottom of the viewport (<code>position-fixed bottom-0</code>)</li>
+                    <li>Spans the full width of the viewport (<code>w-100</code>)</li>
+                    <li>Has a light background with a top border</li>
+                    <li>Contains copyright information and links</li>
+                </ul>
+            </div>
+        </section>
+        
+        <!-- Variations -->
+        <section class="demo-section">
+            <h2 class="demo-title">Footer Variations</h2>
+            <p>Fixed footers can be styled in various ways to match your website's design. Here are some common variations:</p>
+            
+            <div class="row mb-4">
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <div class="card-header">Basic Footer</div>
+                        <div class="card-body">
+                            <p>A simple footer with light background and minimal content.</p>
+                            <button class="btn btn-outline-primary btn-sm" onclick="setFooterStyle('basic')">Preview</button>
+                            <div class="code-example mt-3">
+                                <code>class="position-fixed bottom-0 start-0 w-100 bg-light"</code>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <div class="card-header">Dark Footer</div>
+                        <div class="card-body">
+                            <p>A dark-themed footer with white text for contrast.</p>
+                            <button class="btn btn-outline-primary btn-sm" onclick="setFooterStyle('dark')">Preview</button>
+                            <div class="code-example mt-3">
+                                <code>class="position-fixed bottom-0 start-0 w-100 bg-dark text-white"</code>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <div class="card-header">Colorful Footer</div>
+                        <div class="card-body">
+                            <p>A footer with a colorful background using Bootstrap's contextual colors.</p>
+                            <button class="btn btn-outline-primary btn-sm" onclick="setFooterStyle('primary')">Preview</button>
+                            <div class="code-example mt-3">
+                                <code>class="position-fixed bottom-0 start-0 w-100 bg-primary text-white"</code>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Common Use Cases -->
+        <section class="demo-section">
+            <h2 class="demo-title">Common Use Cases</h2>
+            <p>Fixed footers are useful in various scenarios:</p>
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>Cookie Consent Banners</h5>
+                    <p>A fixed banner at the bottom of the screen to inform users about cookie policies:</p>
+                    <div class="code-example">
+                        <pre>&lt;div class="position-fixed bottom-0 start-0 w-100 bg-light p-3 border-top"&gt;
+    &lt;div class="container d-flex justify-content-between align-items-center"&gt;
+        &lt;p class="mb-0"&gt;This website uses cookies to ensure you get the best experience.&lt;/p&gt;
+        &lt;button class="btn btn-primary"&gt;Accept&lt;/button&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</pre>
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                    <h5>Mobile App-like Navigation</h5>
+                    <p>A fixed bottom navigation bar for mobile-friendly websites:</p>
+                    <div class="code-example">
+                        <pre>&lt;nav class="position-fixed bottom-0 start-0 w-100 bg-white border-top py-2"&gt;
+    &lt;div class="d-flex justify-content-around"&gt;
+        &lt;a href="#" class="text-center"&gt;
+            &lt;i class="bi bi-house"&gt;&lt;/i&gt;
+            &lt;div&gt;Home&lt;/div&gt;
+        &lt;/a&gt;
+        &lt;a href="#" class="text-center"&gt;
+            &lt;i class="bi bi-search"&gt;&lt;/i&gt;
+            &lt;div&gt;Search&lt;/div&gt;
+        &lt;/a&gt;
+        &lt;a href="#" class="text-center"&gt;
+            &lt;i class="bi bi-person"&gt;&lt;/i&gt;
+            &lt;div&gt;Profile&lt;/div&gt;
+        &lt;/a&gt;
+    &lt;/div&gt;
+&lt;/nav&gt;</pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Best Practices -->
+        <section class="demo-section">
+            <h2 class="demo-title">Best Practices</h2>
+            <p>When using fixed footers, keep these best practices in mind:</p>
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>Add Body Padding</h5>
+                    <p>Add padding to the bottom of the <code>body</code> element to prevent content from being hidden behind the fixed footer:</p>
+                    <div class="code-example">
+                        <pre>body {
+    padding-bottom: 70px; /* Height of your footer */
+}</pre>
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                    <h5>Consider Mobile Viewports</h5>
+                    <p>Ensure your fixed footer works well on mobile devices by keeping it compact and responsive:</p>
+                    <div class="code-example">
+                        <pre>@media (max-width: 576px) {
+    .fixed-footer {
+        padding: 0.5rem 0;
+    }
+    body {
+        padding-bottom: 50px; /* Smaller padding for mobile */
+    }
+}</pre>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row mt-4">
+                <div class="col-md-6">
+                    <h5>Use z-index Appropriately</h5>
+                    <p>Set an appropriate z-index to ensure the footer appears above other content:</p>
+                    <div class="code-example">
+                        <pre>.fixed-footer {
+    z-index: 1030; /* Same as Bootstrap's navbar */
+}</pre>
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                    <h5>Accessibility Considerations</h5>
+                    <p>Ensure your fixed footer is accessible to all users:</p>
+                    <ul>
+                        <li>Provide sufficient color contrast</li>
+                        <li>Ensure links are keyboard navigable</li>
+                        <li>Consider adding a "skip to content" link</li>
+                        <li>Test with screen readers</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Additional Content for Scrolling -->
+        <section class="demo-section">
+            <h2 class="demo-title">Scroll Down to Test</h2>
+            <p>Scroll down to see how the fixed footer remains at the bottom of the viewport.</p>
+            
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Sample Content</h5>
+                            <p>This content is here to demonstrate scrolling with a fixed footer. Notice how the footer stays at the bottom of the viewport as you scroll.</p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in dui mauris. Vivamus hendrerit arcu sed erat molestie vehicula. Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor. Ut in nulla enim. Phasellus molestie magna non est bibendum non venenatis nisl tempor. Suspendisse dictum feugiat nisl ut dapibus.</p>
+                            <p>Mauris iaculis porttitor posuere. Praesent id metus massa, ut blandit odio. Proin quis tortor orci. Etiam at risus et justo dignissim congue. Donec congue lacinia dui, a porttitor lectus condimentum laoreet. Nunc eu ullamcorper orci. Quisque eget odio ac lectus vestibulum faucibus eget in metus. In pellentesque faucibus vestibulum. Nulla at nulla justo, eget luctus tortor.</p>
+                            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row mt-4">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">More Content</h5>
+                            <p>Here's some more content to ensure the page is long enough to scroll. Keep scrolling to see how the fixed footer behaves.</p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in dui mauris. Vivamus hendrerit arcu sed erat molestie vehicula. Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor. Ut in nulla enim. Phasellus molestie magna non est bibendum non venenatis nisl tempor. Suspendisse dictum feugiat nisl ut dapibus.</p>
+                            <p>Mauris iaculis porttitor posuere. Praesent id metus massa, ut blandit odio. Proin quis tortor orci. Etiam at risus et justo dignissim congue. Donec congue lacinia dui, a porttitor lectus condimentum laoreet. Nunc eu ullamcorper orci. Quisque eget odio ac lectus vestibulum faucibus eget in metus. In pellentesque faucibus vestibulum. Nulla at nulla justo, eget luctus tortor.</p>
+                            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row mt-4">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Even More Content</h5>
+                            <p>And here's even more content to ensure plenty of scrolling space. The fixed footer should remain visible at all times.</p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in dui mauris. Vivamus hendrerit arcu sed erat molestie vehicula. Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor. Ut in nulla enim. Phasellus molestie magna non est bibendum non venenatis nisl tempor. Suspendisse dictum feugiat nisl ut dapibus.</p>
+                            <p>Mauris iaculis porttitor posuere. Praesent id metus massa, ut blandit odio. Proin quis tortor orci. Etiam at risus et justo dignissim congue. Donec congue lacinia dui, a porttitor lectus condimentum laoreet. Nunc eu ullamcorper orci. Quisque eget odio ac lectus vestibulum faucibus eget in metus. In pellentesque faucibus vestibulum. Nulla at nulla justo, eget luctus tortor.</p>
+                            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <!-- Footer Style Toggle Buttons -->
+    <div class="footer-toggle">
+        <div class="btn-group-vertical">
+            <button class="btn btn-light border" onclick="setFooterStyle('basic')">Basic Footer</button>
+            <button class="btn btn-dark" onclick="setFooterStyle('dark')">Dark Footer</button>
+            <button class="btn btn-primary" onclick="setFooterStyle('primary')">Primary Footer</button>
+        </div>
+    </div>
+    
+    <!-- Fixed Footer (Basic Style by Default) -->
+    <footer id="fixedFooter" class="position-fixed bottom-0 start-0 w-100 footer-example">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center">
+                <span>&copy; 2025 Company Name</span>
+                <ul class="list-inline mb-0">
+                    <li class="list-inline-item"><a href="#" class="text-decoration-none">Privacy</a></li>
+                    <li class="list-inline-item"><a href="#" class="text-decoration-none">Terms</a></li>
+                    <li class="list-inline-item"><a href="#" class="text-decoration-none">Support</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JavaScript for Footer Style Toggle -->
+    <script>
+        function setFooterStyle(style) {
+            const footer = document.getElementById('fixedFooter');
+            
+            // Remove all style classes
+            footer.classList.remove('dark', 'primary');
+            
+            // Add the selected style class
+            if (style === 'dark') {
+                footer.classList.add('dark');
+            } else if (style === 'primary') {
+                footer.classList.add('primary');
+            }
+        }
+    </script>
+</body>
+</html>

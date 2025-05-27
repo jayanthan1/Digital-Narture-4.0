@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap Registration Form</title>
+    
+    <!-- Bootstrap 5 CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    
+    <style>
+        body {
+            background-color: #f8f9fa;
+            padding-bottom: 50px;
+        }
+        
+        .form-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+            padding: 30px;
+        }
+        
+        .header-img {
+            max-width: 100px;
+            margin-bottom: 20px;
+        }
+        
+        .form-section {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .form-section:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .section-title {
+            margin-bottom: 20px;
+            color: #0d6efd;
+        }
+        
+        .password-strength {
+            height: 5px;
+            margin-top: 10px;
+            border-radius: 5px;
+            background-color: #e9ecef;
+        }
+        
+        .password-strength-indicator {
+            height: 100%;
+            border-radius: 5px;
+            width: 0%;
+            transition: width 0.3s ease, background-color 0.3s ease;
+        }
+        
+        .password-feedback {
+            margin-top: 5px;
+            font-size: 0.875rem;
+        }
+        
+        .code-block {
+            background-color: #f1f1f1;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            font-family: monospace;
+            white-space: pre-wrap;
+        }
+        
+        .demo-section {
+            margin-bottom: 50px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #dee2e6;
+        }
+        
+        .explanation {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            border-left: 4px solid #0d6efd;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Bootstrap Registration Form</h1>
+        <p class="lead text-center mb-5">This example demonstrates how to create a registration form using Bootstrap form components like form-control, form-check, and input-group.</p>
+        
+        <!-- Registration Form -->
+        <div class="form-container mb-5">
+            <div class="text-center mb-4">
+                <img src="https://via.placeholder.com/100" alt="Company Logo" class="header-img">
+                <h2>Create Your Account</h2>
+                <p class="text-muted">Fill out the form below to get started</p>
+            </div>
+            
+            <form id="registrationForm" novalidate>
+                <!-- Personal Information Section -->
+                <div class="form-section">
+                    <h4 class="section-title">
+                        <i class="bi bi-person-circle"></i> Personal Information
+                    </h4>
+                    
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="firstName" class="form-label">First Name</label>
+                            <input type="text" class="form-control" id="firstName" required>
+                            <div class="invalid-feedback">
+                                Please enter your first name.
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="lastName" class="form-label">Last Name</label>
+                            <input type="text" class="form-control" id="lastName" required>
+                            <div class="invalid-feedback">
+                                Please enter your last name.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email Address</label>
+                        <div class="input-group">
+                            <span class="input-group-text">
+                                <i class="bi bi-envelope"></i>
+                            </span>
+                            <input type="email" class="form-control" id="email" required>
+                            <div class="invalid-feedback">
+                                Please enter a valid email address.
+                            </div>
+                        </div>
+                        <div class="form-text">We'll never share your email with anyone else.</div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="phone" class="form-label">Phone Number</label>
+                        <div class="input-group">
+                            <span class="input-group-text">
+                                <i class="bi bi-telephone"></i>
+                            </span>
+                            <input type="tel" class="form-control" id="phone" placeholder="(123) 456-7890">
+                        </div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="birthdate" class="form-label">Date of Birth</label>
+                        <input type="date" class="form-control" id="birthdate">
+                    </div>
+                </div>
+                
+                <!-- Account Information Section -->
+                <div class="form-section">
+                    <h4 class="section-title">
+                        <i class="bi bi-shield-lock"></i> Account Information
+                    </h4>
+                    
+                    <div class="mb-3">
+                        <label for="username" class="form-label">Username</label>
+                        <div class="input-group">
+                            <span class="input-group-text">@</span>
+                            <input type="text" class="form-control" id="username" required>
+                            <div class="invalid-feedback">
+                                Please choose a username.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Password</label>
+                        <div class="input-group">
+                            <input type="password" class="form-control" id="password" required>
+                            <button class="btn btn-outline-secondary" type="button" id="togglePassword">
+                                <i class="bi bi-eye"></i>
+                            </button>
+                            <div class="invalid-feedback">
+                                Please enter a password.
+                            </div>
+                        </div>
+                        <div class="password-strength">
+                            <div class="password-strength-indicator" id="passwordStrength"></div>
+                        </div>
+                        <div class="password-feedback text-muted" id="passwordFeedback">
+                            Password should be at least 8 characters with letters, numbers, and special characters.
+                        </div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="confirmPassword" class="form-label">Confirm Password</label>
+                        <input type="password" class="form-control" id="confirmPassword" required>
+                        <div class="invalid-feedback">
+                            Passwords do not match.
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Preferences Section -->
+                <div class="form-section">
+                    <h4 class="section-title">
+                        <i class="bi bi-gear"></i> Preferences
+                    </h4>
+                    
+                    <div class="mb-3">
+                        <label class="form-label">Account Type</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="accountType" id="personal" checked>
+                            <label class="form-check-label" for="personal">
+                                Personal Account
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="accountType" id="business">
+                            <label class="form-check-label" for="business">
+                                Business Account
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label class="form-label">Interests (Select all that apply)</label>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="technology">
+                                    <label class="form-check-label" for="technology">
+                                        Technology
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="sports">
+                                    <label class="form-check-label" for="sports">
+                                        Sports
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="music">
+                                    <label class="form-check-label" for="music">
+                                        Music
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="travel">
+                                    <label class="form-check-label" for="travel">
+                                        Travel
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="food">
+                                    <label class="form-check-label" for="food">
+                                        Food
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="art">
+                                    <label class="form-check-label" for="art">
+                                        Art
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="country" class="form-label">Country</label>
+                        <select class="form-select" id="country">
+                            <option selected disabled value="">Choose...</option>
+                            <option value="us">United States</option>
+                            <option value="ca">Canada</option>
+                            <option value="uk">United Kingdom</option>
+                            <option value="au">Australia</option>
+                            <option value="in">India</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="bio" class="form-label">Bio (Optional)</label>
+                        <textarea class="form-control" id="bio" rows="3" placeholder="Tell us a little about yourself..."></textarea>
+                    </div>
+                </div>
+                
+                <!-- Terms and Conditions Section -->
+                <div class="form-section">
+                    <div class="mb-3">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="termsCheck" required>
+                            <label class="form-check-label" for="termsCheck">
+                                I agree to the <a href="#">Terms and Conditions</a> and <a href="#">Privacy Policy</a>
+                            </label>
+                            <div class="invalid-feedback">
+                                You must agree before submitting.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="newsletterCheck">
+                            <label class="form-check-label" for="newsletterCheck">
+                                Subscribe to our newsletter
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="d-grid gap-2">
+                    <button class="btn btn-primary btn-lg" type="submit">Create Account</button>
+                </div>
+                
+                <div class="text-center mt-3">
+                    <p>Already have an account? <a href="#">Sign in</a></p>
+                </div>
+            </form>
+        </div>
+        
+        <!-- Form Components Explanation -->
+        <div class="demo-section">
+            <h2 class="mb-4">Bootstrap Form Components Used</h2>
+            
+            <div class="explanation">
+                <h4>1. Basic Form Controls</h4>
+                <p>Bootstrap provides several form control styles, input types, and additional components like labels.</p>
+                <div class="code-block">
+&lt;label for="firstName" class="form-label"&gt;First Name&lt;/label&gt;
+&lt;input type="text" class="form-control" id="firstName" required&gt;
+&lt;div class="invalid-feedback"&gt;
+    Please enter your first name.
+&lt;/div&gt;</div>
+                <p>Key classes:</p>
+                <ul>
+                    <li><code>form-label</code>: Styles the label for form controls</li>
+                    <li><code>form-control</code>: Styles text inputs and textareas</li>
+                    <li><code>invalid-feedback</code>: Provides validation feedback messages</li>
+                </ul>
+            </div>
+            
+            <div class="explanation">
+                <h4>2. Input Groups</h4>
+                <p>Input groups extend form controls by adding text, buttons, or button groups on either side of inputs.</p>
+                <div class="code-block">
+&lt;div class="input-group"&gt;
+    &lt;span class="input-group-text"&gt;
+        &lt;i class="bi bi-envelope"&gt;&lt;/i&gt;
+    &lt;/span&gt;
+    &lt;input type="email" class="form-control" id="email" required&gt;
+    &lt;div class="invalid-feedback"&gt;
+        Please enter a valid email address.
+    &lt;/div&gt;
+&lt;/div&gt;</div>
+                <p>Key classes:</p>
+                <ul>
+                    <li><code>input-group</code>: Container for input and addons</li>
+                    <li><code>input-group-text</code>: Styles text, icons, or other content to be displayed alongside inputs</li>
+                </ul>
+            </div>
+            
+            <div class="explanation">
+                <h4>3. Select Menus</h4>
+                <p>Custom select menus with support for multiple options, sizing, and validation states.</p>
+                <div class="code-block">
+&lt;label for="country" class="form-label"&gt;Country&lt;/label&gt;
+&lt;select class="form-select" id="country"&gt;
+    &lt;option selected disabled value=""&gt;Choose...&lt;/option&gt;
+    &lt;option value="us"&gt;United States&lt;/option&gt;
+    &lt;option value="ca"&gt;Canada&lt;/option&gt;
+    &lt;!-- More options --&gt;
+&lt;/select&gt;</div>
+                <p>Key classes:</p>
+                <ul>
+                    <li><code>form-select</code>: Styles the select dropdown</li>
+                </ul>
+            </div>
+            
+            <div class="explanation">
+                <h4>4. Checkboxes and Radios</h4>
+                <p>Custom checkbox and radio controls with support for validation states.</p>
+                <div class="code-block">
+&lt;div class="form-check"&gt;
+    &lt;input class="form-check-input" type="checkbox" id="termsCheck" required&gt;
+    &lt;label class="form-check-label" for="termsCheck"&gt;
+        I agree to the Terms and Conditions
+    &lt;/label&gt;
+    &lt;div class="invalid-feedback"&gt;
+        You must agree before submitting.
+    &lt;/div&gt;
+&lt;/div&gt;</div>
+                <p>Key classes:</p>
+                <ul>
+                    <li><code>form-check</code>: Container for checkboxes and radios</li>
+                    <li><code>form-check-input</code>: Styles the checkbox or radio input</li>
+                    <li><code>form-check-label</code>: Styles the label for the checkbox or radio</li>
+                </ul>
+            </div>
+            
+            <div class="explanation">
+                <h4>5. Form Layout</h4>
+                <p>Bootstrap's grid system can be used within forms to create responsive layouts.</p>
+                <div class="code-block">
+&lt;div class="row mb-3"&gt;
+    &lt;div class="col-md-6"&gt;
+        &lt;!-- Form control for first name --&gt;
+    &lt;/div&gt;
+    &lt;div class="col-md-6"&gt;
+        &lt;!-- Form control for last name --&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</div>
+                <p>This creates a two-column layout on medium screens and larger, while stacking the fields on smaller screens.</p>
+            </div>
+            
+            <div class="explanation">
+                <h4>6. Form Validation</h4>
+                <p>Bootstrap provides styles for validation feedback. For client-side validation, you can use HTML5 form validation attributes and Bootstrap's validation classes.</p>
+                <div class="code-block">
+&lt;!-- Add the novalidate attribute to the form --&gt;
+&lt;form id="registrationForm" novalidate&gt;
+    &lt;!-- Form controls with required attribute --&gt;
+&lt;/form&gt;
+
+&lt;!-- JavaScript for form validation --&gt;
+&lt;script&gt;
+// Example starter JavaScript for disabling form submissions if there are invalid fields
+(function () {
+  'use strict'
+
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  var forms = document.querySelectorAll('.needs-validation')
+
+  // Loop over them and prevent submission
+  Array.prototype.slice.call(forms)
+    .forEach(function (form) {
+      form.addEventListener('submit', function (event) {
+        if (!form.checkValidity()) {
+          event.preventDefault()
+          event.stopPropagation()
+        }
+
+        form.classList.add('was-validated')
+      }, false)
+    })
+})()
+&lt;/script&gt;</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    
+    <!-- Form Validation Script -->
+    <script>
+        // Form validation
+        (function() {
+            'use strict';
+            
+            // Fetch the form we want to apply custom Bootstrap validation styles to
+            var form = document.getElementById('registrationForm');
+            
+            // Handle form submission
+            form.addEventListener('submit', function(event) {
+                if (!form.checkValidity()) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                } else {
+                    // If form is valid, prevent actual submission for this demo
+                    event.preventDefault();
+                    alert('Form submitted successfully!');
+                }
+                
+                form.classList.add('was-validated');
+            }, false);
+            
+            // Password toggle visibility
+            document.getElementById('togglePassword').addEventListener('click', function() {
+                var passwordInput = document.getElementById('password');
+                var icon = this.querySelector('i');
+                
+                if (passwordInput.type === 'password') {
+                    passwordInput.type = 'text';
+                    icon.classList.remove('bi-eye');
+                    icon.classList.add('bi-eye-slash');
+                } else {
+                    passwordInput.type = 'password';
+                    icon.classList.remove('bi-eye-slash');
+                    icon.classList.add('bi-eye');
+                }
+            });
+            
+            // Password strength indicator
+            document.getElementById('password').addEventListener('input', function() {
+                var password = this.value;
+                var strength = 0;
+                var indicator = document.getElementById('passwordStrength');
+                var feedback = document.getElementById('passwordFeedback');
+                
+                if (password.length >= 8) strength += 25;
+                if (password.match(/[a-z]+/)) strength += 25;
+                if (password.match(/[A-Z]+/)) strength += 25;
+                if (password.match(/[0-9]+/) || password.match(/[^a-zA-Z0-9]+/)) strength += 25;
+                
+                indicator.style.width = strength + '%';
+                
+                if (strength < 25) {
+                    indicator.style.backgroundColor = '#dc3545'; // Danger
+                    feedback.textContent = 'Very weak password';
+                } else if (strength < 50) {
+                    indicator.style.backgroundColor = '#ffc107'; // Warning
+                    feedback.textContent = 'Weak password';
+                } else if (strength < 75) {
+                    indicator.style.backgroundColor = '#0dcaf0'; // Info
+                    feedback.textContent = 'Medium strength password';
+                } else {
+                    indicator.style.backgroundColor = '#198754'; // Success
+                    feedback.textContent = 'Strong password';
+                }
+            });
+            
+            // Confirm password validation
+            document.getElementById('confirmPassword').addEventListener('input', function() {
+                var password = document.getElementById('password').value;
+                var confirmPassword = this.value;
+                
+                if (password !== confirmPassword) {
+                    this.setCustomValidity('Passwords do not match');
+                } else {
+                    this.setCustomValidity('');
+                }
+            });
+        })();
+    </script>
+</body>
+</html>

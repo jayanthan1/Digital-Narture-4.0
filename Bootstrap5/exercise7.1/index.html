@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap Typography Utilities</title>
+    
+    <!-- Bootstrap 5 CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    
+    <style>
+        body {
+            padding-bottom: 50px;
+        }
+        
+        .demo-section {
+            margin-bottom: 50px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #dee2e6;
+        }
+        
+        .demo-box {
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .code-block {
+            background-color: #f1f1f1;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            font-family: monospace;
+            white-space: pre-wrap;
+        }
+        
+        .highlight {
+            background-color: rgba(255, 243, 205, 0.5);
+            padding: 2px 4px;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Bootstrap Typography Utilities</h1>
+        <p class="lead text-center mb-5">This example demonstrates various Bootstrap typography utilities including display headings, text utilities, font weight, and more.</p>
+        
+        <!-- Display Headings -->
+        <div class="demo-section">
+            <h2 class="mb-4">1. Display Headings</h2>
+            <p>Display headings are larger, more opinionated heading styles that are designed to stand out.</p>
+            
+            <div class="demo-box">
+                <h1 class="display-1">Display 1</h1>
+                <h1 class="display-2">Display 2</h1>
+                <h1 class="display-3">Display 3</h1>
+                <h1 class="display-4">Display 4</h1>
+                <h1 class="display-5">Display 5</h1>
+                <h1 class="display-6">Display 6</h1>
+            </div>
+            
+            <div class="code-block">
+&lt;h1 class="display-1"&gt;Display 1&lt;/h1&gt;
+&lt;h1 class="display-2"&gt;Display 2&lt;/h1&gt;
+&lt;h1 class="display-3"&gt;Display 3&lt;/h1&gt;
+&lt;h1 class="display-4"&gt;Display 4&lt;/h1&gt;
+&lt;h1 class="display-5"&gt;Display 5&lt;/h1&gt;
+&lt;h1 class="display-6"&gt;Display 6&lt;/h1&gt;</div>
+        </div>
+        
+        <!-- Headings -->
+        <div class="demo-section">
+            <h2 class="mb-4">2. Regular Headings</h2>
+            <p>Bootstrap includes all six standard HTML heading elements, styled with a distinctive font-weight and size.</p>
+            
+            <div class="demo-box">
+                <h1>h1. Bootstrap heading</h1>
+                <h2>h2. Bootstrap heading</h2>
+                <h3>h3. Bootstrap heading</h3>
+                <h4>h4. Bootstrap heading</h4>
+                <h5>h5. Bootstrap heading</h5>
+                <h6>h6. Bootstrap heading</h6>
+            </div>
+            
+            <div class="code-block">
+&lt;h1&gt;h1. Bootstrap heading&lt;/h1&gt;
+&lt;h2&gt;h2. Bootstrap heading&lt;/h2&gt;
+&lt;h3&gt;h3. Bootstrap heading&lt;/h3&gt;
+&lt;h4&gt;h4. Bootstrap heading&lt;/h4&gt;
+&lt;h5&gt;h5. Bootstrap heading&lt;/h5&gt;
+&lt;h6&gt;h6. Bootstrap heading&lt;/h6&gt;</div>
+        </div>
+        
+        <!-- Lead Text -->
+        <div class="demo-section">
+            <h2 class="mb-4">3. Lead Text</h2>
+            <p>Make a paragraph stand out by adding the <code>.lead</code> class.</p>
+            
+            <div class="demo-box">
+                <p class="lead">
+                    This is a lead paragraph. It stands out from regular paragraphs.
+                </p>
+                <p>
+                    This is a regular paragraph for comparison. Notice how the lead paragraph above has a larger font size and slightly lighter font weight.
+                </p>
+            </div>
+            
+            <div class="code-block">
+&lt;p class="lead"&gt;
+  This is a lead paragraph. It stands out from regular paragraphs.
+&lt;/p&gt;</div>
+        </div>
+        
+        <!-- Text Colors -->
+        <div class="demo-section">
+            <h2 class="mb-4">4. Text Colors</h2>
+            <p>Bootstrap includes several text color utilities to highlight text.</p>
+            
+            <div class="demo-box">
+                <p class="text-primary">This text is primary colored.</p>
+                <p class="text-secondary">This text is secondary colored.</p>
+                <p class="text-success">This text indicates success.</p>
+                <p class="text-danger">This text indicates danger.</p>
+                <p class="text-warning">This text indicates warning.</p>
+                <p class="text-info">This text represents informational content.</p>
+                <p class="text-light bg-dark">This text is light colored (on dark background).</p>
+                <p class="text-dark">This text is dark colored.</p>
+                <p class="text-muted">This text is muted.</p>
+                <p class="text-white bg-dark">This text is white colored (on dark background).</p>
+            </div>
+            
+            <div class="code-block">
+&lt;p class="text-primary"&gt;This text is primary colored.&lt;/p&gt;
+&lt;p class="text-secondary"&gt;This text is secondary colored.&lt;/p&gt;
+&lt;p class="text-success"&gt;This text indicates success.&lt;/p&gt;
+&lt;p class="text-danger"&gt;This text indicates danger.&lt;/p&gt;
+&lt;p class="text-warning"&gt;This text indicates warning.&lt;/p&gt;
+&lt;p class="text-info"&gt;This text represents informational content.&lt;/p&gt;
+&lt;p class="text-light bg-dark"&gt;This text is light colored (on dark background).&lt;/p&gt;
+&lt;p class="text-dark"&gt;This text is dark colored.&lt;/p&gt;
+&lt;p class="text-muted"&gt;This text is muted.&lt;/p&gt;
+&lt;p class="text-white bg-dark"&gt;This text is white colored (on dark background).&lt;/p&gt;</div>
+        </div>
+        
+        <!-- Font Weight and Italics -->
+        <div class="demo-section">
+            <h2 class="mb-4">5. Font Weight and Italics</h2>
+            <p>Bootstrap provides utilities to quickly change the font-weight or style of text.</p>
+            
+            <div class="demo-box">
+                <p class="fw-bold">Bold text using .fw-bold</p>
+                <p class="fw-bolder">Bolder weight text using .fw-bolder</p>
+                <p class="fw-normal">Normal weight text using .fw-normal</p>
+                <p class="fw-light">Light weight text using .fw-light</p>
+                <p class="fw-lighter">Lighter weight text using .fw-lighter</p>
+                <p class="fst-italic">Italic text using .fst-italic</p>
+                <p class="fst-normal">Text with normal font style using .fst-normal</p>
+            </div>
+            
+            <div class="code-block">
+&lt;p class="fw-bold"&gt;Bold text using .fw-bold&lt;/p&gt;
+&lt;p class="fw-bolder"&gt;Bolder weight text using .fw-bolder&lt;/p&gt;
+&lt;p class="fw-normal"&gt;Normal weight text using .fw-normal&lt;/p&gt;
+&lt;p class="fw-light"&gt;Light weight text using .fw-light&lt;/p&gt;
+&lt;p class="fw-lighter"&gt;Lighter weight text using .fw-lighter&lt;/p&gt;
+&lt;p class="fst-italic"&gt;Italic text using .fst-italic&lt;/p&gt;
+&lt;p class="fst-normal"&gt;Text with normal font style using .fst-normal&lt;/p&gt;</div>
+        </div>
+        
+        <!-- Text Alignment -->
+        <div class="demo-section">
+            <h2 class="mb-4">6. Text Alignment</h2>
+            <p>Easily realign text to components with text alignment classes.</p>
+            
+            <div class="demo-box">
+                <p class="text-start">Left aligned text on all viewport sizes.</p>
+                <p class="text-center">Center aligned text on all viewport sizes.</p>
+                <p class="text-end">Right aligned text on all viewport sizes.</p>
+                
+                <p class="text-sm-start text-md-center text-lg-end">
+                    This text is aligned differently based on screen size: left-aligned on small screens, centered on medium screens, and right-aligned on large screens.
+                </p>
+            </div>
+            
+            <div class="code-block">
+&lt;p class="text-start"&gt;Left aligned text on all viewport sizes.&lt;/p&gt;
+&lt;p class="text-center"&gt;Center aligned text on all viewport sizes.&lt;/p&gt;
+&lt;p class="text-end"&gt;Right aligned text on all viewport sizes.&lt;/p&gt;
+
+&lt;p class="text-sm-start text-md-center text-lg-end"&gt;
+  This text is aligned differently based on screen size.
+&lt;/p&gt;</div>
+        </div>
+        
+        <!-- Text Wrapping and Overflow -->
+        <div class="demo-section">
+            <h2 class="mb-4">7. Text Wrapping and Overflow</h2>
+            <p>Control text wrapping and overflow with Bootstrap utilities.</p>
+            
+            <div class="demo-box">
+                <div class="badge bg-primary text-wrap" style="width: 6rem;">
+                    This text wraps within a fixed width.
+                </div>
+                
+                <div class="mt-3 text-nowrap bg-light" style="width: 8rem; overflow: hidden;">
+                    This text won't wrap, it will be truncated if it's too long.
+                </div>
+                
+                <div class="mt-3 text-truncate" style="max-width: 150px;">
+                    This text is truncated with an ellipsis if it's too long for the container.
+                </div>
+            </div>
+            
+            <div class="code-block">
+&lt;div class="badge bg-primary text-wrap" style="width: 6rem;"&gt;
+  This text wraps within a fixed width.
+&lt;/div&gt;
+
+&lt;div class="text-nowrap bg-light" style="width: 8rem; overflow: hidden;"&gt;
+  This text won't wrap, it will be truncated if it's too long.
+&lt;/div&gt;
+
+&lt;div class="text-truncate" style="max-width: 150px;"&gt;
+  This text is truncated with an ellipsis if it's too long for the container.
+&lt;/div&gt;</div>
+        </div>
+        
+        <!-- Text Decoration -->
+        <div class="demo-section">
+            <h2 class="mb-4">8. Text Decoration</h2>
+            <p>Decorate text in components with text decoration classes.</p>
+            
+            <div class="demo-box">
+                <p class="text-decoration-underline">This text has a line underneath it.</p>
+                <p class="text-decoration-line-through">This text has a line through it.</p>
+                <a href="#" class="text-decoration-none">This link has its text decoration removed</a>
+            </div>
+            
+            <div class="code-block">
+&lt;p class="text-decoration-underline"&gt;This text has a line underneath it.&lt;/p&gt;
+&lt;p class="text-decoration-line-through"&gt;This text has a line through it.&lt;/p&gt;
+&lt;a href="#" class="text-decoration-none"&gt;This link has its text decoration removed&lt;/a&gt;</div>
+        </div>
+        
+        <!-- Font Size -->
+        <div class="demo-section">
+            <h2 class="mb-4">9. Font Size</h2>
+            <p>Bootstrap provides utilities for adjusting font size.</p>
+            
+            <div class="demo-box">
+                <p class="fs-1">Font size 1 (.fs-1)</p>
+                <p class="fs-2">Font size 2 (.fs-2)</p>
+                <p class="fs-3">Font size 3 (.fs-3)</p>
+                <p class="fs-4">Font size 4 (.fs-4)</p>
+                <p class="fs-5">Font size 5 (.fs-5)</p>
+                <p class="fs-6">Font size 6 (.fs-6)</p>
+            </div>
+            
+            <div class="code-block">
+&lt;p class="fs-1"&gt;Font size 1 (.fs-1)&lt;/p&gt;
+&lt;p class="fs-2"&gt;Font size 2 (.fs-2)&lt;/p&gt;
+&lt;p class="fs-3"&gt;Font size 3 (.fs-3)&lt;/p&gt;
+&lt;p class="fs-4"&gt;Font size 4 (.fs-4)&lt;/p&gt;
+&lt;p class="fs-5"&gt;Font size 5 (.fs-5)&lt;/p&gt;
+&lt;p class="fs-6"&gt;Font size 6 (.fs-6)&lt;/p&gt;</div>
+        </div>
+        
+        <!-- Line Height -->
+        <div class="demo-section">
+            <h2 class="mb-4">10. Line Height</h2>
+            <p>Change the line height with the <code>.lh-*</code> utilities.</p>
+            
+            <div class="demo-box">
+                <p class="lh-1">
+                    This is a paragraph with a line height of 1.<br>
+                    Notice how the lines are very close together.<br>
+                    There's almost no space between them.
+                </p>
+                
+                <p class="lh-sm">
+                    This is a paragraph with a small line height.<br>
+                    It has slightly more space between lines than lh-1.<br>
+                    But it's still quite compact.
+                </p>
+                
+                <p class="lh-base">
+                    This is a paragraph with the base line height.<br>
+                    This is the default line height in Bootstrap.<br>
+                    It provides good readability for most text.
+                </p>
+                
+                <p class="lh-lg">
+                    This is a paragraph with a large line height.<br>
+                    Notice how there's more space between the lines.<br>
+                    This can improve readability for some content.
+                </p>
+            </div>
+            
+            <div class="code-block">
+&lt;p class="lh-1"&gt;This is a paragraph with a line height of 1.&lt;/p&gt;
+&lt;p class="lh-sm"&gt;This is a paragraph with a small line height.&lt;/p&gt;
+&lt;p class="lh-base"&gt;This is a paragraph with the base line height.&lt;/p&gt;
+&lt;p class="lh-lg"&gt;This is a paragraph with a large line height.&lt;/p&gt;</div>
+        </div>
+        
+        <!-- Monospace -->
+        <div class="demo-section">
+            <h2 class="mb-4">11. Monospace</h2>
+            <p>Change the font family of an element to Bootstrap's monospace font stack with <code>.font-monospace</code>.</p>
+            
+            <div class="demo-box">
+                <p>This is in the default font.</p>
+                <p class="font-monospace">This is in monospace.</p>
+            </div>
+            
+            <div class="code-block">
+&lt;p class="font-monospace"&gt;This is in monospace.&lt;/p&gt;</div>
+        </div>
+        
+        <!-- Reset Color -->
+        <div class="demo-section">
+            <h2 class="mb-4">12. Reset Color</h2>
+            <p>Reset a text or link's color with <code>.text-reset</code>, so that it inherits the color from its parent.</p>
+            
+            <div class="demo-box">
+                <p class="text-muted">
+                    Muted text with a <a href="#" class="text-reset">reset link</a>.
+                </p>
+            </div>
+            
+            <div class="code-block">
+&lt;p class="text-muted"&gt;
+  Muted text with a &lt;a href="#" class="text-reset"&gt;reset link&lt;/a&gt;.
+&lt;/p&gt;</div>
+        </div>
+        
+        <!-- Text Selection -->
+        <div class="demo-section">
+            <h2 class="mb-4">13. Text Selection</h2>
+            <p>Change the way text is selected when the user clicks and drags over it with <code>.user-select-*</code> utilities.</p>
+            
+            <div class="demo-box">
+                <p class="user-select-all">This paragraph will be entirely selected when clicked.</p>
+                <p class="user-select-auto">This paragraph has the default selection behavior.</p>
+                <p class="user-select-none">This paragraph cannot be selected.</p>
+            </div>
+            
+            <div class="code-block">
+&lt;p class="user-select-all"&gt;This paragraph will be entirely selected when clicked.&lt;/p&gt;
+&lt;p class="user-select-auto"&gt;This paragraph has the default selection behavior.&lt;/p&gt;
+&lt;p class="user-select-none"&gt;This paragraph cannot be selected.&lt;/p&gt;</div>
+        </div>
+        
+        <!-- Combining Typography Utilities -->
+        <div class="demo-section">
+            <h2 class="mb-4">14. Combining Typography Utilities</h2>
+            <p>You can combine multiple typography utilities to achieve the exact look you want.</p>
+            
+            <div class="demo-box">
+                <p class="fs-4 fw-bold text-primary">This text is larger, bold, and primary colored.</p>
+                <p class="fst-italic text-muted">This text is italic and muted.</p>
+                <p class="text-center text-danger fw-light fs-5">This text is centered, danger colored, light weight, and size 5.</p>
+                <div class="bg-dark p-3">
+                    <p class="text-white text-end fw-bold mb-0">This text is white, right-aligned, and bold on a dark background.</p>
+                </div>
+            </div>
+            
+            <div class="code-block">
+&lt;p class="fs-4 fw-bold text-primary"&gt;This text is larger, bold, and primary colored.&lt;/p&gt;
+&lt;p class="fst-italic text-muted"&gt;This text is italic and muted.&lt;/p&gt;
+&lt;p class="text-center text-danger fw-light fs-5"&gt;This text is centered, danger colored, light weight, and size 5.&lt;/p&gt;
+&lt;div class="bg-dark p-3"&gt;
+  &lt;p class="text-white text-end fw-bold mb-0"&gt;This text is white, right-aligned, and bold on a dark background.&lt;/p&gt;
+&lt;/div&gt;</div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap 5 Local Files Example</title>
+    
+    <!-- Bootstrap 5 CSS from local files -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    
+    <style>
+        .demo-box {
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Bootstrap 5 Local Files Example</h1>
+        
+        <div class="row">
+            <div class="col-md-4">
+                <div class="bg-primary text-white demo-box">
+                    <h3>Column 1</h3>
+                    <p>This is using Bootstrap 5 grid system and color utilities.</p>
+                    <button class="btn btn-light">Click Me</button>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="bg-success text-white demo-box">
+                    <h3>Column 2</h3>
+                    <p>Bootstrap makes responsive layouts easy to implement.</p>
+                    <button class="btn btn-light">Learn More</button>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="bg-danger text-white demo-box">
+                    <h3>Column 3</h3>
+                    <p>This page is using Bootstrap 5 loaded from local files.</p>
+                    <button class="btn btn-light">Explore</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="alert alert-info mt-4">
+            <h4>Bootstrap 5 Local Files Implementation</h4>
+            <p>This page demonstrates Bootstrap 5 loaded from local files. In a real project, you would download the Bootstrap files or install them via npm and reference them as shown in this example.</p>
+            <p>The file structure for this approach is:</p>
+            <pre>
+project/
+├── css/
+│   └── bootstrap.min.css
+├── js/
+│   └── bootstrap.bundle.min.js
+└── index.html
+            </pre>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS Bundle with Popper from local files -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

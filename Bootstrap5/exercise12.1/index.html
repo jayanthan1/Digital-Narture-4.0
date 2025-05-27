@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 12.1 - Spacing Utilities</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Custom styles to highlight the spacing utilities */
+        .demo-box {
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 0.25rem;
+        }
+        
+        .spacing-demo {
+            background-color: #e9ecef;
+        }
+        
+        .highlight-margin {
+            border: 2px dashed #dc3545;
+        }
+        
+        .highlight-padding {
+            border: 2px dashed #198754;
+        }
+        
+        .demo-content {
+            background-color: #6c757d;
+            color: white;
+            border-radius: 0.25rem;
+            min-height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container py-5">
+        <h1 class="text-center mb-5">Bootstrap Spacing Utilities</h1>
+        
+        <!-- Section 1: Margin Examples -->
+        <section class="demo-box p-4 mb-5">
+            <h2 class="mb-4">Margin Utilities</h2>
+            
+            <!-- m-3 example -->
+            <div class="spacing-demo p-3 mb-4">
+                <h4>m-3 (Margin on all sides: 1rem or 16px)</h4>
+                <div class="highlight-margin p-3">
+                    <div class="m-3 demo-content">
+                        This box has margin 3 (1rem) on all sides
+                    </div>
+                </div>
+                <code class="d-block mt-2">class="m-3"</code>
+            </div>
+            
+            <!-- mt-4 example -->
+            <div class="spacing-demo p-3 mb-4">
+                <h4>mt-4 (Margin top: 1.5rem or 24px)</h4>
+                <div class="highlight-margin p-3">
+                    <div class="demo-content">Base element (no margin)</div>
+                    <div class="mt-4 demo-content">
+                        This box has margin-top 4 (1.5rem)
+                    </div>
+                </div>
+                <code class="d-block mt-2">class="mt-4"</code>
+            </div>
+            
+            <!-- Other margin examples -->
+            <div class="spacing-demo p-3">
+                <h4>Other Margin Examples</h4>
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <div class="highlight-margin p-3">
+                            <div class="mb-3 demo-content">
+                                mb-3 (margin-bottom)
+                            </div>
+                            <div class="demo-content">Next element</div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <div class="highlight-margin p-3">
+                            <div class="ms-4 demo-content">
+                                ms-4 (margin-start/left)
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <div class="highlight-margin p-3">
+                            <div class="me-4 demo-content">
+                                me-4 (margin-end/right)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-md-6 mb-3">
+                        <div class="highlight-margin p-3">
+                            <div class="mx-auto demo-content" style="width: 75%;">
+                                mx-auto (horizontal centering)
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <div class="highlight-margin p-3">
+                            <div class="my-3 demo-content">
+                                my-3 (vertical margins)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Section 2: Padding Examples -->
+        <section class="demo-box p-4">
+            <h2 class="mb-4">Padding Utilities</h2>
+            
+            <!-- p-2 example -->
+            <div class="spacing-demo p-3 mb-4">
+                <h4>p-2 (Padding on all sides: 0.5rem or 8px)</h4>
+                <div class="highlight-padding">
+                    <div class="p-2 demo-content">
+                        This box has padding 2 (0.5rem) on all sides
+                    </div>
+                </div>
+                <code class="d-block mt-2">class="p-2"</code>
+            </div>
+            
+            <!-- py-5 example -->
+            <div class="spacing-demo p-3 mb-4">
+                <h4>py-5 (Padding top and bottom: 3rem or 48px)</h4>
+                <div class="highlight-padding">
+                    <div class="py-5 demo-content">
+                        This box has padding-y 5 (3rem) on top and bottom
+                    </div>
+                </div>
+                <code class="d-block mt-2">class="py-5"</code>
+            </div>
+            
+            <!-- Other padding examples -->
+            <div class="spacing-demo p-3">
+                <h4>Other Padding Examples</h4>
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <div class="highlight-padding">
+                            <div class="pt-4 demo-content">
+                                pt-4 (padding-top)
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <div class="highlight-padding">
+                            <div class="pb-4 demo-content">
+                                pb-4 (padding-bottom)
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <div class="highlight-padding">
+                            <div class="ps-4 demo-content">
+                                ps-4 (padding-start/left)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-md-6 mb-3">
+                        <div class="highlight-padding">
+                            <div class="pe-4 demo-content">
+                                pe-4 (padding-end/right)
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <div class="highlight-padding">
+                            <div class="px-4 demo-content">
+                                px-4 (horizontal padding)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Section 3: Practical Application -->
+        <section class="mt-5 p-4 demo-box">
+            <h2 class="mb-4">Practical Application</h2>
+            
+            <div class="card">
+                <div class="card-header">
+                    <h3>Contact Form</h3>
+                </div>
+                <div class="card-body p-4">
+                    <form>
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Name</label>
+                            <input type="text" class="form-control" id="name">
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="email">
+                        </div>
+                        <div class="mb-4">
+                            <label for="message" class="form-label">Message</label>
+                            <textarea class="form-control" id="message" rows="4"></textarea>
+                        </div>
+                        <div class="mt-4 pt-3 border-top">
+                            <button type="submit" class="btn btn-primary px-4 me-2">Submit</button>
+                            <button type="reset" class="btn btn-outline-secondary px-4">Reset</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

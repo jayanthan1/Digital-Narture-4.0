@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap Card Layout with Flexbox</title>
+    
+    <!-- Bootstrap 5 CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    
+    <style>
+        body {
+            padding-bottom: 50px;
+        }
+        
+        .demo-section {
+            margin-bottom: 50px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #dee2e6;
+        }
+        
+        .custom-card {
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+        
+        .card-header, .card-footer {
+            padding: 15px;
+            background-color: #f8f9fa;
+        }
+        
+        .card-body {
+            padding: 20px;
+        }
+        
+        .card-title {
+            margin-bottom: 0;
+        }
+        
+        .card-price {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: #0d6efd;
+        }
+        
+        .badge-corner {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+        
+        .product-img {
+            height: 200px;
+            object-fit: cover;
+            width: 100%;
+        }
+        
+        .code-block {
+            background-color: #f1f1f1;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            font-family: monospace;
+            white-space: pre-wrap;
+        }
+        
+        .highlight-box {
+            border: 2px dashed #0d6efd;
+            padding: 10px;
+            border-radius: 5px;
+            background-color: rgba(13, 110, 253, 0.1);
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Card Layout with Flexbox Utilities</h1>
+        <p class="lead text-center mb-5">This example demonstrates how to use <code>justify-content-between</code> and <code>align-items-center</code> in card layouts.</p>
+        
+        <!-- Basic Card Header Example -->
+        <div class="demo-section">
+            <h2 class="mb-4">1. Card Header with Flexbox</h2>
+            <p>This example shows how to create a card header with content justified between left and right, and vertically centered.</p>
+            
+            <div class="custom-card">
+                <div class="card-header d-flex justify-content-between align-items-center highlight-box">
+                    <h5 class="card-title">Product Name</h5>
+                    <span class="badge bg-primary">New</span>
+                </div>
+                <div class="card-body">
+                    <p>This is a simple card with a header that uses flexbox utilities to place the title on the left and a badge on the right.</p>
+                </div>
+            </div>
+            
+            <div class="code-block">
+&lt;div class="card-header d-flex justify-content-between align-items-center"&gt;
+  &lt;h5 class="card-title"&gt;Product Name&lt;/h5&gt;
+  &lt;span class="badge bg-primary"&gt;New&lt;/span&gt;
+&lt;/div&gt;</div>
+            
+            <div class="alert alert-info mt-3">
+                <h5>Key Flexbox Classes Used:</h5>
+                <ul>
+                    <li><code>d-flex</code>: Creates a flexbox container</li>
+                    <li><code>justify-content-between</code>: Places items at opposite ends of the container</li>
+                    <li><code>align-items-center</code>: Centers items vertically</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Product Card Example -->
+        <div class="demo-section">
+            <h2 class="mb-4">2. Product Card with Price and Button</h2>
+            <p>This example shows a product card with the price on the left and a button on the right, both vertically centered.</p>
+            
+            <div class="custom-card">
+                <img src="https://via.placeholder.com/800x400" alt="Product Image" class="product-img">
+                <div class="card-body">
+                    <h5 class="card-title mb-3">Premium Headphones</h5>
+                    <p class="card-text">High-quality wireless headphones with noise cancellation and premium sound.</p>
+                    <div class="d-flex justify-content-between align-items-center highlight-box">
+                        <span class="card-price">$149.99</span>
+                        <button class="btn btn-primary">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="code-block">
+&lt;div class="d-flex justify-content-between align-items-center"&gt;
+  &lt;span class="card-price"&gt;$149.99&lt;/span&gt;
+  &lt;button class="btn btn-primary"&gt;Add to Cart&lt;/button&gt;
+&lt;/div&gt;</div>
+        </div>
+        
+        <!-- Card Footer Example -->
+        <div class="demo-section">
+            <h2 class="mb-4">3. Card Footer with Multiple Elements</h2>
+            <p>This example shows a card footer with multiple elements aligned using flexbox utilities.</p>
+            
+            <div class="custom-card">
+                <div class="card-body">
+                    <h5 class="card-title">Article Title</h5>
+                    <p class="card-text">This is a sample article card with a footer that contains multiple elements.</p>
+                </div>
+                <div class="card-footer d-flex justify-content-between align-items-center highlight-box">
+                    <div>
+                        <small class="text-muted">Posted on May 27, 2025</small>
+                    </div>
+                    <div>
+                        <button class="btn btn-sm btn-outline-primary me-2">Share</button>
+                        <button class="btn btn-sm btn-outline-secondary">Save</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="code-block">
+&lt;div class="card-footer d-flex justify-content-between align-items-center"&gt;
+  &lt;div&gt;
+    &lt;small class="text-muted"&gt;Posted on May 27, 2025&lt;/small&gt;
+  &lt;/div&gt;
+  &lt;div&gt;
+    &lt;button class="btn btn-sm btn-outline-primary me-2"&gt;Share&lt;/button&gt;
+    &lt;button class="btn btn-sm btn-outline-secondary"&gt;Save&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</div>
+        </div>
+        
+        <!-- Product Grid Example -->
+        <div class="demo-section">
+            <h2 class="mb-4">4. Product Grid with Flexbox Cards</h2>
+            <p>This example shows a grid of product cards, each using flexbox utilities for internal layout.</p>
+            
+            <div class="row">
+                <!-- Product Card 1 -->
+                <div class="col-md-4 mb-4">
+                    <div class="custom-card h-100">
+                        <div class="position-relative">
+                            <img src="https://via.placeholder.com/800x400" alt="Product Image" class="product-img">
+                            <span class="badge bg-danger badge-corner">Sale</span>
+                        </div>
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">Wireless Earbuds</h5>
+                            <p class="card-text flex-grow-1">True wireless earbuds with touch controls and premium sound quality.</p>
+                            <div class="d-flex justify-content-between align-items-center highlight-box">
+                                <div>
+                                    <span class="card-price">$79.99</span>
+                                    <small class="text-decoration-line-through text-muted ms-2">$99.99</small>
+                                </div>
+                                <button class="btn btn-sm btn-primary">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product Card 2 -->
+                <div class="col-md-4 mb-4">
+                    <div class="custom-card h-100">
+                        <div class="position-relative">
+                            <img src="https://via.placeholder.com/800x400" alt="Product Image" class="product-img">
+                            <span class="badge bg-primary badge-corner">New</span>
+                        </div>
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">Smart Watch</h5>
+                            <p class="card-text flex-grow-1">Fitness tracker with heart rate monitor, sleep tracking, and notifications.</p>
+                            <div class="d-flex justify-content-between align-items-center highlight-box">
+                                <span class="card-price">$129.99</span>
+                                <button class="btn btn-sm btn-primary">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product Card 3 -->
+                <div class="col-md-4 mb-4">
+                    <div class="custom-card h-100">
+                        <img src="https://via.placeholder.com/800x400" alt="Product Image" class="product-img">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">Bluetooth Speaker</h5>
+                            <p class="card-text flex-grow-1">Portable speaker with 20-hour battery life and water-resistant design.</p>
+                            <div class="d-flex justify-content-between align-items-center highlight-box">
+                                <span class="card-price">$59.99</span>
+                                <button class="btn btn-sm btn-primary">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="alert alert-info mt-3">
+                <h5>Card Layout Strategy</h5>
+                <p>In this product grid example, we're using several flexbox techniques:</p>
+                <ul>
+                    <li>Each card body uses <code>d-flex flex-column</code> to stack content vertically</li>
+                    <li>The price and button container uses <code>justify-content-between align-items-center</code></li>
+                    <li>We use <code>flex-grow-1</code> on the description to push the price/button area to the bottom</li>
+                    <li>All cards have the same height using <code>h-100</code> class</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- User Profile Card Example -->
+        <div class="demo-section">
+            <h2 class="mb-4">5. User Profile Card</h2>
+            <p>This example shows a user profile card with avatar and details aligned using flexbox.</p>
+            
+            <div class="custom-card">
+                <div class="card-body">
+                    <div class="d-flex align-items-center mb-3 highlight-box">
+                        <img src="https://via.placeholder.com/64" alt="User Avatar" class="rounded-circle me-3">
+                        <div>
+                            <h5 class="card-title mb-1">John Doe</h5>
+                            <p class="card-text text-muted mb-0">Web Developer</p>
+                        </div>
+                    </div>
+                    <p>Experienced web developer with expertise in HTML, CSS, JavaScript, and modern frameworks.</p>
+                    <div class="d-flex justify-content-between align-items-center highlight-box">
+                        <div>
+                            <span class="badge bg-primary me-1">HTML</span>
+                            <span class="badge bg-success me-1">CSS</span>
+                            <span class="badge bg-info me-1">JavaScript</span>
+                        </div>
+                        <button class="btn btn-outline-primary">View Profile</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="code-block">
+&lt;!-- User info with avatar --&gt;
+&lt;div class="d-flex align-items-center mb-3"&gt;
+  &lt;img src="avatar.jpg" alt="User Avatar" class="rounded-circle me-3"&gt;
+  &lt;div&gt;
+    &lt;h5 class="card-title mb-1"&gt;John Doe&lt;/h5&gt;
+    &lt;p class="card-text text-muted mb-0"&gt;Web Developer&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Skills and action button --&gt;
+&lt;div class="d-flex justify-content-between align-items-center"&gt;
+  &lt;div&gt;
+    &lt;span class="badge bg-primary me-1"&gt;HTML&lt;/span&gt;
+    &lt;span class="badge bg-success me-1"&gt;CSS&lt;/span&gt;
+    &lt;span class="badge bg-info me-1"&gt;JavaScript&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;button class="btn btn-outline-primary"&gt;View Profile&lt;/button&gt;
+&lt;/div&gt;</div>
+        </div>
+        
+        <!-- Dashboard Card Example -->
+        <div class="demo-section">
+            <h2 class="mb-4">6. Dashboard Cards</h2>
+            <p>This example shows dashboard cards with statistics and icons aligned using flexbox.</p>
+            
+            <div class="row">
+                <!-- Stats Card 1 -->
+                <div class="col-md-4 mb-4">
+                    <div class="custom-card bg-primary text-white">
+                        <div class="card-body d-flex justify-content-between align-items-center highlight-box">
+                            <div>
+                                <h3 class="mb-0">1,254</h3>
+                                <p class="mb-0">New Users</p>
+                            </div>
+                            <div style="font-size: 2.5rem;">
+                                <i class="bi bi-people"></i>
+                                <!-- Using a placeholder for the icon -->
+                                👥
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Stats Card 2 -->
+                <div class="col-md-4 mb-4">
+                    <div class="custom-card bg-success text-white">
+                        <div class="card-body d-flex justify-content-between align-items-center highlight-box">
+                            <div>
+                                <h3 class="mb-0">$8,254</h3>
+                                <p class="mb-0">Monthly Revenue</p>
+                            </div>
+                            <div style="font-size: 2.5rem;">
+                                <i class="bi bi-graph-up"></i>
+                                <!-- Using a placeholder for the icon -->
+                                📈
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Stats Card 3 -->
+                <div class="col-md-4 mb-4">
+                    <div class="custom-card bg-info text-white">
+                        <div class="card-body d-flex justify-content-between align-items-center highlight-box">
+                            <div>
+                                <h3 class="mb-0">245</h3>
+                                <p class="mb-0">New Orders</p>
+                            </div>
+                            <div style="font-size: 2.5rem;">
+                                <i class="bi bi-cart"></i>
+                                <!-- Using a placeholder for the icon -->
+                                🛒
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="code-block">
+&lt;div class="card-body d-flex justify-content-between align-items-center"&gt;
+  &lt;div&gt;
+    &lt;h3 class="mb-0"&gt;1,254&lt;/h3&gt;
+    &lt;p class="mb-0"&gt;New Users&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div style="font-size: 2.5rem;"&gt;
+    &lt;i class="bi bi-people"&gt;&lt;/i&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap Two-Column Layout with Sidebar</title>
+    
+    <!-- Bootstrap 5 CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    
+    <style>
+        body {
+            padding-bottom: 50px;
+        }
+        
+        .sidebar {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 5px;
+            height: 100%;
+        }
+        
+        .content {
+            padding: 20px;
+        }
+        
+        .demo-box {
+            background-color: #fff;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .nav-link {
+            color: #495057;
+        }
+        
+        .nav-link.active {
+            background-color: #0d6efd;
+            color: white;
+        }
+        
+        .nav-link:hover:not(.active) {
+            background-color: #e9ecef;
+        }
+        
+        .sticky-top {
+            top: 20px;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 767.98px) {
+            .sidebar {
+                margin-bottom: 20px;
+            }
+            
+            .sticky-top {
+                position: relative;
+                top: 0;
+            }
+        }
+        
+        /* Code block styling */
+        .code-block {
+            background-color: #f1f1f1;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            font-family: monospace;
+            white-space: pre-wrap;
+        }
+        
+        /* Breakpoint indicator */
+        .breakpoint-indicator {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            z-index: 1000;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-4">
+        <div class="container">
+            <a class="navbar-brand" href="#">Two-Column Layout</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Pricing</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="row">
+            <!-- Sidebar (col-md-3) -->
+            <div class="col-md-3 mb-4">
+                <div class="sidebar sticky-top">
+                    <h4 class="mb-3">Sidebar</h4>
+                    <div class="list-group mb-4">
+                        <a href="#" class="list-group-item list-group-item-action active">Dashboard</a>
+                        <a href="#" class="list-group-item list-group-item-action">Products</a>
+                        <a href="#" class="list-group-item list-group-item-action">Customers</a>
+                        <a href="#" class="list-group-item list-group-item-action">Reports</a>
+                        <a href="#" class="list-group-item list-group-item-action">Settings</a>
+                    </div>
+                    
+                    <div class="demo-box">
+                        <h5>Recent Updates</h5>
+                        <p class="small">New features added to the dashboard.</p>
+                        <p class="small">Customer reports updated.</p>
+                        <p class="small">System maintenance scheduled.</p>
+                    </div>
+                    
+                    <div class="demo-box">
+                        <h5>Quick Stats</h5>
+                        <p class="mb-2"><span class="badge bg-success">89</span> New orders</p>
+                        <p class="mb-2"><span class="badge bg-warning">12</span> Pending reviews</p>
+                        <p class="mb-0"><span class="badge bg-info">4</span> Support tickets</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Content Area (col-md-9) -->
+            <div class="col-md-9">
+                <div class="content">
+                    <h2 class="mb-4">Two-Column Layout with Sidebar</h2>
+                    <p class="lead">This example demonstrates a common two-column layout with a sidebar (col-md-3) and a main content area (col-md-9).</p>
+                    
+                    <div class="alert alert-info">
+                        <h5>How It Works</h5>
+                        <p>This layout uses Bootstrap's grid system to create a responsive two-column layout:</p>
+                        <ul>
+                            <li>On mobile devices (less than 768px wide), both columns stack vertically</li>
+                            <li>On medium devices and larger (768px and wider), the sidebar takes 25% width (col-md-3) and the content area takes 75% width (col-md-9)</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="code-block">
+&lt;div class="container"&gt;
+  &lt;div class="row"&gt;
+    &lt;!-- Sidebar --&gt;
+    &lt;div class="col-md-3"&gt;
+      Sidebar content here...
+    &lt;/div&gt;
+    
+    &lt;!-- Content Area --&gt;
+    &lt;div class="col-md-9"&gt;
+      Main content here...
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</div>
+                    
+                    <div class="row mt-4">
+                        <div class="col-lg-6">
+                            <div class="demo-box">
+                                <h4>Key Features</h4>
+                                <ul>
+                                    <li>Responsive layout that adapts to screen size</li>
+                                    <li>Sidebar with sticky positioning on larger screens</li>
+                                    <li>Clean, organized content structure</li>
+                                    <li>Bootstrap components for navigation and UI elements</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="demo-box">
+                                <h4>Common Use Cases</h4>
+                                <ul>
+                                    <li>Admin dashboards and control panels</li>
+                                    <li>Documentation sites with navigation</li>
+                                    <li>E-commerce category pages</li>
+                                    <li>Blog layouts with sidebar widgets</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="demo-box mt-4">
+                        <h4>Sample Content</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in dui mauris. Vivamus hendrerit arcu sed erat molestie vehicula. Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor. Ut in nulla enim. Phasellus molestie magna non est bibendum non venenatis nisl tempor.</p>
+                        <p>Suspendisse in orci enim. Vivamus hendrerit arcu sed erat molestie vehicula. Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor. Ut in nulla enim. Phasellus molestie magna non est bibendum non venenatis nisl tempor.</p>
+                    </div>
+                    
+                    <div class="card mt-4">
+                        <div class="card-header bg-primary text-white">
+                            <h4 class="mb-0">Best Practices</h4>
+                        </div>
+                        <div class="card-body">
+                            <ol>
+                                <li><strong>Mobile-First Approach:</strong> Always design for mobile first, then expand for larger screens.</li>
+                                <li><strong>Consistent Spacing:</strong> Maintain consistent padding and margins throughout your layout.</li>
+                                <li><strong>Responsive Images:</strong> Use the <code>.img-fluid</code> class to make images responsive.</li>
+                                <li><strong>Accessibility:</strong> Ensure your layout is accessible with proper ARIA attributes and semantic HTML.</li>
+                                <li><strong>Testing:</strong> Test your layout on various screen sizes and devices.</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Breakpoint Indicator -->
+    <div class="breakpoint-indicator">
+        <div class="d-block d-sm-none">Extra Small (xs)</div>
+        <div class="d-none d-sm-block d-md-none">Small (sm)</div>
+        <div class="d-none d-md-block d-lg-none">Medium (md)</div>
+        <div class="d-none d-lg-block d-xl-none">Large (lg)</div>
+        <div class="d-none d-xl-block d-xxl-none">Extra Large (xl)</div>
+        <div class="d-none d-xxl-block">Extra Extra Large (xxl)</div>
+    </div>
+
+    <!-- Bootstrap 5 JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+</body>
+</html>

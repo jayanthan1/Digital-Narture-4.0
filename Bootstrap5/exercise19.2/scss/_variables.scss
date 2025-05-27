@@ -1,0 +1,50 @@
+// Custom color system
+$primary: #6200ea;    // Deep purple
+$secondary: #00bcd4;  // Cyan
+$success: #00c853;    // Green
+$info: #304ffe;       // Indigo
+$warning: #ffd600;    // Yellow
+$danger: #d50000;     // Red
+$light: #f5f5f5;      // Light grey
+$dark: #263238;       // Blue grey
+
+// Custom theme colors
+$theme-colors: (
+  "primary": $primary,
+  "secondary": $secondary,
+  "success": $success,
+  "info": $info,
+  "warning": $warning,
+  "danger": $danger,
+  "light": $light,
+  "dark": $dark
+);
+
+// Border radius
+$border-radius: 1rem;
+$border-radius-sm: 0.75rem;
+$border-radius-lg: 1.5rem;
+$border-radius-xl: 2rem;
+$border-radius-2xl: 3rem;
+$border-radius-pill: 50rem;
+
+// Custom border radius utilities
+$enable-rounded: true;
+
+// Additional border radius utilities
+$utilities: (
+  "rounded": (
+    property: border-radius,
+    class: rounded,
+    values: (
+      null: $border-radius,
+      sm: $border-radius-sm,
+      lg: $border-radius-lg,
+      xl: $border-radius-xl,
+      "2xl": $border-radius-2xl,
+      pill: $border-radius-pill,
+      circle: 50%,
+      0: 0
+    )
+  )
+);

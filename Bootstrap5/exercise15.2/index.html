@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 15.2 - Shadows and Rounded Pills</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .demo-section {
+            padding: 2rem;
+            margin-bottom: 2rem;
+            background-color: #f8f9fa;
+            border-radius: 0.5rem;
+        }
+        
+        .demo-title {
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #dee2e6;
+        }
+        
+        .card-container {
+            margin-bottom: 2rem;
+        }
+        
+        .code-example {
+            background-color: #f1f1f1;
+            padding: 0.5rem;
+            border-radius: 0.25rem;
+            margin-top: 0.5rem;
+            font-family: monospace;
+            font-size: 0.9rem;
+        }
+        
+        .utility-description {
+            font-size: 0.9rem;
+            color: #6c757d;
+            margin-top: 0.5rem;
+        }
+        
+        .shadow-comparison {
+            height: 100px;
+            width: 100%;
+            background-color: white;
+            margin-bottom: 1rem;
+        }
+        
+        .pill-btn {
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container py-5">
+        <h1 class="text-center mb-5">Bootstrap Shadows and Rounded Pills</h1>
+        
+        <!-- Introduction -->
+        <div class="alert alert-primary mb-5">
+            <h4 class="alert-heading">About This Exercise</h4>
+            <p>This exercise demonstrates how to use Bootstrap's shadow and rounded-pill utilities with cards. You'll see examples of:</p>
+            <ul>
+                <li>Different shadow sizes (<code>shadow-sm</code>, <code>shadow</code>, <code>shadow-lg</code>)</li>
+                <li>Rounded pill shapes with <code>rounded-pill</code></li>
+                <li>Combining these utilities with cards for enhanced visual effects</li>
+            </ul>
+            <p class="mb-0">Each example includes the code used to create it and a description of the effect.</p>
+        </div>
+        
+        <!-- Shadow Utilities -->
+        <section class="demo-section">
+            <h2 class="demo-title">Shadow Utilities</h2>
+            <p>Bootstrap provides utilities for adding shadows of different sizes to elements.</p>
+            
+            <div class="row mb-4">
+                <div class="col-md-3 mb-4">
+                    <div class="shadow-comparison shadow-none"></div>
+                    <div class="code-example">class="shadow-none"</div>
+                    <div class="utility-description">No shadow (removes shadow)</div>
+                </div>
+                
+                <div class="col-md-3 mb-4">
+                    <div class="shadow-comparison shadow-sm"></div>
+                    <div class="code-example">class="shadow-sm"</div>
+                    <div class="utility-description">Small shadow</div>
+                </div>
+                
+                <div class="col-md-3 mb-4">
+                    <div class="shadow-comparison shadow"></div>
+                    <div class="code-example">class="shadow"</div>
+                    <div class="utility-description">Regular shadow</div>
+                </div>
+                
+                <div class="col-md-3 mb-4">
+                    <div class="shadow-comparison shadow-lg"></div>
+                    <div class="code-example">class="shadow-lg"</div>
+                    <div class="utility-description">Large shadow</div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Rounded Pill Utility -->
+        <section class="demo-section">
+            <h2 class="demo-title">Rounded Pill Utility</h2>
+            <p>The <code>rounded-pill</code> utility creates a pill-shaped element with fully rounded sides.</p>
+            
+            <div class="row mb-4">
+                <div class="col-md-3 mb-4">
+                    <button class="btn btn-primary rounded-0 pill-btn w-100">No Rounding</button>
+                    <div class="code-example">class="rounded-0"</div>
+                </div>
+                
+                <div class="col-md-3 mb-4">
+                    <button class="btn btn-primary rounded pill-btn w-100">Rounded</button>
+                    <div class="code-example">class="rounded"</div>
+                </div>
+                
+                <div class="col-md-3 mb-4">
+                    <button class="btn btn-primary rounded-pill pill-btn w-100">Rounded Pill</button>
+                    <div class="code-example">class="rounded-pill"</div>
+                </div>
+                
+                <div class="col-md-3 mb-4">
+                    <button class="btn btn-primary rounded-circle pill-btn" style="width: 100px; height: 100px;">Circle</button>
+                    <div class="code-example">class="rounded-circle"</div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Cards with Shadow and Rounded Pill -->
+        <section class="demo-section">
+            <h2 class="demo-title">Cards with Shadow and Rounded Pill</h2>
+            <p>Combine shadow and rounded-pill utilities with Bootstrap cards for enhanced visual effects.</p>
+            
+            <div class="row">
+                <!-- Basic Card -->
+                <div class="col-md-4 card-container">
+                    <div class="card">
+                        <img src="https://source.unsplash.com/random/800x450/?nature" class="card-img-top" alt="Nature">
+                        <div class="card-body">
+                            <h5 class="card-title">Basic Card</h5>
+                            <p class="card-text">A standard Bootstrap card without any shadow or rounded-pill utilities.</p>
+                            <a href="#" class="btn btn-primary">Learn More</a>
+                        </div>
+                    </div>
+                    <div class="code-example">class="card"</div>
+                </div>
+                
+                <!-- Card with Shadow -->
+                <div class="col-md-4 card-container">
+                    <div class="card shadow">
+                        <img src="https://source.unsplash.com/random/800x450/?mountain" class="card-img-top" alt="Mountain">
+                        <div class="card-body">
+                            <h5 class="card-title">Card with Shadow</h5>
+                            <p class="card-text">A Bootstrap card with a regular shadow applied to create depth.</p>
+                            <a href="#" class="btn btn-primary">Learn More</a>
+                        </div>
+                    </div>
+                    <div class="code-example">class="card shadow"</div>
+                </div>
+                
+                <!-- Card with Large Shadow -->
+                <div class="col-md-4 card-container">
+                    <div class="card shadow-lg">
+                        <img src="https://source.unsplash.com/random/800x450/?ocean" class="card-img-top" alt="Ocean">
+                        <div class="card-body">
+                            <h5 class="card-title">Card with Large Shadow</h5>
+                            <p class="card-text">A Bootstrap card with a large shadow for more pronounced depth.</p>
+                            <a href="#" class="btn btn-primary">Learn More</a>
+                        </div>
+                    </div>
+                    <div class="code-example">class="card shadow-lg"</div>
+                </div>
+            </div>
+            
+            <div class="row mt-4">
+                <!-- Card with Rounded Corners -->
+                <div class="col-md-4 card-container">
+                    <div class="card rounded-3 shadow">
+                        <img src="https://source.unsplash.com/random/800x450/?forest" class="card-img-top rounded-top" alt="Forest">
+                        <div class="card-body">
+                            <h5 class="card-title">Card with Rounded Corners</h5>
+                            <p class="card-text">A Bootstrap card with more pronounced rounded corners and shadow.</p>
+                            <a href="#" class="btn btn-primary rounded-pill">Learn More</a>
+                        </div>
+                    </div>
+                    <div class="code-example">class="card rounded-3 shadow"</div>
+                </div>
+                
+                <!-- Card with Pill Button -->
+                <div class="col-md-4 card-container">
+                    <div class="card shadow">
+                        <img src="https://source.unsplash.com/random/800x450/?beach" class="card-img-top" alt="Beach">
+                        <div class="card-body">
+                            <h5 class="card-title">Card with Pill Button</h5>
+                            <p class="card-text">A Bootstrap card with a rounded-pill button for a softer look.</p>
+                            <a href="#" class="btn btn-primary rounded-pill w-100">Learn More</a>
+                        </div>
+                    </div>
+                    <div class="code-example">Button: class="btn btn-primary rounded-pill"</div>
+                </div>
+                
+                <!-- Card with Pill Badge -->
+                <div class="col-md-4 card-container">
+                    <div class="card shadow-lg">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <h5 class="card-title mb-0">Card with Pill Badge</h5>
+                                <span class="badge bg-success rounded-pill px-3">New</span>
+                            </div>
+                            <p class="card-text">A Bootstrap card with a rounded-pill badge and large shadow.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <a href="#" class="btn btn-outline-primary rounded-pill px-4">Details</a>
+                                <span class="badge bg-primary rounded-pill px-3">$24.99</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="code-example">Badge: class="badge bg-success rounded-pill"</div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Creative Examples -->
+        <section class="demo-section">
+            <h2 class="demo-title">Creative Examples</h2>
+            <p>More complex examples combining shadow, rounded-pill, and other Bootstrap utilities.</p>
+            
+            <div class="row">
+                <!-- Pricing Card -->
+                <div class="col-md-4 card-container">
+                    <div class="card shadow-lg rounded-3 h-100">
+                        <div class="card-header bg-primary text-white text-center py-3">
+                            <h4 class="mb-0">Premium Plan</h4>
+                        </div>
+                        <div class="card-body text-center">
+                            <h2 class="card-title pricing-card-title">$29<small class="text-muted fw-light">/mo</small></h2>
+                            <ul class="list-unstyled mt-3 mb-4">
+                                <li>20 users included</li>
+                                <li>10 GB of storage</li>
+                                <li>Priority email support</li>
+                                <li>Help center access</li>
+                            </ul>
+                            <button type="button" class="btn btn-lg btn-primary rounded-pill w-100">Get started</button>
+                        </div>
+                    </div>
+                    <div class="code-example">class="card shadow-lg rounded-3"</div>
+                </div>
+                
+                <!-- Profile Card -->
+                <div class="col-md-4 card-container">
+                    <div class="card shadow h-100">
+                        <div class="text-center pt-4">
+                            <img src="https://source.unsplash.com/random/150x150/?portrait" class="rounded-circle border border-3 border-white shadow" width="100" height="100" alt="Profile">
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Jane Doe</h5>
+                            <p class="card-text text-muted">UX Designer</p>
+                            <p class="card-text">Creating beautiful and intuitive user experiences for web and mobile applications.</p>
+                            <div class="d-flex justify-content-center gap-2">
+                                <button class="btn btn-sm btn-outline-primary rounded-pill px-3">Follow</button>
+                                <button class="btn btn-sm btn-primary rounded-pill px-3">Message</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="code-example">Profile image: class="rounded-circle shadow"</div>
+                </div>
+                
+                <!-- Feature Card -->
+                <div class="col-md-4 card-container">
+                    <div class="card shadow-lg h-100 border-0">
+                        <div class="card-body">
+                            <div class="d-inline-block bg-primary bg-opacity-10 p-3 rounded-circle mb-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#0d6efd" class="bi bi-shield-check" viewBox="0 0 16 16">
+                                    <path d="M5.338 1.59a61.44 61.44 0 0 0-2.837.856.481.481 0 0 0-.328.39c-.554 4.157.726 7.19 2.253 9.188a10.725 10.725 0 0 0 2.287 2.233c.346.244.652.42.893.533.12.057.218.095.293.118a.55.55 0 0 0 .101.025.615.615 0 0 0 .1-.025c.076-.023.174-.061.294-.118.24-.113.547-.29.893-.533a10.726 10.726 0 0 0 2.287-2.233c1.527-1.997 2.807-5.031 2.253-9.188a.48.48 0 0 0-.328-.39c-.651-.213-1.75-.56-2.837-.855C9.552 1.29 8.531 1.067 8 1.067c-.53 0-1.552.223-2.662.524zM5.072.56C6.157.265 7.31 0 8 0s1.843.265 2.928.56c1.11.3 2.229.655 2.887.87a1.54 1.54 0 0 1 1.044 1.262c.596 4.477-.787 7.795-2.465 9.99a11.775 11.775 0 0 1-2.517 2.453 7.159 7.159 0 0 1-1.048.625c-.28.132-.581.24-.829.24s-.548-.108-.829-.24a7.158 7.158 0 0 1-1.048-.625 11.777 11.777 0 0 1-2.517-2.453C1.928 10.487.545 7.169 1.141 2.692A1.54 1.54 0 0 1 2.185 1.43 62.456 62.456 0 0 1 5.072.56z"/>
+                                    <path d="M10.854 5.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 7.793l2.646-2.647a.5.5 0 0 1 .708 0z"/>
+                                </svg>
+                            </div>
+                            <h4 class="card-title">Enhanced Security</h4>
+                            <p class="card-text">Our platform provides enterprise-grade security with advanced encryption and regular security audits.</p>
+                            <div class="mt-3">
+                                <span class="badge bg-success rounded-pill px-3 me-2">Secure</span>
+                                <span class="badge bg-info rounded-pill px-3">Trusted</span>
+                            </div>
+                        </div>
+                        <div class="card-footer bg-transparent border-0">
+                            <a href="#" class="btn btn-outline-primary rounded-pill w-100">Learn More</a>
+                        </div>
+                    </div>
+                    <div class="code-example">class="card shadow-lg border-0"</div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Floating Card Example -->
+        <section class="demo-section">
+            <h2 class="demo-title">Floating Card Effect</h2>
+            <p>Combine shadow utilities with CSS transitions to create a floating card effect on hover.</p>
+            
+            <div class="row">
+                <div class="col-md-4 mx-auto card-container">
+                    <div class="card shadow rounded-3" style="transition: all 0.3s ease;">
+                        <img src="https://source.unsplash.com/random/800x450/?technology" class="card-img-top rounded-top" alt="Technology">
+                        <div class="card-body">
+                            <h5 class="card-title">Hover Me</h5>
+                            <p class="card-text">This card uses shadow and CSS transitions to create a floating effect when hovered.</p>
+                            <a href="#" class="btn btn-primary rounded-pill">Learn More</a>
+                        </div>
+                    </div>
+                    <div class="code-example mt-3">
+                        <pre>
+.floating-card {
+  transition: all 0.3s ease;
+}
+.floating-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 1rem 3rem rgba(0,0,0,.175)!important;
+}</pre>
+                    </div>
+                </div>
+            </div>
+            
+            <style>
+                .card-container .card {
+                    transition: all 0.3s ease;
+                }
+                .card-container .card:hover {
+                    transform: translateY(-10px);
+                    box-shadow: 0 1rem 3rem rgba(0,0,0,.175)!important;
+                }
+            </style>
+        </section>
+    </div>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

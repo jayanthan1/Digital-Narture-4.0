@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap Column Reordering</title>
+    
+    <!-- Bootstrap 5 CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    
+    <style>
+        body {
+            padding-bottom: 50px;
+        }
+        
+        .demo-section {
+            margin-bottom: 50px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #dee2e6;
+        }
+        
+        .demo-box {
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            text-align: center;
+            height: 100%;
+        }
+        
+        .box-1 {
+            background-color: #cfe2ff;
+            border: 1px solid #9ec5fe;
+        }
+        
+        .box-2 {
+            background-color: #d1e7dd;
+            border: 1px solid #a3cfbb;
+        }
+        
+        .box-3 {
+            background-color: #fff3cd;
+            border: 1px solid #ffecb5;
+        }
+        
+        .code-block {
+            background-color: #f1f1f1;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            font-family: monospace;
+            white-space: pre-wrap;
+        }
+        
+        .order-indicator {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            background-color: #0d6efd;
+            color: white;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+        
+        /* Breakpoint indicator */
+        .breakpoint-indicator {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            z-index: 1000;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Bootstrap Column Reordering</h1>
+        <p class="lead text-center mb-5">This example demonstrates how to reorder columns on different screen sizes using <code>order-*</code> classes.</p>
+        
+        <!-- Basic Order Classes -->
+        <div class="demo-section">
+            <h2 class="mb-4">1. Basic Order Classes</h2>
+            <p>The <code>order-*</code> classes allow you to change the visual order of columns without changing their order in the HTML. The default order value is 0, and you can use values from 1 to 5.</p>
+            
+            <h4 class="mt-4 mb-3">Default Order (No Classes)</h4>
+            <div class="row mb-4">
+                <div class="col-md-4">
+                    <div class="demo-box box-1">
+                        <span class="order-indicator">1</span>
+                        <h5>First in HTML</h5>
+                        <p>This column appears first in the HTML and displays first by default.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="demo-box box-2">
+                        <span class="order-indicator">2</span>
+                        <h5>Second in HTML</h5>
+                        <p>This column appears second in the HTML and displays second by default.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="demo-box box-3">
+                        <span class="order-indicator">3</span>
+                        <h5>Third in HTML</h5>
+                        <p>This column appears third in the HTML and displays third by default.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="code-block">&lt;div class="row"&gt;
+  &lt;div class="col-md-4"&gt;First in HTML&lt;/div&gt;
+  &lt;div class="col-md-4"&gt;Second in HTML&lt;/div&gt;
+  &lt;div class="col-md-4"&gt;Third in HTML&lt;/div&gt;
+&lt;/div&gt;</div>
+            
+            <h4 class="mt-4 mb-3">Reordered with Order Classes</h4>
+            <div class="row mb-4">
+                <div class="col-md-4 order-3">
+                    <div class="demo-box box-1">
+                        <span class="order-indicator">3</span>
+                        <h5>First in HTML</h5>
+                        <p>This column appears first in the HTML but displays third with <code>order-3</code>.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 order-1">
+                    <div class="demo-box box-2">
+                        <span class="order-indicator">1</span>
+                        <h5>Second in HTML</h5>
+                        <p>This column appears second in the HTML but displays first with <code>order-1</code>.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 order-2">
+                    <div class="demo-box box-3">
+                        <span class="order-indicator">2</span>
+                        <h5>Third in HTML</h5>
+                        <p>This column appears third in the HTML but displays second with <code>order-2</code>.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="code-block">&lt;div class="row"&gt;
+  &lt;div class="col-md-4 order-3"&gt;First in HTML&lt;/div&gt;
+  &lt;div class="col-md-4 order-1"&gt;Second in HTML&lt;/div&gt;
+  &lt;div class="col-md-4 order-2"&gt;Third in HTML&lt;/div&gt;
+&lt;/div&gt;</div>
+        </div>
+        
+        <!-- Responsive Order Classes -->
+        <div class="demo-section">
+            <h2 class="mb-4">2. Responsive Order Classes</h2>
+            <p>Bootstrap allows you to apply different order values at different breakpoints using classes like <code>order-md-1</code>, <code>order-lg-2</code>, etc.</p>
+            
+            <div class="alert alert-info mb-4">
+                <h5>Responsive Reordering</h5>
+                <p>In the example below, the columns have different orders on different screen sizes:</p>
+                <ul>
+                    <li>On mobile (default): Columns appear in their HTML order (1-2-3)</li>
+                    <li>On medium screens (≥768px): Columns appear in reverse order (3-2-1)</li>
+                    <li>On large screens (≥992px): Columns appear in a custom order (2-1-3)</li>
+                </ul>
+                <p><strong>Resize your browser window to see the changes!</strong></p>
+            </div>
+            
+            <div class="row mb-4">
+                <div class="col-md-4 order-md-3 order-lg-2">
+                    <div class="demo-box box-1">
+                        <h5>First Column</h5>
+                        <p class="d-block d-md-none">On mobile: Order 1 (default)</p>
+                        <p class="d-none d-md-block d-lg-none">On medium: Order 3 (order-md-3)</p>
+                        <p class="d-none d-lg-block">On large: Order 2 (order-lg-2)</p>
+                    </div>
+                </div>
+                <div class="col-md-4 order-md-2 order-lg-1">
+                    <div class="demo-box box-2">
+                        <h5>Second Column</h5>
+                        <p class="d-block d-md-none">On mobile: Order 2 (default)</p>
+                        <p class="d-none d-md-block d-lg-none">On medium: Order 2 (order-md-2)</p>
+                        <p class="d-none d-lg-block">On large: Order 1 (order-lg-1)</p>
+                    </div>
+                </div>
+                <div class="col-md-4 order-md-1 order-lg-3">
+                    <div class="demo-box box-3">
+                        <h5>Third Column</h5>
+                        <p class="d-block d-md-none">On mobile: Order 3 (default)</p>
+                        <p class="d-none d-md-block d-lg-none">On medium: Order 1 (order-md-1)</p>
+                        <p class="d-none d-lg-block">On large: Order 3 (order-lg-3)</p>
+                    </div>
+                </div>
+            </div>
+            <div class="code-block">&lt;div class="row"&gt;
+  &lt;div class="col-md-4 order-md-3 order-lg-2"&gt;First Column&lt;/div&gt;
+  &lt;div class="col-md-4 order-md-2 order-lg-1"&gt;Second Column&lt;/div&gt;
+  &lt;div class="col-md-4 order-md-1 order-lg-3"&gt;Third Column&lt;/div&gt;
+&lt;/div&gt;</div>
+        </div>
+        
+        <!-- Practical Use Cases -->
+        <div class="demo-section">
+            <h2 class="mb-4">3. Practical Use Cases</h2>
+            
+            <h4 class="mt-4 mb-3">Image-Text Layout Reordering</h4>
+            <p>A common use case is to have an image on the left and text on the right on desktop, but stack them with the image on top on mobile.</p>
+            
+            <div class="card mb-4">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="mb-0">Desktop View (≥768px)</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row align-items-center">
+                        <div class="col-md-6">
+                            <img src="https://via.placeholder.com/600x400" alt="Placeholder Image" class="img-fluid rounded">
+                        </div>
+                        <div class="col-md-6">
+                            <h3>Image on the Left, Text on the Right</h3>
+                            <p>On desktop screens, the image appears on the left and the text appears on the right. This is the default layout for desktop view.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card mb-4">
+                <div class="card-header bg-success text-white">
+                    <h5 class="mb-0">Mobile View (<768px)</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row align-items-center">
+                        <div class="col-12">
+                            <img src="https://via.placeholder.com/600x400" alt="Placeholder Image" class="img-fluid rounded mb-3">
+                        </div>
+                        <div class="col-12">
+                            <h3>Image on Top, Text Below</h3>
+                            <p>On mobile screens, the columns stack vertically with the image on top and the text below. This is the default stacking behavior.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <h4 class="mt-4 mb-3">Alternating Image-Text Sections</h4>
+            <p>For alternating image-text sections, we can use order classes to create a zigzag layout on desktop while maintaining a consistent image-first approach on mobile.</p>
+            
+            <!-- Section 1 -->
+            <div class="row align-items-center mb-5">
+                <div class="col-md-6">
+                    <img src="https://via.placeholder.com/600x400" alt="Placeholder Image" class="img-fluid rounded mb-3 mb-md-0">
+                </div>
+                <div class="col-md-6">
+                    <h3>First Section</h3>
+                    <p>This section has the image on the left and text on the right on desktop. On mobile, the image is on top and the text is below.</p>
+                </div>
+            </div>
+            
+            <!-- Section 2 (with order classes) -->
+            <div class="row align-items-center mb-5">
+                <div class="col-md-6 order-md-2">
+                    <img src="https://via.placeholder.com/600x400" alt="Placeholder Image" class="img-fluid rounded mb-3 mb-md-0">
+                </div>
+                <div class="col-md-6 order-md-1">
+                    <h3>Second Section (Reordered)</h3>
+                    <p>This section has the text on the left and image on the right on desktop, creating an alternating pattern. On mobile, the image is still on top.</p>
+                    <p><strong>Note:</strong> We've used <code>order-md-2</code> for the image and <code>order-md-1</code> for the text to reorder them on medium screens and larger.</p>
+                </div>
+            </div>
+            
+            <div class="code-block">&lt;!-- Section 1 (Default Order) --&gt;
+&lt;div class="row align-items-center"&gt;
+  &lt;div class="col-md-6"&gt;
+    &lt;img src="image.jpg" class="img-fluid"&gt;
+  &lt;/div&gt;
+  &lt;div class="col-md-6"&gt;
+    &lt;h3&gt;First Section&lt;/h3&gt;
+    &lt;p&gt;Content here...&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Section 2 (Reordered) --&gt;
+&lt;div class="row align-items-center"&gt;
+  &lt;div class="col-md-6 order-md-2"&gt;
+    &lt;img src="image.jpg" class="img-fluid"&gt;
+  &lt;/div&gt;
+  &lt;div class="col-md-6 order-md-1"&gt;
+    &lt;h3&gt;Second Section&lt;/h3&gt;
+    &lt;p&gt;Content here...&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</div>
+        </div>
+        
+        <!-- First-Last Reordering -->
+        <div class="demo-section">
+            <h2 class="mb-4">4. First-Last Reordering</h2>
+            <p>Another common pattern is to have certain elements appear first on mobile but last on desktop (or vice versa).</p>
+            
+            <h4 class="mt-4 mb-3">Example: Call-to-Action Button</h4>
+            <p>In this example, we want the call-to-action button to appear at the top on mobile (for visibility) but at the bottom on desktop (after the content).</p>
+            
+            <div class="card mb-4">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="mb-0">Desktop View (≥768px)</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-12 order-md-1">
+                            <h3>Product Information</h3>
+                            <p>This is the main product information that appears first on desktop.</p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in dui mauris. Vivamus hendrerit arcu sed erat molestie vehicula.</p>
+                        </div>
+                        <div class="col-md-12 order-md-2">
+                            <button class="btn btn-success btn-lg">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card mb-4">
+                <div class="card-header bg-success text-white">
+                    <h5 class="mb-0">Mobile View (<768px)</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-12 order-2">
+                            <h3>Product Information</h3>
+                            <p>This is the main product information that appears second on mobile.</p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in dui mauris. Vivamus hendrerit arcu sed erat molestie vehicula.</p>
+                        </div>
+                        <div class="col-12 order-1 mb-3">
+                            <button class="btn btn-success btn-lg">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="code-block">&lt;div class="row"&gt;
+  &lt;div class="col-md-12 order-2 order-md-1"&gt;
+    &lt;h3&gt;Product Information&lt;/h3&gt;
+    &lt;p&gt;This is the main product information...&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div class="col-md-12 order-1 order-md-2 mb-3"&gt;
+    &lt;button class="btn btn-success btn-lg"&gt;Buy Now&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</div>
+        </div>
+    </div>
+    
+    <!-- Breakpoint Indicator -->
+    <div class="breakpoint-indicator">
+        <div class="d-block d-sm-none">Extra Small (xs)</div>
+        <div class="d-none d-sm-block d-md-none">Small (sm)</div>
+        <div class="d-none d-md-block d-lg-none">Medium (md)</div>
+        <div class="d-none d-lg-block d-xl-none">Large (lg)</div>
+        <div class="d-none d-xl-block d-xxl-none">Extra Large (xl)</div>
+        <div class="d-none d-xxl-block">Extra Extra Large (xxl)</div>
+    </div>
+
+    <!-- Bootstrap 5 JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+</body>
+</html>

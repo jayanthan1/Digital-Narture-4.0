@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 16.2 - Position Relative and Absolute</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <style>
+        .demo-section {
+            padding: 2rem;
+            margin-bottom: 2rem;
+            background-color: #f8f9fa;
+            border-radius: 0.5rem;
+        }
+        
+        .demo-title {
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #dee2e6;
+        }
+        
+        .code-example {
+            background-color: #f1f1f1;
+            padding: 0.5rem;
+            border-radius: 0.25rem;
+            margin-top: 0.5rem;
+            font-family: monospace;
+            font-size: 0.9rem;
+        }
+        
+        .utility-description {
+            font-size: 0.9rem;
+            color: #6c757d;
+            margin-top: 0.5rem;
+        }
+        
+        .image-container {
+            margin-bottom: 1.5rem;
+        }
+        
+        /* Custom styles for the examples */
+        .custom-badge {
+            font-size: 0.8rem;
+            padding: 0.35em 0.65em;
+        }
+        
+        .product-card {
+            transition: transform 0.3s ease;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+    </style>
+</head>
+<body>
+    <div class="container py-5">
+        <h1 class="text-center mb-5">Overlaying Badges on Images with Positioning Utilities</h1>
+        
+        <!-- Introduction -->
+        <div class="alert alert-primary mb-5">
+            <h4 class="alert-heading">About This Exercise</h4>
+            <p>This exercise demonstrates how to use Bootstrap's positioning utilities to overlay badges on images:</p>
+            <ul>
+                <li><code>position-relative</code> - Applied to the container element</li>
+                <li><code>position-absolute</code> - Applied to the badge element</li>
+                <li>Position utilities like <code>top-0</code>, <code>start-0</code>, etc. - Control badge placement</li>
+            </ul>
+            <p>These utilities allow you to place badges, labels, or other elements precisely over images or other content.</p>
+        </div>
+        
+        <!-- How It Works -->
+        <section class="demo-section">
+            <h2 class="demo-title">How Relative and Absolute Positioning Work Together</h2>
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>The Positioning Relationship:</h5>
+                    <ol>
+                        <li>The parent element is set to <code>position-relative</code></li>
+                        <li>The badge/overlay is set to <code>position-absolute</code></li>
+                        <li>The badge is positioned using utilities like <code>top-0</code>, <code>end-0</code>, etc.</li>
+                        <li>The badge is now positioned relative to its parent, not the page</li>
+                    </ol>
+                    
+                    <div class="code-example mt-3">
+                        <pre>&lt;div class="position-relative"&gt;
+    &lt;img src="..." class="img-fluid" alt="..."&gt;
+    &lt;span class="position-absolute top-0 start-0 badge bg-primary"&gt;
+        New
+    &lt;/span&gt;
+&lt;/div&gt;</pre>
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                    <h5>Key Positioning Utilities:</h5>
+                    <ul>
+                        <li><code>top-0</code>, <code>top-50</code>, <code>top-100</code> - Vertical position (top, middle, bottom)</li>
+                        <li><code>start-0</code>, <code>start-50</code>, <code>start-100</code> - Horizontal position from start (left in LTR)</li>
+                        <li><code>end-0</code>, <code>end-50</code>, <code>end-100</code> - Horizontal position from end (right in LTR)</li>
+                        <li><code>translate-middle</code> - Centers an element when used with <code>top-50 start-50</code></li>
+                        <li><code>translate-middle-x</code> - Centers horizontally only</li>
+                        <li><code>translate-middle-y</code> - Centers vertically only</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Basic Examples -->
+        <section class="demo-section">
+            <h2 class="demo-title">Basic Badge Overlay Examples</h2>
+            <p>Here are examples of badges positioned at different corners of an image:</p>
+            
+            <div class="row">
+                <!-- Top Left Badge -->
+                <div class="col-md-3 mb-4">
+                    <div class="image-container">
+                        <div class="position-relative">
+                            <img src="https://source.unsplash.com/random/400x300/?nature" alt="Nature" class="img-fluid rounded">
+                            <span class="position-absolute top-0 start-0 badge bg-primary">
+                                Top Left
+                            </span>
+                        </div>
+                        <div class="code-example mt-2">
+                            <code>position-absolute top-0 start-0</code>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Top Right Badge -->
+                <div class="col-md-3 mb-4">
+                    <div class="image-container">
+                        <div class="position-relative">
+                            <img src="https://source.unsplash.com/random/400x300/?mountain" alt="Mountain" class="img-fluid rounded">
+                            <span class="position-absolute top-0 end-0 badge bg-danger">
+                                Top Right
+                            </span>
+                        </div>
+                        <div class="code-example mt-2">
+                            <code>position-absolute top-0 end-0</code>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Bottom Left Badge -->
+                <div class="col-md-3 mb-4">
+                    <div class="image-container">
+                        <div class="position-relative">
+                            <img src="https://source.unsplash.com/random/400x300/?forest" alt="Forest" class="img-fluid rounded">
+                            <span class="position-absolute bottom-0 start-0 badge bg-success">
+                                Bottom Left
+                            </span>
+                        </div>
+                        <div class="code-example mt-2">
+                            <code>position-absolute bottom-0 start-0</code>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Bottom Right Badge -->
+                <div class="col-md-3 mb-4">
+                    <div class="image-container">
+                        <div class="position-relative">
+                            <img src="https://source.unsplash.com/random/400x300/?ocean" alt="Ocean" class="img-fluid rounded">
+                            <span class="position-absolute bottom-0 end-0 badge bg-info">
+                                Bottom Right
+                            </span>
+                        </div>
+                        <div class="code-example mt-2">
+                            <code>position-absolute bottom-0 end-0</code>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Centered Badges -->
+        <section class="demo-section">
+            <h2 class="demo-title">Centered Badge Positioning</h2>
+            <p>You can center badges using the <code>translate-middle</code> utilities:</p>
+            
+            <div class="row">
+                <!-- Center Badge -->
+                <div class="col-md-4 mb-4">
+                    <div class="image-container">
+                        <div class="position-relative">
+                            <img src="https://source.unsplash.com/random/400x300/?landscape" alt="Landscape" class="img-fluid rounded">
+                            <span class="position-absolute top-50 start-50 translate-middle badge bg-dark">
+                                Center
+                            </span>
+                        </div>
+                        <div class="code-example mt-2">
+                            <code>position-absolute top-50 start-50 translate-middle</code>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Center Top Badge -->
+                <div class="col-md-4 mb-4">
+                    <div class="image-container">
+                        <div class="position-relative">
+                            <img src="https://source.unsplash.com/random/400x300/?city" alt="City" class="img-fluid rounded">
+                            <span class="position-absolute top-0 start-50 translate-middle-x badge bg-warning text-dark">
+                                Center Top
+                            </span>
+                        </div>
+                        <div class="code-example mt-2">
+                            <code>position-absolute top-0 start-50 translate-middle-x</code>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Center Left Badge -->
+                <div class="col-md-4 mb-4">
+                    <div class="image-container">
+                        <div class="position-relative">
+                            <img src="https://source.unsplash.com/random/400x300/?architecture" alt="Architecture" class="img-fluid rounded">
+                            <span class="position-absolute top-50 start-0 translate-middle-y badge bg-secondary">
+                                Center Left
+                            </span>
+                        </div>
+                        <div class="code-example mt-2">
+                            <code>position-absolute top-50 start-0 translate-middle-y</code>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Badge with Offset -->
+        <section class="demo-section">
+            <h2 class="demo-title">Badge with Offset</h2>
+            <p>You can use margin utilities to offset badges from their positioned corners:</p>
+            
+            <div class="row">
+                <!-- Offset Badge -->
+                <div class="col-md-6 mb-4">
+                    <div class="image-container">
+                        <div class="position-relative">
+                            <img src="https://source.unsplash.com/random/500x300/?travel" alt="Travel" class="img-fluid rounded">
+                            <span class="position-absolute top-0 end-0 translate-middle badge rounded-pill bg-danger">
+                                Hot Deal
+                                <span class="visually-hidden">hot deal</span>
+                            </span>
+                        </div>
+                        <div class="code-example mt-2">
+                            <code>position-absolute top-0 end-0 translate-middle</code>
+                        </div>
+                        <div class="utility-description">
+                            The <code>translate-middle</code> class shifts the badge to be centered on the corner rather than inside it.
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Custom Offset Badge -->
+                <div class="col-md-6 mb-4">
+                    <div class="image-container">
+                        <div class="position-relative">
+                            <img src="https://source.unsplash.com/random/500x300/?food" alt="Food" class="img-fluid rounded">
+                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success">
+                                New
+                                <span class="visually-hidden">new item</span>
+                            </span>
+                        </div>
+                        <div class="code-example mt-2">
+                            <code>position-absolute top-0 start-100 translate-middle</code>
+                        </div>
+                        <div class="utility-description">
+                            Using <code>start-100</code> positions the badge at the right edge, and <code>translate-middle</code> centers it on that point.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Practical Examples -->
+        <section class="demo-section">
+            <h2 class="demo-title">Practical Examples</h2>
+            <p>Here are some real-world examples of using position utilities to overlay badges on images:</p>
+            
+            <div class="row">
+                <!-- Product Card with Sale Badge -->
+                <div class="col-md-4 mb-4">
+                    <div class="card product-card h-100">
+                        <div class="position-relative">
+                            <img src="https://source.unsplash.com/random/400x300/?product" class="card-img-top" alt="Product">
+                            <span class="position-absolute top-0 start-0 badge bg-danger m-2">SALE -20%</span>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Premium Headphones</h5>
+                            <p class="card-text">High-quality wireless headphones with noise cancellation.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <span class="text-decoration-line-through text-muted">$129.99</span>
+                                    <span class="fw-bold ms-2">$99.99</span>
+                                </div>
+                                <button class="btn btn-sm btn-primary">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Image Gallery with Category Badge -->
+                <div class="col-md-4 mb-4">
+                    <div class="card product-card h-100">
+                        <div class="position-relative">
+                            <img src="https://source.unsplash.com/random/400x300/?landscape" class="card-img-top" alt="Landscape">
+                            <span class="position-absolute bottom-0 end-0 badge bg-dark bg-opacity-75 m-2">Nature</span>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Mountain Sunrise</h5>
+                            <p class="card-text">Beautiful sunrise captured in the Rocky Mountains during summer.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <small class="text-muted">By John Photographer</small>
+                                <div>
+                                    <button class="btn btn-sm btn-outline-secondary">
+                                        <i class="bi bi-heart"></i>
+                                    </button>
+                                    <button class="btn btn-sm btn-outline-secondary ms-1">
+                                        <i class="bi bi-download"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Blog Post with Featured Badge -->
+                <div class="col-md-4 mb-4">
+                    <div class="card product-card h-100">
+                        <div class="position-relative">
+                            <img src="https://source.unsplash.com/random/400x300/?technology" class="card-img-top" alt="Technology">
+                            <div class="position-absolute top-50 start-50 translate-middle">
+                                <span class="badge bg-primary p-2 rounded-circle">
+                                    <i class="bi bi-star-fill fs-4"></i>
+                                </span>
+                            </div>
+                            <span class="position-absolute top-0 end-0 badge bg-warning text-dark m-2">Featured</span>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">The Future of AI</h5>
+                            <p class="card-text">Exploring how artificial intelligence is shaping our world and what to expect in the coming years.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <small class="text-muted">5 min read</small>
+                                <button class="btn btn-sm btn-outline-primary">Read More</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Advanced Examples -->
+        <section class="demo-section">
+            <h2 class="demo-title">Advanced Examples</h2>
+            <p>Here are some more advanced examples of using position utilities:</p>
+            
+            <div class="row">
+                <!-- Image with Multiple Badges -->
+                <div class="col-md-6 mb-4">
+                    <div class="position-relative">
+                        <img src="https://source.unsplash.com/random/600x400/?house" alt="House" class="img-fluid rounded">
+                        <span class="position-absolute top-0 start-0 badge bg-primary m-3">For Sale</span>
+                        <span class="position-absolute top-0 end-0 badge bg-success m-3">New Listing</span>
+                        <div class="position-absolute bottom-0 start-0 end-0 bg-dark bg-opacity-75 text-white p-2">
+                            <div class="d-flex justify-content-between">
+                                <span>$450,000</span>
+                                <span>3 bed, 2 bath</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="code-example mt-2">
+                        <pre>&lt;div class="position-relative"&gt;
+    &lt;img src="..." class="img-fluid rounded" alt="..."&gt;
+    &lt;span class="position-absolute top-0 start-0 badge bg-primary m-3"&gt;For Sale&lt;/span&gt;
+    &lt;span class="position-absolute top-0 end-0 badge bg-success m-3"&gt;New Listing&lt;/span&gt;
+    &lt;div class="position-absolute bottom-0 start-0 end-0 bg-dark bg-opacity-75 text-white p-2"&gt;
+        &lt;div class="d-flex justify-content-between"&gt;
+            &lt;span&gt;$450,000&lt;/span&gt;
+            &lt;span&gt;3 bed, 2 bath&lt;/span&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</pre>
+                    </div>
+                </div>
+                
+                <!-- Image with Overlay Text -->
+                <div class="col-md-6 mb-4">
+                    <div class="position-relative">
+                        <img src="https://source.unsplash.com/random/600x400/?event" alt="Event" class="img-fluid rounded">
+                        <div class="position-absolute top-0 start-0 end-0 bottom-0 d-flex flex-column justify-content-center align-items-center text-white" style="background-color: rgba(0,0,0,0.5);">
+                            <h3>Summer Music Festival</h3>
+                            <p class="mb-0">July 15-17, 2025</p>
+                            <button class="btn btn-outline-light mt-3">Get Tickets</button>
+                        </div>
+                        <span class="position-absolute bottom-0 end-0 badge bg-danger m-3">Limited Tickets</span>
+                    </div>
+                    <div class="code-example mt-2">
+                        <pre>&lt;div class="position-relative"&gt;
+    &lt;img src="..." class="img-fluid rounded" alt="..."&gt;
+    &lt;div class="position-absolute top-0 start-0 end-0 bottom-0 d-flex flex-column 
+         justify-content-center align-items-center text-white" 
+         style="background-color: rgba(0,0,0,0.5);"&gt;
+        &lt;h3&gt;Summer Music Festival&lt;/h3&gt;
+        &lt;p class="mb-0"&gt;July 15-17, 2025&lt;/p&gt;
+        &lt;button class="btn btn-outline-light mt-3"&gt;Get Tickets&lt;/button&gt;
+    &lt;/div&gt;
+    &lt;span class="position-absolute bottom-0 end-0 badge bg-danger m-3"&gt;Limited Tickets&lt;/span&gt;
+&lt;/div&gt;</pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Interactive Example -->
+        <section class="demo-section">
+            <h2 class="demo-title">Interactive Badge Positioning</h2>
+            <p>This example shows a product card with a badge that you can position using the controls below:</p>
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="position-relative" id="interactiveDemo">
+                        <img src="https://source.unsplash.com/random/600x400/?product" alt="Product" class="img-fluid rounded">
+                        <span id="movableBadge" class="position-absolute top-0 start-0 badge bg-primary">
+                            SALE
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="mb-0">Badge Position Controls</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="mb-3">
+                                <label class="form-label">Vertical Position:</label>
+                                <div class="btn-group w-100" role="group">
+                                    <input type="radio" class="btn-check" name="verticalPos" id="posTop" checked>
+                                    <label class="btn btn-outline-primary" for="posTop">top-0</label>
+                                    
+                                    <input type="radio" class="btn-check" name="verticalPos" id="posMiddle">
+                                    <label class="btn btn-outline-primary" for="posMiddle">top-50</label>
+                                    
+                                    <input type="radio" class="btn-check" name="verticalPos" id="posBottom">
+                                    <label class="btn btn-outline-primary" for="posBottom">bottom-0</label>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label class="form-label">Horizontal Position:</label>
+                                <div class="btn-group w-100" role="group">
+                                    <input type="radio" class="btn-check" name="horizontalPos" id="posLeft" checked>
+                                    <label class="btn btn-outline-primary" for="posLeft">start-0</label>
+                                    
+                                    <input type="radio" class="btn-check" name="horizontalPos" id="posCenter">
+                                    <label class="btn btn-outline-primary" for="posCenter">start-50</label>
+                                    
+                                    <input type="radio" class="btn-check" name="horizontalPos" id="posRight">
+                                    <label class="btn btn-outline-primary" for="posRight">end-0</label>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label class="form-label">Translation:</label>
+                                <div class="btn-group w-100" role="group">
+                                    <input type="radio" class="btn-check" name="translation" id="transNone" checked>
+                                    <label class="btn btn-outline-primary" for="transNone">None</label>
+                                    
+                                    <input type="radio" class="btn-check" name="translation" id="transMiddle">
+                                    <label class="btn btn-outline-primary" for="transMiddle">translate-middle</label>
+                                    
+                                    <input type="radio" class="btn-check" name="translation" id="transMiddleX">
+                                    <label class="btn btn-outline-primary" for="transMiddleX">translate-middle-x</label>
+                                    
+                                    <input type="radio" class="btn-check" name="translation" id="transMiddleY">
+                                    <label class="btn btn-outline-primary" for="transMiddleY">translate-middle-y</label>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label class="form-label">Badge Style:</label>
+                                <div class="btn-group w-100" role="group">
+                                    <input type="radio" class="btn-check" name="badgeStyle" id="stylePrimary" checked>
+                                    <label class="btn btn-outline-primary" for="stylePrimary">Primary</label>
+                                    
+                                    <input type="radio" class="btn-check" name="badgeStyle" id="styleDanger">
+                                    <label class="btn btn-outline-danger" for="styleDanger">Danger</label>
+                                    
+                                    <input type="radio" class="btn-check" name="badgeStyle" id="styleSuccess">
+                                    <label class="btn btn-outline-success" for="styleSuccess">Success</label>
+                                    
+                                    <input type="radio" class="btn-check" name="badgeStyle" id="styleWarning">
+                                    <label class="btn btn-outline-warning" for="styleWarning">Warning</label>
+                                </div>
+                            </div>
+                            
+                            <div class="code-example mt-3">
+                                <code id="currentCode">position-absolute top-0 start-0 badge bg-primary</code>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JavaScript for Interactive Demo -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const badge = document.getElementById('movableBadge');
+            const codeDisplay = document.getElementById('currentCode');
+            
+            // Vertical Position
+            document.querySelectorAll('input[name="verticalPos"]').forEach(input => {
+                input.addEventListener('change', updateBadgePosition);
+            });
+            
+            // Horizontal Position
+            document.querySelectorAll('input[name="horizontalPos"]').forEach(input => {
+                input.addEventListener('change', updateBadgePosition);
+            });
+            
+            // Translation
+            document.querySelectorAll('input[name="translation"]').forEach(input => {
+                input.addEventListener('change', updateBadgePosition);
+            });
+            
+            // Badge Style
+            document.querySelectorAll('input[name="badgeStyle"]').forEach(input => {
+                input.addEventListener('change', updateBadgeStyle);
+            });
+            
+            function updateBadgePosition() {
+                // Reset classes
+                badge.className = 'position-absolute badge';
+                
+                // Vertical Position
+                if (document.getElementById('posTop').checked) {
+                    badge.classList.add('top-0');
+                } else if (document.getElementById('posMiddle').checked) {
+                    badge.classList.add('top-50');
+                } else if (document.getElementById('posBottom').checked) {
+                    badge.classList.add('bottom-0');
+                }
+                
+                // Horizontal Position
+                if (document.getElementById('posLeft').checked) {
+                    badge.classList.add('start-0');
+                } else if (document.getElementById('posCenter').checked) {
+                    badge.classList.add('start-50');
+                } else if (document.getElementById('posRight').checked) {
+                    badge.classList.add('end-0');
+                }
+                
+                // Translation
+                if (document.getElementById('transMiddle').checked) {
+                    badge.classList.add('translate-middle');
+                } else if (document.getElementById('transMiddleX').checked) {
+                    badge.classList.add('translate-middle-x');
+                } else if (document.getElementById('transMiddleY').checked) {
+                    badge.classList.add('translate-middle-y');
+                }
+                
+                // Badge Style
+                updateBadgeStyle();
+                
+                // Update code display
+                codeDisplay.textContent = badge.className;
+            }
+            
+            function updateBadgeStyle() {
+                // Remove all bg-* classes
+                badge.classList.remove('bg-primary', 'bg-danger', 'bg-success', 'bg-warning', 'text-dark');
+                
+                // Add selected style
+                if (document.getElementById('stylePrimary').checked) {
+                    badge.classList.add('bg-primary');
+                } else if (document.getElementById('styleDanger').checked) {
+                    badge.classList.add('bg-danger');
+                } else if (document.getElementById('styleSuccess').checked) {
+                    badge.classList.add('bg-success');
+                } else if (document.getElementById('styleWarning').checked) {
+                    badge.classList.add('bg-warning', 'text-dark');
+                }
+                
+                // Update code display
+                codeDisplay.textContent = badge.className;
+            }
+        });
+    </script>
+</body>
+</html>

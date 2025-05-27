@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap Floating Label Login Form</title>
+    
+    <!-- Bootstrap 5 CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    
+    <style>
+        body {
+            background-color: #f5f5f5;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 40px;
+            padding-bottom: 40px;
+        }
+        
+        .login-container {
+            max-width: 400px;
+            padding: 30px;
+            margin: auto;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+        }
+        
+        .brand-logo {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 20px;
+        }
+        
+        .form-floating {
+            margin-bottom: 16px;
+        }
+        
+        .btn-login {
+            font-size: 1rem;
+            letter-spacing: 0.05rem;
+            padding: 0.75rem 1rem;
+        }
+        
+        .social-btn {
+            font-size: 0.9rem;
+            padding: 0.6rem 1rem;
+        }
+        
+        .divider-text {
+            position: relative;
+            text-align: center;
+            margin: 25px 0;
+        }
+        
+        .divider-text span {
+            padding: 0 15px;
+            background-color: #fff;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .divider-text:after {
+            content: "";
+            position: absolute;
+            width: 100%;
+            border-bottom: 1px solid #ddd;
+            top: 50%;
+            left: 0;
+            z-index: 1;
+        }
+        
+        .code-block {
+            background-color: #f1f1f1;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            font-family: monospace;
+            white-space: pre-wrap;
+        }
+        
+        .explanation {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            border-left: 4px solid #0d6efd;
+        }
+        
+        .demo-section {
+            margin-top: 50px;
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 mx-auto">
+                <!-- Login Form -->
+                <div class="login-container">
+                    <div class="text-center mb-4">
+                        <img src="https://via.placeholder.com/80" alt="Brand Logo" class="brand-logo">
+                        <h2 class="mb-3">Welcome Back</h2>
+                        <p class="text-muted">Please login to your account</p>
+                    </div>
+                    
+                    <form id="loginForm">
+                        <!-- Email Input with Floating Label -->
+                        <div class="form-floating mb-3">
+                            <input type="email" class="form-control" id="floatingEmail" placeholder="name@example.com" required>
+                            <label for="floatingEmail">Email address</label>
+                        </div>
+                        
+                        <!-- Password Input with Floating Label -->
+                        <div class="form-floating mb-3">
+                            <input type="password" class="form-control" id="floatingPassword" placeholder="Password" required>
+                            <label for="floatingPassword">Password</label>
+                        </div>
+                        
+                        <!-- Remember Me Checkbox -->
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" type="checkbox" id="rememberCheck">
+                            <label class="form-check-label" for="rememberCheck">
+                                Remember me
+                            </label>
+                            <a href="#" class="float-end text-decoration-none">Forgot password?</a>
+                        </div>
+                        
+                        <!-- Login Button -->
+                        <div class="d-grid gap-2 mb-4">
+                            <button class="btn btn-primary btn-login" type="submit">
+                                <i class="bi bi-box-arrow-in-right me-2"></i>Log In
+                            </button>
+                        </div>
+                        
+                        <!-- Divider -->
+                        <div class="divider-text">
+                            <span class="text-muted">or continue with</span>
+                        </div>
+                        
+                        <!-- Social Login Buttons -->
+                        <div class="row mb-4">
+                            <div class="col-4">
+                                <a href="#" class="btn btn-outline-dark social-btn w-100">
+                                    <i class="bi bi-google"></i>
+                                </a>
+                            </div>
+                            <div class="col-4">
+                                <a href="#" class="btn btn-outline-dark social-btn w-100">
+                                    <i class="bi bi-facebook"></i>
+                                </a>
+                            </div>
+                            <div class="col-4">
+                                <a href="#" class="btn btn-outline-dark social-btn w-100">
+                                    <i class="bi bi-twitter"></i>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <!-- Sign Up Link -->
+                        <div class="text-center">
+                            <p>Don't have an account? <a href="#" class="text-decoration-none">Sign up</a></p>
+                        </div>
+                    </form>
+                </div>
+                
+                <!-- Form-Floating Explanation -->
+                <div class="demo-section mt-5">
+                    <h2 class="mb-4">Bootstrap Form-Floating Component</h2>
+                    
+                    <p>The <code>form-floating</code> component in Bootstrap 5 creates a sleek, modern form input style where the label floats above the input field when the field has content or is focused.</p>
+                    
+                    <div class="explanation">
+                        <h4>Basic Form-Floating Structure</h4>
+                        <p>The basic structure requires the <code>form-floating</code> class on a wrapper div, with the input element placed <strong>before</strong> the label:</p>
+                        <div class="code-block">
+&lt;div class="form-floating"&gt;
+    &lt;input type="email" class="form-control" id="floatingEmail" placeholder="name@example.com"&gt;
+    &lt;label for="floatingEmail"&gt;Email address&lt;/label&gt;
+&lt;/div&gt;</div>
+                        <p><strong>Important:</strong> The placeholder is required for the floating label to work properly, even though it won't be visible to users.</p>
+                    </div>
+                    
+                    <div class="explanation">
+                        <h4>How Form-Floating Works</h4>
+                        <p>The floating label component works through a combination of CSS positioning and the <code>:placeholder-shown</code> pseudo-element:</p>
+                        <ol>
+                            <li>When the input is empty and not focused, the label appears to be a placeholder inside the input.</li>
+                            <li>When the input receives focus or contains text, the label "floats" up above the input field.</li>
+                            <li>This creates a clean, intuitive interface that maintains context even when the user is typing.</li>
+                        </ol>
+                    </div>
+                    
+                    <div class="explanation">
+                        <h4>Supported Form Controls</h4>
+                        <p>Form-floating works with the following form controls:</p>
+                        <ul>
+                            <li><code>&lt;input&gt;</code> elements of most types (text, email, password, etc.)</li>
+                            <li><code>&lt;select&gt;</code> elements</li>
+                            <li><code>&lt;textarea&gt;</code> elements</li>
+                        </ul>
+                        <p>Example with textarea:</p>
+                        <div class="code-block">
+&lt;div class="form-floating"&gt;
+    &lt;textarea class="form-control" id="floatingTextarea" placeholder="Leave a comment here"&gt;&lt;/textarea&gt;
+    &lt;label for="floatingTextarea"&gt;Comments&lt;/label&gt;
+&lt;/div&gt;</div>
+                    </div>
+                    
+                    <div class="explanation">
+                        <h4>Form-Floating with Select</h4>
+                        <p>You can also use form-floating with select elements:</p>
+                        <div class="code-block">
+&lt;div class="form-floating"&gt;
+    &lt;select class="form-select" id="floatingSelect" aria-label="Floating label select example"&gt;
+        &lt;option selected&gt;Open this select menu&lt;/option&gt;
+        &lt;option value="1"&gt;One&lt;/option&gt;
+        &lt;option value="2"&gt;Two&lt;/option&gt;
+        &lt;option value="3"&gt;Three&lt;/option&gt;
+    &lt;/select&gt;
+    &lt;label for="floatingSelect"&gt;Works with selects&lt;/label&gt;
+&lt;/div&gt;</div>
+                    </div>
+                    
+                    <div class="explanation">
+                        <h4>Live Examples</h4>
+                        <p>Try out the form-floating component with different input types:</p>
+                        
+                        <h5 class="mt-4">Email Input</h5>
+                        <div class="form-floating mb-3">
+                            <input type="email" class="form-control" id="demoEmail" placeholder="name@example.com">
+                            <label for="demoEmail">Email address</label>
+                        </div>
+                        
+                        <h5>Password Input</h5>
+                        <div class="form-floating mb-3">
+                            <input type="password" class="form-control" id="demoPassword" placeholder="Password">
+                            <label for="demoPassword">Password</label>
+                        </div>
+                        
+                        <h5>Select Menu</h5>
+                        <div class="form-floating mb-3">
+                            <select class="form-select" id="demoSelect">
+                                <option selected disabled value="">Choose an option</option>
+                                <option value="1">Option 1</option>
+                                <option value="2">Option 2</option>
+                                <option value="3">Option 3</option>
+                            </select>
+                            <label for="demoSelect">Select example</label>
+                        </div>
+                        
+                        <h5>Textarea</h5>
+                        <div class="form-floating mb-3">
+                            <textarea class="form-control" id="demoTextarea" placeholder="Leave a comment here" style="height: 100px"></textarea>
+                            <label for="demoTextarea">Comments</label>
+                        </div>
+                    </div>
+                    
+                    <div class="explanation">
+                        <h4>Accessibility Considerations</h4>
+                        <p>While form-floating creates a visually appealing interface, keep these accessibility considerations in mind:</p>
+                        <ul>
+                            <li>Always ensure proper label-input associations using the <code>for</code> and <code>id</code> attributes.</li>
+                            <li>The placeholder text is not visible to users when the input has content, so don't rely on it for critical instructions.</li>
+                            <li>Consider adding <code>aria-describedby</code> for any additional form instructions.</li>
+                            <li>Test your forms with keyboard navigation and screen readers.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="explanation">
+                        <h4>Best Practices</h4>
+                        <ul>
+                            <li>Use clear, concise labels that describe the expected input.</li>
+                            <li>Maintain consistent spacing between form-floating elements (Bootstrap's <code>mb-3</code> utility works well).</li>
+                            <li>Combine with validation states and feedback when appropriate.</li>
+                            <li>For complex forms, consider grouping related floating inputs together with fieldsets and legends.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    
+    <!-- Form Validation Script -->
+    <script>
+        // Form validation
+        (function() {
+            'use strict';
+            
+            // Fetch the form we want to apply custom Bootstrap validation styles to
+            var form = document.getElementById('loginForm');
+            
+            // Handle form submission
+            form.addEventListener('submit', function(event) {
+                if (!form.checkValidity()) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                } else {
+                    // If form is valid, prevent actual submission for this demo
+                    event.preventDefault();
+                    alert('Login successful!');
+                }
+                
+                form.classList.add('was-validated');
+            }, false);
+        })();
+    </script>
+</body>
+</html>

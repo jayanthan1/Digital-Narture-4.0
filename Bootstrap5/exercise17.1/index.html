@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 17.1 - Bootstrap Icons: Social Media Footer</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <style>
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        main {
+            flex: 1;
+        }
+        
+        .footer-icon {
+            font-size: 1.5rem;
+            margin: 0 0.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-icon:hover {
+            transform: translateY(-5px);
+        }
+        
+        .bi-facebook {
+            color: #1877F2;
+        }
+        
+        .bi-twitter-x {
+            color: #000000;
+        }
+        
+        .bi-instagram {
+            color: #E4405F;
+        }
+        
+        .bi-linkedin {
+            color: #0A66C2;
+        }
+        
+        .bi-youtube {
+            color: #FF0000;
+        }
+        
+        .bi-github {
+            color: #333333;
+        }
+        
+        .demo-section {
+            padding: 2rem;
+            margin-bottom: 2rem;
+            background-color: #f8f9fa;
+            border-radius: 0.5rem;
+        }
+        
+        .demo-title {
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #dee2e6;
+        }
+        
+        .code-example {
+            background-color: #f1f1f1;
+            padding: 1rem;
+            border-radius: 0.25rem;
+            margin-top: 1rem;
+            font-family: monospace;
+            font-size: 0.9rem;
+        }
+        
+        .icon-grid .col {
+            text-align: center;
+            padding: 1rem;
+            border: 1px solid #dee2e6;
+            margin: 0.25rem;
+            border-radius: 0.25rem;
+        }
+        
+        .icon-grid i {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        
+        .icon-name {
+            font-size: 0.8rem;
+            color: #6c757d;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="bg-dark text-white py-3">
+        <div class="container">
+            <h1 class="display-5">Bootstrap Icons: Social Media Footer</h1>
+            <p class="lead">Exercise 17.1 - Installing and using Bootstrap Icons in a webpage</p>
+        </div>
+    </header>
+    
+    <!-- Main Content -->
+    <main class="container py-5">
+        <!-- Introduction -->
+        <div class="alert alert-primary mb-5">
+            <h4 class="alert-heading">About This Exercise</h4>
+            <p>This exercise demonstrates how to install and use Bootstrap Icons in your web projects, with a focus on creating social media icons in a footer. Bootstrap Icons is a free, high-quality icon library with over 1,800 icons that can be used in your web projects.</p>
+            <hr>
+            <p class="mb-0">The examples below show different ways to implement social media icons in footers, along with code snippets and explanations.</p>
+        </div>
+        
+        <!-- How to Install Bootstrap Icons -->
+        <section class="demo-section">
+            <h2 class="demo-title">How to Install Bootstrap Icons</h2>
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>Method 1: CDN</h5>
+                    <p>The easiest way to include Bootstrap Icons is via CDN. Add this link in your <code>&lt;head&gt;</code> section:</p>
+                    <div class="code-example">
+                        <pre>&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css"&gt;</pre>
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                    <h5>Method 2: npm</h5>
+                    <p>If you're using npm, you can install Bootstrap Icons with:</p>
+                    <div class="code-example">
+                        <pre>npm i bootstrap-icons</pre>
+                    </div>
+                    <p>Then import it in your CSS or JavaScript:</p>
+                    <div class="code-example">
+                        <pre>@import "bootstrap-icons/font/bootstrap-icons.css";</pre>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row mt-4">
+                <div class="col-md-6">
+                    <h5>Method 3: Download</h5>
+                    <p>You can download the icons from the official Bootstrap Icons website:</p>
+                    <a href="https://icons.getbootstrap.com/" target="_blank" class="btn btn-primary">
+                        <i class="bi bi-download me-2"></i>Download Bootstrap Icons
+                    </a>
+                </div>
+                
+                <div class="col-md-6">
+                    <h5>Method 4: Individual SVG Files</h5>
+                    <p>You can also use individual SVG files for each icon:</p>
+                    <div class="code-example">
+                        <pre>&lt;img src="/path/to/bootstrap-icons/facebook.svg" alt="Facebook"&gt;</pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- How to Use Bootstrap Icons -->
+        <section class="demo-section">
+            <h2 class="demo-title">How to Use Bootstrap Icons</h2>
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>Basic Usage</h5>
+                    <p>To use Bootstrap Icons, simply add the <code>bi</code> class followed by the specific icon name:</p>
+                    <div class="code-example">
+                        <pre>&lt;i class="bi bi-facebook"&gt;&lt;/i&gt;</pre>
+                    </div>
+                    <p>Result: <i class="bi bi-facebook"></i></p>
+                </div>
+                
+                <div class="col-md-6">
+                    <h5>Sizing Icons</h5>
+                    <p>You can control the size of icons using font-size:</p>
+                    <div class="code-example">
+                        <pre>&lt;i class="bi bi-facebook" style="font-size: 2rem;"&gt;&lt;/i&gt;</pre>
+                    </div>
+                    <p>Result: <i class="bi bi-facebook" style="font-size: 2rem;"></i></p>
+                </div>
+            </div>
+            
+            <div class="row mt-4">
+                <div class="col-md-6">
+                    <h5>Coloring Icons</h5>
+                    <p>Icons inherit the text color by default, but you can change it using CSS:</p>
+                    <div class="code-example">
+                        <pre>&lt;i class="bi bi-facebook" style="color: #1877F2;"&gt;&lt;/i&gt;</pre>
+                    </div>
+                    <p>Result: <i class="bi bi-facebook" style="color: #1877F2;"></i></p>
+                </div>
+                
+                <div class="col-md-6">
+                    <h5>Icons in Buttons</h5>
+                    <p>Icons work great inside buttons:</p>
+                    <div class="code-example">
+                        <pre>&lt;button class="btn btn-primary"&gt;
+    &lt;i class="bi bi-facebook me-2"&gt;&lt;/i&gt;Facebook
+&lt;/button&gt;</pre>
+                    </div>
+                    <p>Result: 
+                        <button class="btn btn-primary">
+                            <i class="bi bi-facebook me-2"></i>Facebook
+                        </button>
+                    </p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Popular Social Media Icons -->
+        <section class="demo-section">
+            <h2 class="demo-title">Popular Social Media Icons</h2>
+            
+            <div class="row icon-grid">
+                <div class="col">
+                    <i class="bi bi-facebook"></i>
+                    <span class="icon-name">bi-facebook</span>
+                </div>
+                <div class="col">
+                    <i class="bi bi-twitter-x"></i>
+                    <span class="icon-name">bi-twitter-x</span>
+                </div>
+                <div class="col">
+                    <i class="bi bi-instagram"></i>
+                    <span class="icon-name">bi-instagram</span>
+                </div>
+                <div class="col">
+                    <i class="bi bi-linkedin"></i>
+                    <span class="icon-name">bi-linkedin</span>
+                </div>
+                <div class="col">
+                    <i class="bi bi-youtube"></i>
+                    <span class="icon-name">bi-youtube</span>
+                </div>
+                <div class="col">
+                    <i class="bi bi-github"></i>
+                    <span class="icon-name">bi-github</span>
+                </div>
+                <div class="col">
+                    <i class="bi bi-pinterest"></i>
+                    <span class="icon-name">bi-pinterest</span>
+                </div>
+                <div class="col">
+                    <i class="bi bi-reddit"></i>
+                    <span class="icon-name">bi-reddit</span>
+                </div>
+                <div class="col">
+                    <i class="bi bi-snapchat"></i>
+                    <span class="icon-name">bi-snapchat</span>
+                </div>
+                <div class="col">
+                    <i class="bi bi-whatsapp"></i>
+                    <span class="icon-name">bi-whatsapp</span>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Footer Examples -->
+        <section class="demo-section">
+            <h2 class="demo-title">Social Media Footer Examples</h2>
+            
+            <!-- Example 1: Basic Footer -->
+            <h4 class="mt-4">Example 1: Basic Social Media Footer</h4>
+            <p>A simple footer with social media icons in a row:</p>
+            
+            <div class="card mb-4">
+                <div class="card-body">
+                    <footer class="d-flex justify-content-center py-3">
+                        <a href="#" class="text-decoration-none">
+                            <i class="bi bi-facebook footer-icon"></i>
+                        </a>
+                        <a href="#" class="text-decoration-none">
+                            <i class="bi bi-twitter-x footer-icon"></i>
+                        </a>
+                        <a href="#" class="text-decoration-none">
+                            <i class="bi bi-instagram footer-icon"></i>
+                        </a>
+                        <a href="#" class="text-decoration-none">
+                            <i class="bi bi-linkedin footer-icon"></i>
+                        </a>
+                        <a href="#" class="text-decoration-none">
+                            <i class="bi bi-youtube footer-icon"></i>
+                        </a>
+                    </footer>
+                </div>
+                <div class="card-footer">
+                    <div class="code-example">
+                        <pre>&lt;footer class="d-flex justify-content-center py-3"&gt;
+    &lt;a href="#" class="text-decoration-none"&gt;
+        &lt;i class="bi bi-facebook footer-icon"&gt;&lt;/i&gt;
+    &lt;/a&gt;
+    &lt;a href="#" class="text-decoration-none"&gt;
+        &lt;i class="bi bi-twitter-x footer-icon"&gt;&lt;/i&gt;
+    &lt;/a&gt;
+    &lt;a href="#" class="text-decoration-none"&gt;
+        &lt;i class="bi bi-instagram footer-icon"&gt;&lt;/i&gt;
+    &lt;/a&gt;
+    &lt;a href="#" class="text-decoration-none"&gt;
+        &lt;i class="bi bi-linkedin footer-icon"&gt;&lt;/i&gt;
+    &lt;/a&gt;
+    &lt;a href="#" class="text-decoration-none"&gt;
+        &lt;i class="bi bi-youtube footer-icon"&gt;&lt;/i&gt;
+    &lt;/a&gt;
+&lt;/footer&gt;</pre>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Example 2: Footer with Circle Icons -->
+            <h4 class="mt-4">Example 2: Footer with Circle Icons</h4>
+            <p>Social media icons in circular backgrounds:</p>
+            
+            <div class="card mb-4">
+                <div class="card-body">
+                    <footer class="d-flex justify-content-center py-3">
+                        <a href="#" class="text-decoration-none mx-2">
+                            <div class="bg-primary rounded-circle d-flex justify-content-center align-items-center" style="width: 40px; height: 40px;">
+                                <i class="bi bi-facebook text-white"></i>
+                            </div>
+                        </a>
+                        <a href="#" class="text-decoration-none mx-2">
+                            <div class="bg-dark rounded-circle d-flex justify-content-center align-items-center" style="width: 40px; height: 40px;">
+                                <i class="bi bi-twitter-x text-white"></i>
+                            </div>
+                        </a>
+                        <a href="#" class="text-decoration-none mx-2">
+                            <div class="bg-danger rounded-circle d-flex justify-content-center align-items-center" style="width: 40px; height: 40px;">
+                                <i class="bi bi-instagram text-white"></i>
+                            </div>
+                        </a>
+                        <a href="#" class="text-decoration-none mx-2">
+                            <div class="bg-info rounded-circle d-flex justify-content-center align-items-center" style="width: 40px; height: 40px;">
+                                <i class="bi bi-linkedin text-white"></i>
+                            </div>
+                        </a>
+                        <a href="#" class="text-decoration-none mx-2">
+                            <div class="bg-danger rounded-circle d-flex justify-content-center align-items-center" style="width: 40px; height: 40px;">
+                                <i class="bi bi-youtube text-white"></i>
+                            </div>
+                        </a>
+                    </footer>
+                </div>
+                <div class="card-footer">
+                    <div class="code-example">
+                        <pre>&lt;footer class="d-flex justify-content-center py-3"&gt;
+    &lt;a href="#" class="text-decoration-none mx-2"&gt;
+        &lt;div class="bg-primary rounded-circle d-flex justify-content-center align-items-center" style="width: 40px; height: 40px;"&gt;
+            &lt;i class="bi bi-facebook text-white"&gt;&lt;/i&gt;
+        &lt;/div&gt;
+    &lt;/a&gt;
+    &lt;a href="#" class="text-decoration-none mx-2"&gt;
+        &lt;div class="bg-dark rounded-circle d-flex justify-content-center align-items-center" style="width: 40px; height: 40px;"&gt;
+            &lt;i class="bi bi-twitter-x text-white"&gt;&lt;/i&gt;
+        &lt;/div&gt;
+    &lt;/a&gt;
+    &lt;!-- Additional social icons follow the same pattern --&gt;
+&lt;/footer&gt;</pre>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Example 3: Full Footer with Social Icons -->
+            <h4 class="mt-4">Example 3: Full Footer with Social Icons</h4>
+            <p>A complete footer with company information and social media icons:</p>
+            
+            <div class="card mb-4">
+                <div class="card-body">
+                    <footer class="bg-dark text-white py-4">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h5>Company Name</h5>
+                                    <p>123 Street Name<br>City, State 12345<br>Phone: (123) 456-7890</p>
+                                    <p>© 2025 Company Name. All rights reserved.</p>
+                                </div>
+                                <div class="col-md-6">
+                                    <h5>Follow Us</h5>
+                                    <div class="d-flex mt-3">
+                                        <a href="#" class="text-white me-3">
+                                            <i class="bi bi-facebook" style="font-size: 1.5rem;"></i>
+                                        </a>
+                                        <a href="#" class="text-white me-3">
+                                            <i class="bi bi-twitter-x" style="font-size: 1.5rem;"></i>
+                                        </a>
+                                        <a href="#" class="text-white me-3">
+                                            <i class="bi bi-instagram" style="font-size: 1.5rem;"></i>
+                                        </a>
+                                        <a href="#" class="text-white me-3">
+                                            <i class="bi bi-linkedin" style="font-size: 1.5rem;"></i>
+                                        </a>
+                                        <a href="#" class="text-white">
+                                            <i class="bi bi-youtube" style="font-size: 1.5rem;"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </footer>
+                </div>
+                <div class="card-footer">
+                    <div class="code-example">
+                        <pre>&lt;footer class="bg-dark text-white py-4"&gt;
+    &lt;div class="container"&gt;
+        &lt;div class="row"&gt;
+            &lt;div class="col-md-6"&gt;
+                &lt;h5&gt;Company Name&lt;/h5&gt;
+                &lt;p&gt;123 Street Name&lt;br&gt;City, State 12345&lt;br&gt;Phone: (123) 456-7890&lt;/p&gt;
+                &lt;p&gt;© 2025 Company Name. All rights reserved.&lt;/p&gt;
+            &lt;/div&gt;
+            &lt;div class="col-md-6"&gt;
+                &lt;h5&gt;Follow Us&lt;/h5&gt;
+                &lt;div class="d-flex mt-3"&gt;
+                    &lt;a href="#" class="text-white me-3"&gt;
+                        &lt;i class="bi bi-facebook" style="font-size: 1.5rem;"&gt;&lt;/i&gt;
+                    &lt;/a&gt;
+                    &lt;!-- Additional social icons follow the same pattern --&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/footer&gt;</pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Animated Social Icons -->
+        <section class="demo-section">
+            <h2 class="demo-title">Animated Social Icons</h2>
+            <p>You can add animations to your social media icons using CSS transitions:</p>
+            
+            <div class="card mb-4">
+                <div class="card-body text-center py-4">
+                    <a href="#" class="text-decoration-none mx-2">
+                        <i class="bi bi-facebook footer-icon"></i>
+                    </a>
+                    <a href="#" class="text-decoration-none mx-2">
+                        <i class="bi bi-twitter-x footer-icon"></i>
+                    </a>
+                    <a href="#" class="text-decoration-none mx-2">
+                        <i class="bi bi-instagram footer-icon"></i>
+                    </a>
+                    <a href="#" class="text-decoration-none mx-2">
+                        <i class="bi bi-linkedin footer-icon"></i>
+                    </a>
+                    <a href="#" class="text-decoration-none mx-2">
+                        <i class="bi bi-youtube footer-icon"></i>
+                    </a>
+                    <a href="#" class="text-decoration-none mx-2">
+                        <i class="bi bi-github footer-icon"></i>
+                    </a>
+                </div>
+                <div class="card-footer">
+                    <div class="code-example">
+                        <pre>/* CSS */
+.footer-icon {
+    font-size: 1.5rem;
+    margin: 0 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.footer-icon:hover {
+    transform: translateY(-5px);
+}
+
+/* Brand colors */
+.bi-facebook { color: #1877F2; }
+.bi-twitter-x { color: #000000; }
+.bi-instagram { color: #E4405F; }
+.bi-linkedin { color: #0A66C2; }
+.bi-youtube { color: #FF0000; }
+.bi-github { color: #333333; }</pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Best Practices -->
+        <section class="demo-section">
+            <h2 class="demo-title">Best Practices for Social Media Icons</h2>
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>1. Use Appropriate Colors</h5>
+                    <p>Use the official brand colors for social media icons to maintain brand recognition:</p>
+                    <ul>
+                        <li>Facebook: #1877F2</li>
+                        <li>Twitter/X: #000000</li>
+                        <li>Instagram: #E4405F</li>
+                        <li>LinkedIn: #0A66C2</li>
+                        <li>YouTube: #FF0000</li>
+                        <li>GitHub: #333333</li>
+                    </ul>
+                </div>
+                
+                <div class="col-md-6">
+                    <h5>2. Ensure Accessibility</h5>
+                    <p>Make sure your social media icons are accessible:</p>
+                    <ul>
+                        <li>Add proper aria-labels to icon links</li>
+                        <li>Ensure sufficient color contrast</li>
+                        <li>Make clickable areas large enough</li>
+                        <li>Consider adding text labels for clarity</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="row mt-4">
+                <div class="col-md-6">
+                    <h5>3. Keep Icons Consistent</h5>
+                    <p>Maintain consistency in your icon design:</p>
+                    <ul>
+                        <li>Use the same size for all icons</li>
+                        <li>Maintain consistent spacing</li>
+                        <li>Use a unified style (filled, outlined, etc.)</li>
+                        <li>Consider using a grid layout for alignment</li>
+                    </ul>
+                </div>
+                
+                <div class="col-md-6">
+                    <h5>4. Optimize for Mobile</h5>
+                    <p>Ensure your social media icons work well on mobile devices:</p>
+                    <ul>
+                        <li>Make touch targets at least 44x44px</li>
+                        <li>Test on various screen sizes</li>
+                        <li>Consider responsive sizing</li>
+                        <li>Ensure proper spacing on small screens</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <h5>Bootstrap Icons Demo</h5>
+                    <p>© 2025 Exercise 17.1. All rights reserved.</p>
+                </div>
+                <div class="col-md-6">
+                    <div class="d-flex justify-content-md-end justify-content-center mt-3 mt-md-0">
+                        <a href="#" class="text-white mx-2">
+                            <i class="bi bi-facebook footer-icon"></i>
+                        </a>
+                        <a href="#" class="text-white mx-2">
+                            <i class="bi bi-twitter-x footer-icon"></i>
+                        </a>
+                        <a href="#" class="text-white mx-2">
+                            <i class="bi bi-instagram footer-icon"></i>
+                        </a>
+                        <a href="#" class="text-white mx-2">
+                            <i class="bi bi-linkedin footer-icon"></i>
+                        </a>
+                        <a href="#" class="text-white mx-2">
+                            <i class="bi bi-youtube footer-icon"></i>
+                        </a>
+                        <a href="#" class="text-white mx-2">
+                            <i class="bi bi-github footer-icon"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 14.1 - Display Utilities</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Custom styles for the demo */
+        .demo-box {
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+        
+        .device-indicator {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            z-index: 1030;
+        }
+        
+        .section-header {
+            background-color: #f8f9fa;
+            padding: 10px 15px;
+            border-left: 4px solid #0d6efd;
+            margin-bottom: 20px;
+        }
+        
+        .content-box {
+            min-height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            border-radius: 5px;
+        }
+        
+        .mobile-only {
+            background-color: #f8d7da;
+        }
+        
+        .tablet-only {
+            background-color: #fff3cd;
+        }
+        
+        .desktop-only {
+            background-color: #d1e7dd;
+        }
+        
+        .mobile-tablet {
+            background-color: #cfe2ff;
+        }
+        
+        .tablet-desktop {
+            background-color: #e2e3e5;
+        }
+    </style>
+</head>
+<body>
+    <!-- Device Size Indicator -->
+    <div class="device-indicator">
+        <span class="badge bg-danger d-block d-sm-none">XS - Mobile</span>
+        <span class="badge bg-warning text-dark d-none d-sm-block d-md-none">SM - Mobile</span>
+        <span class="badge bg-info text-dark d-none d-md-block d-lg-none">MD - Tablet</span>
+        <span class="badge bg-success d-none d-lg-block d-xl-none">LG - Desktop</span>
+        <span class="badge bg-primary d-none d-xl-block d-xxl-none">XL - Large Desktop</span>
+        <span class="badge bg-dark d-none d-xxl-block">XXL - Extra Large</span>
+    </div>
+
+    <div class="container py-5">
+        <h1 class="mb-5 text-center">Bootstrap Display Utilities</h1>
+        
+        <!-- Introduction Section -->
+        <div class="section-header">
+            <h2>Introduction to Display Utilities</h2>
+        </div>
+        <div class="row mb-5">
+            <div class="col-lg-8 mx-auto">
+                <div class="alert alert-primary">
+                    <h4 class="alert-heading">How to Use This Demo</h4>
+                    <p>This page demonstrates Bootstrap's display utilities for responsive design. Resize your browser window to see how different sections appear and disappear based on screen size.</p>
+                    <hr>
+                    <p class="mb-0">Look for the colored badge in the top-right corner to identify your current viewport size.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Basic Display Examples -->
+        <div class="section-header">
+            <h2>Basic Display Examples</h2>
+        </div>
+        <div class="row mb-5">
+            <div class="col-md-6 mb-4">
+                <div class="demo-box border">
+                    <h3>d-none / d-block</h3>
+                    <p>Elements can be hidden or shown using <code>d-none</code> and <code>d-block</code>.</p>
+                    
+                    <div class="d-none">This content is hidden with d-none</div>
+                    <div class="d-block bg-light p-3 mt-3">This content is visible with d-block</div>
+                </div>
+            </div>
+            
+            <div class="col-md-6 mb-4">
+                <div class="demo-box border">
+                    <h3>d-inline / d-inline-block</h3>
+                    <p>Control how elements flow with <code>d-inline</code> and <code>d-inline-block</code>.</p>
+                    
+                    <div>
+                        <span class="d-inline bg-light p-2 me-2">Inline element 1</span>
+                        <span class="d-inline bg-light p-2">Inline element 2</span>
+                    </div>
+                    
+                    <div class="mt-3">
+                        <span class="d-inline-block bg-light p-2 me-2" style="width: 140px">Inline-block 1</span>
+                        <span class="d-inline-block bg-light p-2" style="width: 140px">Inline-block 2</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Responsive Display Examples -->
+        <div class="section-header">
+            <h2>Responsive Display Examples</h2>
+        </div>
+        <div class="row mb-5">
+            <!-- Mobile Only Content (d-block d-md-none) -->
+            <div class="col-12 mb-4">
+                <div class="demo-box border">
+                    <h3>Mobile Only Content</h3>
+                    <p>This content is visible only on mobile devices (xs and sm breakpoints).</p>
+                    <p><code>d-block d-md-none</code></p>
+                    
+                    <div class="content-box mobile-only d-block d-md-none">
+                        <div>
+                            <h4>Mobile Content</h4>
+                            <p>This content is only visible on screens smaller than 768px wide.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="content-box mobile-only d-none d-block d-md-none mt-3">
+                        <div>
+                            <h4>Alternative Syntax</h4>
+                            <p>This uses <code>d-none d-block d-md-none</code> for the same effect.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Tablet Only Content (d-none d-md-block d-lg-none) -->
+            <div class="col-12 mb-4">
+                <div class="demo-box border">
+                    <h3>Tablet Only Content</h3>
+                    <p>This content is visible only on tablet devices (md breakpoint).</p>
+                    <p><code>d-none d-md-block d-lg-none</code></p>
+                    
+                    <div class="content-box tablet-only d-none d-md-block d-lg-none">
+                        <div>
+                            <h4>Tablet Content</h4>
+                            <p>This content is only visible on screens between 768px and 992px wide.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Desktop Only Content (d-none d-lg-block) -->
+            <div class="col-12 mb-4">
+                <div class="demo-box border">
+                    <h3>Desktop Only Content</h3>
+                    <p>This content is visible only on desktop devices (lg, xl, and xxl breakpoints).</p>
+                    <p><code>d-none d-lg-block</code></p>
+                    
+                    <div class="content-box desktop-only d-none d-lg-block">
+                        <div>
+                            <h4>Desktop Content</h4>
+                            <p>This content is only visible on screens larger than 992px wide.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Example with d-md-block -->
+        <div class="section-header">
+            <h2>Using d-none and d-md-block</h2>
+        </div>
+        <div class="row mb-5">
+            <div class="col-12">
+                <div class="demo-box border">
+                    <h3>Hide on Mobile, Show on Larger Screens</h3>
+                    <p>This content is hidden on mobile devices but visible on tablets and desktops.</p>
+                    <p><code>d-none d-md-block</code></p>
+                    
+                    <div class="content-box tablet-desktop d-none d-md-block">
+                        <div>
+                            <h4>Tablet & Desktop Content</h4>
+                            <p>This content is hidden on mobile (xs, sm) but visible on tablet and desktop (md, lg, xl, xxl).</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Example with d-lg-flex -->
+        <div class="section-header">
+            <h2>Using d-lg-flex</h2>
+        </div>
+        <div class="row mb-5">
+            <div class="col-12">
+                <div class="demo-box border">
+                    <h3>Stacked on Mobile/Tablet, Flex on Desktop</h3>
+                    <p>These items stack vertically on mobile and tablet, but display horizontally on desktop using flexbox.</p>
+                    <p><code>d-block d-lg-flex</code></p>
+                    
+                    <div class="d-block d-lg-flex gap-3">
+                        <div class="content-box bg-light flex-fill mb-3 mb-lg-0">
+                            <div>
+                                <h4>Item 1</h4>
+                                <p>Flex item that stacks on smaller screens</p>
+                            </div>
+                        </div>
+                        <div class="content-box bg-light flex-fill mb-3 mb-lg-0">
+                            <div>
+                                <h4>Item 2</h4>
+                                <p>Flex item that stacks on smaller screens</p>
+                            </div>
+                        </div>
+                        <div class="content-box bg-light flex-fill">
+                            <div>
+                                <h4>Item 3</h4>
+                                <p>Flex item that stacks on smaller screens</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Practical Example -->
+        <div class="section-header">
+            <h2>Practical Example: News Website</h2>
+        </div>
+        <div class="row mb-5">
+            <div class="col-12">
+                <div class="demo-box border">
+                    <h3>Responsive News Layout</h3>
+                    <p>This example shows how display utilities can be used to create a responsive news website layout.</p>
+                    
+                    <!-- News Header -->
+                    <header class="bg-dark text-white p-3 mb-4">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h4 class="mb-0">News Today</h4>
+                            <!-- Mobile Menu Button -->
+                            <button class="btn btn-outline-light d-md-none">Menu</button>
+                            <!-- Desktop Navigation -->
+                            <nav class="d-none d-md-block">
+                                <ul class="list-inline mb-0">
+                                    <li class="list-inline-item"><a href="#" class="text-white text-decoration-none">Home</a></li>
+                                    <li class="list-inline-item"><a href="#" class="text-white text-decoration-none">Politics</a></li>
+                                    <li class="list-inline-item"><a href="#" class="text-white text-decoration-none">Technology</a></li>
+                                    <li class="list-inline-item"><a href="#" class="text-white text-decoration-none">Sports</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </header>
+                    
+                    <div class="row">
+                        <!-- Main Content -->
+                        <div class="col-lg-8">
+                            <!-- Featured Article -->
+                            <article class="mb-4">
+                                <h5>Featured Article</h5>
+                                <div class="bg-light p-3">
+                                    <h2>New Technology Breakthrough</h2>
+                                    <div class="d-md-flex align-items-center">
+                                        <img src="https://via.placeholder.com/300x200" alt="Featured" class="img-fluid mb-3 mb-md-0 me-md-3">
+                                        <div>
+                                            <p>Scientists have made a remarkable discovery that could change how we think about renewable energy...</p>
+                                            <a href="#" class="btn btn-primary">Read More</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                            
+                            <!-- News Grid -->
+                            <div class="row">
+                                <!-- News Item 1 -->
+                                <div class="col-md-6 mb-4">
+                                    <div class="card h-100">
+                                        <img src="https://via.placeholder.com/300x150" class="card-img-top" alt="News 1">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Sports Update</h5>
+                                            <p class="card-text">Local team advances to finals after stunning victory...</p>
+                                            <a href="#" class="btn btn-sm btn-outline-primary">Read More</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- News Item 2 -->
+                                <div class="col-md-6 mb-4">
+                                    <div class="card h-100">
+                                        <img src="https://via.placeholder.com/300x150" class="card-img-top" alt="News 2">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Business News</h5>
+                                            <p class="card-text">Stock market reaches new high amid economic recovery...</p>
+                                            <a href="#" class="btn btn-sm btn-outline-primary">Read More</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Sidebar -->
+                        <div class="col-lg-4">
+                            <!-- Desktop Sidebar -->
+                            <aside class="d-none d-lg-block">
+                                <h5>Popular Stories</h5>
+                                <ul class="list-group mb-4">
+                                    <li class="list-group-item">Global climate conference concludes with new agreements</li>
+                                    <li class="list-group-item">New study reveals benefits of meditation</li>
+                                    <li class="list-group-item">Tech company announces revolutionary product</li>
+                                    <li class="list-group-item">Film festival awards announced</li>
+                                </ul>
+                                
+                                <div class="card bg-light mb-4">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Newsletter</h5>
+                                        <p class="card-text">Stay updated with our daily news digest.</p>
+                                        <form>
+                                            <div class="mb-3">
+                                                <input type="email" class="form-control" placeholder="Your email">
+                                            </div>
+                                            <button type="submit" class="btn btn-primary">Subscribe</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </aside>
+                            
+                            <!-- Mobile/Tablet Bottom Section (replaces sidebar) -->
+                            <div class="d-block d-lg-none">
+                                <h5>Quick Links</h5>
+                                <div class="d-flex flex-wrap gap-2 mb-4">
+                                    <a href="#" class="btn btn-outline-secondary">Top Stories</a>
+                                    <a href="#" class="btn btn-outline-secondary">Most Read</a>
+                                    <a href="#" class="btn btn-outline-secondary">Videos</a>
+                                    <a href="#" class="btn btn-outline-secondary">Opinion</a>
+                                </div>
+                                
+                                <div class="alert alert-info">
+                                    <h5>Subscribe to Updates</h5>
+                                    <p>Get our news on your phone.</p>
+                                    <button class="btn btn-info">Sign Up</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

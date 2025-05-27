@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap Text Transformation Utilities</title>
+    
+    <!-- Bootstrap 5 CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    
+    <style>
+        body {
+            padding-bottom: 50px;
+        }
+        
+        .demo-section {
+            margin-bottom: 50px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #dee2e6;
+        }
+        
+        .demo-box {
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .code-block {
+            background-color: #f1f1f1;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            font-family: monospace;
+            white-space: pre-wrap;
+        }
+        
+        .highlight {
+            background-color: rgba(255, 243, 205, 0.5);
+            padding: 2px 4px;
+            border-radius: 3px;
+        }
+        
+        .example-card {
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+        
+        .example-card-header {
+            background-color: #f8f9fa;
+            padding: 10px 15px;
+            border-bottom: 1px solid #dee2e6;
+        }
+        
+        .example-card-body {
+            padding: 15px;
+        }
+        
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .comparison-table th,
+        .comparison-table td {
+            padding: 10px;
+            border: 1px solid #dee2e6;
+        }
+        
+        .comparison-table th {
+            background-color: #f8f9fa;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Bootstrap Text Transformation Utilities</h1>
+        <p class="lead text-center mb-5">This example demonstrates Bootstrap's text transformation utilities: <code>text-uppercase</code>, <code>text-lowercase</code>, and <code>text-capitalize</code>.</p>
+        
+        <!-- Basic Text Transformations -->
+        <div class="demo-section">
+            <h2 class="mb-4">1. Basic Text Transformations</h2>
+            <p>Bootstrap provides three utilities for text transformation that change how text is capitalized.</p>
+            
+            <div class="demo-box">
+                <p class="text-uppercase">This text is transformed to uppercase.</p>
+                <p class="text-lowercase">THIS TEXT IS TRANSFORMED TO LOWERCASE.</p>
+                <p class="text-capitalize">this text is capitalized (first letter of each word).</p>
+            </div>
+            
+            <div class="code-block">
+&lt;p class="text-uppercase"&gt;This text is transformed to uppercase.&lt;/p&gt;
+&lt;p class="text-lowercase"&gt;THIS TEXT IS TRANSFORMED TO LOWERCASE.&lt;/p&gt;
+&lt;p class="text-capitalize"&gt;this text is capitalized (first letter of each word).&lt;/p&gt;</div>
+            
+            <div class="alert alert-info mt-3">
+                <h5>How Text Transformations Work</h5>
+                <ul>
+                    <li><code>text-uppercase</code>: Transforms all characters to uppercase (equivalent to CSS <code>text-transform: uppercase;</code>)</li>
+                    <li><code>text-lowercase</code>: Transforms all characters to lowercase (equivalent to CSS <code>text-transform: lowercase;</code>)</li>
+                    <li><code>text-capitalize</code>: Capitalizes the first character of each word (equivalent to CSS <code>text-transform: capitalize;</code>)</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Comparison Table -->
+        <div class="demo-section">
+            <h2 class="mb-4">2. Comparison of Text Transformations</h2>
+            <p>This table shows the effect of each text transformation utility on the same text.</p>
+            
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Utility Class</th>
+                        <th>Original Text</th>
+                        <th>Transformed Text</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>text-uppercase</code></td>
+                        <td>Hello World</td>
+                        <td class="text-uppercase">Hello World</td>
+                    </tr>
+                    <tr>
+                        <td><code>text-lowercase</code></td>
+                        <td>Hello World</td>
+                        <td class="text-lowercase">Hello World</td>
+                    </tr>
+                    <tr>
+                        <td><code>text-capitalize</code></td>
+                        <td>hello world</td>
+                        <td class="text-capitalize">hello world</td>
+                    </tr>
+                    <tr>
+                        <td><code>text-uppercase</code></td>
+                        <td>john doe@example.com</td>
+                        <td class="text-uppercase">john doe@example.com</td>
+                    </tr>
+                    <tr>
+                        <td><code>text-lowercase</code></td>
+                        <td>JOHN DOE@EXAMPLE.COM</td>
+                        <td class="text-lowercase">JOHN DOE@EXAMPLE.COM</td>
+                    </tr>
+                    <tr>
+                        <td><code>text-capitalize</code></td>
+                        <td>john doe is a web developer</td>
+                        <td class="text-capitalize">john doe is a web developer</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <!-- Practical Examples -->
+        <div class="demo-section">
+            <h2 class="mb-4">3. Practical Examples</h2>
+            <p>Here are some practical examples of how text transformation utilities can be used in real-world scenarios.</p>
+            
+            <!-- Navigation Example -->
+            <h4 class="mt-4 mb-3">Navigation Menu</h4>
+            <div class="demo-box">
+                <nav class="navbar navbar-expand navbar-light bg-light">
+                    <div class="container-fluid">
+                        <a class="navbar-brand" href="#">BRAND</a>
+                        <div class="collapse navbar-collapse">
+                            <ul class="navbar-nav">
+                                <li class="nav-item">
+                                    <a class="nav-link text-uppercase active" href="#">Home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-uppercase" href="#">Products</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-uppercase" href="#">Services</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-uppercase" href="#">About</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-uppercase" href="#">Contact</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+            <div class="code-block">
+&lt;nav class="navbar navbar-expand navbar-light bg-light"&gt;
+  &lt;div class="container-fluid"&gt;
+    &lt;a class="navbar-brand" href="#"&gt;BRAND&lt;/a&gt;
+    &lt;div class="collapse navbar-collapse"&gt;
+      &lt;ul class="navbar-nav"&gt;
+        &lt;li class="nav-item"&gt;
+          &lt;a class="nav-link text-uppercase active" href="#"&gt;Home&lt;/a&gt;
+        &lt;/li&gt;
+        &lt;!-- Other nav items with text-uppercase --&gt;
+      &lt;/ul&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/nav&gt;</div>
+            
+            <!-- Button Example -->
+            <h4 class="mt-4 mb-3">Buttons</h4>
+            <div class="demo-box">
+                <button class="btn btn-primary text-uppercase mb-2">Primary Button</button>
+                <button class="btn btn-secondary text-uppercase mb-2">Secondary Button</button>
+                <button class="btn btn-success text-uppercase mb-2">Success Button</button>
+                <button class="btn btn-danger text-uppercase mb-2">Danger Button</button>
+            </div>
+            <div class="code-block">
+&lt;button class="btn btn-primary text-uppercase"&gt;Primary Button&lt;/button&gt;
+&lt;button class="btn btn-secondary text-uppercase"&gt;Secondary Button&lt;/button&gt;
+&lt;button class="btn btn-success text-uppercase"&gt;Success Button&lt;/button&gt;
+&lt;button class="btn btn-danger text-uppercase"&gt;Danger Button&lt;/button&gt;</div>
+            
+            <!-- Card Example -->
+            <h4 class="mt-4 mb-3">Card with Headings</h4>
+            <div class="demo-box">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title text-uppercase mb-0">Product Features</h5>
+                    </div>
+                    <div class="card-body">
+                        <h6 class="text-uppercase">Key Benefits</h6>
+                        <ul>
+                            <li>Responsive design</li>
+                            <li>Easy to customize</li>
+                            <li>Cross-browser compatibility</li>
+                        </ul>
+                        
+                        <h6 class="text-uppercase mt-3">Technical Specifications</h6>
+                        <ul>
+                            <li>HTML5 & CSS3</li>
+                            <li>Bootstrap 5 framework</li>
+                            <li>Modern JavaScript</li>
+                        </ul>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn btn-primary text-uppercase">Learn More</button>
+                    </div>
+                </div>
+            </div>
+            <div class="code-block">
+&lt;div class="card"&gt;
+  &lt;div class="card-header"&gt;
+    &lt;h5 class="card-title text-uppercase mb-0"&gt;Product Features&lt;/h5&gt;
+  &lt;/div&gt;
+  &lt;div class="card-body"&gt;
+    &lt;h6 class="text-uppercase"&gt;Key Benefits&lt;/h6&gt;
+    &lt;!-- List items --&gt;
+    
+    &lt;h6 class="text-uppercase mt-3"&gt;Technical Specifications&lt;/h6&gt;
+    &lt;!-- List items --&gt;
+  &lt;/div&gt;
+  &lt;div class="card-footer"&gt;
+    &lt;button class="btn btn-primary text-uppercase"&gt;Learn More&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</div>
+        </div>
+        
+        <!-- Form Labels Example -->
+        <div class="demo-section">
+            <h2 class="mb-4">4. Form with Text Transformations</h2>
+            <p>This example shows how text transformations can be applied to form elements.</p>
+            
+            <div class="demo-box">
+                <form>
+                    <div class="mb-3">
+                        <label for="name" class="form-label text-uppercase fw-bold">Name</label>
+                        <input type="text" class="form-control" id="name" placeholder="Enter your name">
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label text-uppercase fw-bold">Email</label>
+                        <input type="email" class="form-control" id="email" placeholder="Enter your email">
+                    </div>
+                    <div class="mb-3">
+                        <label for="subject" class="form-label text-uppercase fw-bold">Subject</label>
+                        <select class="form-select" id="subject">
+                            <option selected>Choose a subject</option>
+                            <option value="1" class="text-capitalize">general inquiry</option>
+                            <option value="2" class="text-capitalize">technical support</option>
+                            <option value="3" class="text-capitalize">billing question</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="message" class="form-label text-uppercase fw-bold">Message</label>
+                        <textarea class="form-control" id="message" rows="3" placeholder="Enter your message"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary text-uppercase">Submit</button>
+                </form>
+            </div>
+            <div class="code-block">
+&lt;form&gt;
+  &lt;div class="mb-3"&gt;
+    &lt;label for="name" class="form-label text-uppercase fw-bold"&gt;Name&lt;/label&gt;
+    &lt;input type="text" class="form-control" id="name" placeholder="Enter your name"&gt;
+  &lt;/div&gt;
+  &lt;!-- Other form fields with text-uppercase labels --&gt;
+  &lt;button type="submit" class="btn btn-primary text-uppercase"&gt;Submit&lt;/button&gt;
+&lt;/form&gt;</div>
+        </div>
+        
+        <!-- Badges and Alerts -->
+        <div class="demo-section">
+            <h2 class="mb-4">5. Badges and Alerts</h2>
+            <p>Text transformation utilities can be used with badges and alerts to create visual hierarchy and emphasis.</p>
+            
+            <div class="demo-box">
+                <h4>Badges</h4>
+                <div class="mb-3">
+                    <span class="badge bg-primary text-uppercase">New</span>
+                    <span class="badge bg-secondary text-uppercase">Featured</span>
+                    <span class="badge bg-success text-uppercase">Sale</span>
+                    <span class="badge bg-danger text-uppercase">Sold Out</span>
+                    <span class="badge bg-warning text-dark text-uppercase">Limited</span>
+                    <span class="badge bg-info text-dark text-uppercase">Info</span>
+                </div>
+                
+                <h4 class="mt-4">Alerts</h4>
+                <div class="alert alert-primary" role="alert">
+                    <h4 class="alert-heading text-uppercase">Primary Alert</h4>
+                    <p>This is a primary alert with an uppercase heading.</p>
+                </div>
+                
+                <div class="alert alert-success" role="alert">
+                    <h4 class="alert-heading text-uppercase">Success Alert</h4>
+                    <p>This is a success alert with an uppercase heading.</p>
+                </div>
+                
+                <div class="alert alert-danger" role="alert">
+                    <h4 class="alert-heading text-uppercase">Danger Alert</h4>
+                    <p>This is a danger alert with an uppercase heading.</p>
+                </div>
+            </div>
+            <div class="code-block">
+&lt;!-- Badges --&gt;
+&lt;span class="badge bg-primary text-uppercase"&gt;New&lt;/span&gt;
+&lt;span class="badge bg-secondary text-uppercase"&gt;Featured&lt;/span&gt;
+&lt;!-- More badges --&gt;
+
+&lt;!-- Alerts --&gt;
+&lt;div class="alert alert-primary" role="alert"&gt;
+  &lt;h4 class="alert-heading text-uppercase"&gt;Primary Alert&lt;/h4&gt;
+  &lt;p&gt;This is a primary alert with an uppercase heading.&lt;/p&gt;
+&lt;/div&gt;
+&lt;!-- More alerts --&gt;</div>
+        </div>
+        
+        <!-- Combining with Other Typography Utilities -->
+        <div class="demo-section">
+            <h2 class="mb-4">6. Combining with Other Typography Utilities</h2>
+            <p>Text transformation utilities can be combined with other typography utilities for more customized text styling.</p>
+            
+            <div class="demo-box">
+                <p class="text-uppercase fw-bold text-primary">Uppercase, Bold, and Primary Colored</p>
+                <p class="text-lowercase fst-italic text-muted">LOWERCASE, ITALIC, AND MUTED</p>
+                <p class="text-capitalize fs-4 text-success">text capitalized, larger size, and success colored</p>
+                <p class="text-uppercase fw-light text-center">uppercase, light weight, and centered</p>
+            </div>
+            <div class="code-block">
+&lt;p class="text-uppercase fw-bold text-primary"&gt;Uppercase, Bold, and Primary Colored&lt;/p&gt;
+&lt;p class="text-lowercase fst-italic text-muted"&gt;LOWERCASE, ITALIC, AND MUTED&lt;/p&gt;
+&lt;p class="text-capitalize fs-4 text-success"&gt;text capitalized, larger size, and success colored&lt;/p&gt;
+&lt;p class="text-uppercase fw-light text-center"&gt;uppercase, light weight, and centered&lt;/p&gt;</div>
+        </div>
+        
+        <!-- Responsive Text Transformation -->
+        <div class="demo-section">
+            <h2 class="mb-4">7. Responsive Text Transformation</h2>
+            <p>While Bootstrap doesn't provide built-in responsive text transformation utilities, you can create your own with custom CSS or use media queries with the existing utilities.</p>
+            
+            <div class="demo-box">
+                <style>
+                    /* Custom responsive text transformation */
+                    @media (min-width: 768px) {
+                        .text-md-uppercase {
+                            text-transform: uppercase !important;
+                        }
+                    }
+                </style>
+                
+                <p class="text-md-uppercase">This text will be uppercase only on medium screens and larger.</p>
+                
+                <div class="alert alert-info mt-3">
+                    <p class="mb-0">Note: This example uses custom CSS to create a responsive text transformation utility. Bootstrap doesn't include responsive variants for text transformation utilities by default.</p>
+                </div>
+            </div>
+            <div class="code-block">
+&lt;style&gt;
+  /* Custom responsive text transformation */
+  @media (min-width: 768px) {
+    .text-md-uppercase {
+      text-transform: uppercase !important;
+    }
+  }
+&lt;/style&gt;
+
+&lt;p class="text-md-uppercase"&gt;This text will be uppercase only on medium screens and larger.&lt;/p&gt;</div>
+        </div>
+        
+        <!-- Best Practices -->
+        <div class="demo-section">
+            <h2 class="mb-4">8. Best Practices for Text Transformation</h2>
+            
+            <div class="alert alert-warning">
+                <h5>When to Use Text Transformation</h5>
+                <p>Text transformation utilities should be used thoughtfully to enhance readability and visual hierarchy. Here are some guidelines:</p>
+                <ul>
+                    <li><strong>Use <code>text-uppercase</code> for:</strong> Headings, buttons, navigation items, labels, and badges where you want to create emphasis or visual distinction.</li>
+                    <li><strong>Use <code>text-lowercase</code> for:</strong> Stylistic purposes or to normalize text that might be entered in different cases.</li>
+                    <li><strong>Use <code>text-capitalize</code> for:</strong> Titles, names, and places where proper capitalization is needed but the source text might not have it.</li>
+                </ul>
+                <p>Remember that excessive use of uppercase text can make content harder to read and may appear as "shouting" in digital communication.</p>
+            </div>
+            
+            <div class="alert alert-success mt-3">
+                <h5>Accessibility Considerations</h5>
+                <p>When using text transformations, keep these accessibility considerations in mind:</p>
+                <ul>
+                    <li>All-uppercase text can be more difficult to read, especially for users with certain cognitive disabilities.</li>
+                    <li>Screen readers read text as it appears in the HTML, not as it's visually styled with CSS.</li>
+                    <li>For important text that needs to be properly capitalized for screen readers, ensure the actual HTML content has proper capitalization, not just the visual styling.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+</body>
+</html>

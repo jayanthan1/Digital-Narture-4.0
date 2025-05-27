@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 18.2 - Bootstrap Accordion</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <style>
+        .demo-section {
+            padding: 2rem;
+            margin-bottom: 2rem;
+            background-color: #f8f9fa;
+            border-radius: 0.5rem;
+        }
+        
+        .demo-title {
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #dee2e6;
+        }
+        
+        .code-example {
+            background-color: #f1f1f1;
+            padding: 1rem;
+            border-radius: 0.25rem;
+            margin-top: 1rem;
+            font-family: monospace;
+            font-size: 0.9rem;
+        }
+        
+        .accordion-button:not(.collapsed) {
+            background-color: #e7f1ff;
+        }
+        
+        .custom-accordion .accordion-button:not(.collapsed) {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        
+        .custom-accordion .accordion-button:focus {
+            border-color: #28a745;
+            box-shadow: 0 0 0 0.25rem rgba(40, 167, 69, 0.25);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="bg-dark text-white py-3">
+        <div class="container">
+            <h1 class="display-5">Bootstrap Accordion Examples</h1>
+            <p class="lead">Exercise 18.2 - Collapsible accordions using Bootstrap JavaScript</p>
+        </div>
+    </header>
+    
+    <!-- Main Content -->
+    <main class="container py-5">
+        <!-- Introduction -->
+        <div class="alert alert-primary mb-5">
+            <h4 class="alert-heading">About This Exercise</h4>
+            <p>This exercise demonstrates how to create and customize Bootstrap's accordion component. We'll explore different types of accordions, styling options, and interactive behaviors.</p>
+            <hr>
+            <p class="mb-0">Explore the examples below to see various accordion implementations.</p>
+        </div>
+        
+        <!-- Basic Accordion -->
+        <section class="demo-section">
+            <h2 class="demo-title">Basic Accordion</h2>
+            <p>A simple accordion with multiple collapsible items:</p>
+            
+            <div class="accordion" id="basicAccordion">
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            Accordion Item #1
+                        </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#basicAccordion">
+                        <div class="accordion-body">
+                            This is the first item's accordion body. It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            Accordion Item #2
+                        </button>
+                    </h2>
+                    <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#basicAccordion">
+                        <div class="accordion-body">
+                            This is the second item's accordion body. It's hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            Accordion Item #3
+                        </button>
+                    </h2>
+                    <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#basicAccordion">
+                        <div class="accordion-body">
+                            This is the third item's accordion body. It's hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="code-example mt-3">
+                <pre>&lt;div class="accordion" id="basicAccordion"&gt;
+    &lt;div class="accordion-item"&gt;
+        &lt;h2 class="accordion-header"&gt;
+            &lt;button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"&gt;
+                Accordion Item #1
+            &lt;/button&gt;
+        &lt;/h2&gt;
+        &lt;div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#basicAccordion"&gt;
+            &lt;div class="accordion-body"&gt;
+                Content...
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</pre>
+            </div>
+        </section>
+        
+        <!-- Always Open Accordion -->
+        <section class="demo-section">
+            <h2 class="demo-title">Always Open Accordion</h2>
+            <p>An accordion where multiple items can be open simultaneously:</p>
+            
+            <div class="accordion" id="alwaysOpenAccordion">
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#alwaysOpen1" aria-expanded="true" aria-controls="alwaysOpen1">
+                            Item #1 - Can Stay Open
+                        </button>
+                    </h2>
+                    <div id="alwaysOpen1" class="accordion-collapse collapse show">
+                        <div class="accordion-body">
+                            This item can stay open when another item is opened. Try clicking the other items below!
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#alwaysOpen2" aria-expanded="false" aria-controls="alwaysOpen2">
+                            Item #2 - Independent Toggle
+                        </button>
+                    </h2>
+                    <div id="alwaysOpen2" class="accordion-collapse collapse">
+                        <div class="accordion-body">
+                            This item toggles independently of other items. Notice we removed the data-bs-parent attribute.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#alwaysOpen3" aria-expanded="false" aria-controls="alwaysOpen3">
+                            Item #3 - Also Independent
+                        </button>
+                    </h2>
+                    <div id="alwaysOpen3" class="accordion-collapse collapse">
+                        <div class="accordion-body">
+                            Multiple items can be expanded at the same time because we're not using the data-bs-parent attribute.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="code-example mt-3">
+                <pre>&lt;!-- Remove data-bs-parent to allow multiple items to stay open --&gt;
+&lt;div id="alwaysOpen1" class="accordion-collapse collapse show"&gt;</pre>
+            </div>
+        </section>
+        
+        <!-- Flush Accordion -->
+        <section class="demo-section">
+            <h2 class="demo-title">Flush Accordion</h2>
+            <p>An accordion without outer borders and rounded corners:</p>
+            
+            <div class="accordion accordion-flush" id="flushAccordion">
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush1" aria-expanded="false" aria-controls="flush1">
+                            Flush Accordion Item #1
+                        </button>
+                    </h2>
+                    <div id="flush1" class="accordion-collapse collapse" data-bs-parent="#flushAccordion">
+                        <div class="accordion-body">
+                            Notice how this accordion has no outer borders. It's perfect for edge-to-edge designs.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush2" aria-expanded="false" aria-controls="flush2">
+                            Flush Accordion Item #2
+                        </button>
+                    </h2>
+                    <div id="flush2" class="accordion-collapse collapse" data-bs-parent="#flushAccordion">
+                        <div class="accordion-body">
+                            The flush variant removes outer borders and rounded corners to render accordions edge-to-edge.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="code-example mt-3">
+                <pre>&lt;div class="accordion accordion-flush" id="flushAccordion"&gt;</pre>
+            </div>
+        </section>
+        
+        <!-- Custom Styled Accordion -->
+        <section class="demo-section">
+            <h2 class="demo-title">Custom Styled Accordion</h2>
+            <p>An accordion with custom styles:</p>
+            
+            <div class="accordion custom-accordion" id="customAccordion">
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#custom1" aria-expanded="true" aria-controls="custom1">
+                            <i class="bi bi-star-fill me-2"></i> Custom Styled Item #1
+                        </button>
+                    </h2>
+                    <div id="custom1" class="accordion-collapse collapse show" data-bs-parent="#customAccordion">
+                        <div class="accordion-body">
+                            This accordion has custom styles applied, including different colors and icons.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#custom2" aria-expanded="false" aria-controls="custom2">
+                            <i class="bi bi-heart-fill me-2"></i> Custom Styled Item #2
+                        </button>
+                    </h2>
+                    <div id="custom2" class="accordion-collapse collapse" data-bs-parent="#customAccordion">
+                        <div class="accordion-body">
+                            The custom styles are applied using CSS classes and Bootstrap Icons.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="code-example mt-3">
+                <pre>.custom-accordion .accordion-button:not(.collapsed) {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.custom-accordion .accordion-button:focus {
+    border-color: #28a745;
+    box-shadow: 0 0 0 0.25rem rgba(40, 167, 69, 0.25);
+}</pre>
+            </div>
+        </section>
+        
+        <!-- Nested Accordion -->
+        <section class="demo-section">
+            <h2 class="demo-title">Nested Accordion</h2>
+            <p>An accordion with nested items:</p>
+            
+            <div class="accordion" id="nestedAccordion">
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#nested1" aria-expanded="true" aria-controls="nested1">
+                            Parent Item #1
+                        </button>
+                    </h2>
+                    <div id="nested1" class="accordion-collapse collapse show" data-bs-parent="#nestedAccordion">
+                        <div class="accordion-body">
+                            <div class="accordion" id="nestedChild">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nestedChild1" aria-expanded="false" aria-controls="nestedChild1">
+                                            Child Item #1
+                                        </button>
+                                    </h2>
+                                    <div id="nestedChild1" class="accordion-collapse collapse" data-bs-parent="#nestedChild">
+                                        <div class="accordion-body">
+                                            This is a nested accordion item.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nestedChild2" aria-expanded="false" aria-controls="nestedChild2">
+                                            Child Item #2
+                                        </button>
+                                    </h2>
+                                    <div id="nestedChild2" class="accordion-collapse collapse" data-bs-parent="#nestedChild">
+                                        <div class="accordion-body">
+                                            Another nested accordion item.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nested2" aria-expanded="false" aria-controls="nested2">
+                            Parent Item #2
+                        </button>
+                    </h2>
+                    <div id="nested2" class="accordion-collapse collapse" data-bs-parent="#nestedAccordion">
+                        <div class="accordion-body">
+                            This is a regular accordion item without nesting.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

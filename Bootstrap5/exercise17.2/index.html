@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 17.2 - Icon-Only Buttons</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <style>
+        .demo-section {
+            padding: 2rem;
+            margin-bottom: 2rem;
+            background-color: #f8f9fa;
+            border-radius: 0.5rem;
+        }
+        
+        .demo-title {
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #dee2e6;
+        }
+        
+        .code-example {
+            background-color: #f1f1f1;
+            padding: 1rem;
+            border-radius: 0.25rem;
+            margin-top: 1rem;
+            font-family: monospace;
+            font-size: 0.9rem;
+        }
+        
+        .btn-icon {
+            width: 2.5rem;
+            height: 2.5rem;
+            padding: 0;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            border-radius: 0.375rem;
+            margin: 0.25rem;
+        }
+        
+        .btn-icon.btn-sm {
+            width: 2rem;
+            height: 2rem;
+            font-size: 0.875rem;
+        }
+        
+        .btn-icon.btn-lg {
+            width: 3rem;
+            height: 3rem;
+            font-size: 1.25rem;
+        }
+        
+        .btn-floating {
+            border-radius: 50%;
+        }
+        
+        .action-buttons {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        
+        .action-buttons .btn {
+            transition: transform 0.2s;
+        }
+        
+        .action-buttons .btn:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="bg-dark text-white py-3">
+        <div class="container">
+            <h1 class="display-5">Icon-Only Buttons with Bootstrap Icons</h1>
+            <p class="lead">Exercise 17.2 - Replacing text buttons with icon-only buttons</p>
+        </div>
+    </header>
+    
+    <!-- Main Content -->
+    <main class="container py-5">
+        <!-- Introduction -->
+        <div class="alert alert-primary mb-5">
+            <h4 class="alert-heading">About This Exercise</h4>
+            <p>This exercise demonstrates how to create icon-only buttons using Bootstrap Icons. We'll explore different button styles, sizes, and best practices for accessibility.</p>
+            <hr>
+            <p class="mb-0">Key points covered: button variants, sizes, tooltips, and accessibility considerations.</p>
+        </div>
+        
+        <!-- Basic Icon Buttons -->
+        <section class="demo-section">
+            <h2 class="demo-title">Basic Icon Buttons</h2>
+            <p>Replace text with icons while maintaining button functionality and accessibility:</p>
+            
+            <div class="mb-4">
+                <!-- Original Text Buttons -->
+                <h5>Original Text Buttons:</h5>
+                <button class="btn btn-primary">Save</button>
+                <button class="btn btn-danger">Delete</button>
+                <button class="btn btn-success">Edit</button>
+                <button class="btn btn-warning">Settings</button>
+                <button class="btn btn-info">Info</button>
+                
+                <div class="code-example">
+                    <pre>&lt;button class="btn btn-primary"&gt;Save&lt;/button&gt;
+&lt;button class="btn btn-danger"&gt;Delete&lt;/button&gt;
+&lt;button class="btn btn-success"&gt;Edit&lt;/button&gt;</pre>
+                </div>
+            </div>
+            
+            <div class="mb-4">
+                <!-- Icon-Only Buttons -->
+                <h5>Icon-Only Buttons with Tooltips:</h5>
+                <button class="btn btn-primary btn-icon" data-bs-toggle="tooltip" title="Save">
+                    <i class="bi bi-save"></i>
+                    <span class="visually-hidden">Save</span>
+                </button>
+                <button class="btn btn-danger btn-icon" data-bs-toggle="tooltip" title="Delete">
+                    <i class="bi bi-trash"></i>
+                    <span class="visually-hidden">Delete</span>
+                </button>
+                <button class="btn btn-success btn-icon" data-bs-toggle="tooltip" title="Edit">
+                    <i class="bi bi-pencil"></i>
+                    <span class="visually-hidden">Edit</span>
+                </button>
+                <button class="btn btn-warning btn-icon" data-bs-toggle="tooltip" title="Settings">
+                    <i class="bi bi-gear"></i>
+                    <span class="visually-hidden">Settings</span>
+                </button>
+                <button class="btn btn-info btn-icon" data-bs-toggle="tooltip" title="Information">
+                    <i class="bi bi-info-circle"></i>
+                    <span class="visually-hidden">Information</span>
+                </button>
+                
+                <div class="code-example">
+                    <pre>&lt;button class="btn btn-primary btn-icon" data-bs-toggle="tooltip" title="Save"&gt;
+    &lt;i class="bi bi-save"&gt;&lt;/i&gt;
+    &lt;span class="visually-hidden"&gt;Save&lt;/span&gt;
+&lt;/button&gt;</pre>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Button Sizes -->
+        <section class="demo-section">
+            <h2 class="demo-title">Button Sizes</h2>
+            <p>Icon buttons in different sizes:</p>
+            
+            <div class="mb-4">
+                <button class="btn btn-primary btn-icon btn-sm" data-bs-toggle="tooltip" title="Small">
+                    <i class="bi bi-star"></i>
+                    <span class="visually-hidden">Small button</span>
+                </button>
+                <button class="btn btn-primary btn-icon" data-bs-toggle="tooltip" title="Regular">
+                    <i class="bi bi-star"></i>
+                    <span class="visually-hidden">Regular button</span>
+                </button>
+                <button class="btn btn-primary btn-icon btn-lg" data-bs-toggle="tooltip" title="Large">
+                    <i class="bi bi-star"></i>
+                    <span class="visually-hidden">Large button</span>
+                </button>
+                
+                <div class="code-example">
+                    <pre>&lt;button class="btn btn-primary btn-icon btn-sm"&gt;...&lt;/button&gt;
+&lt;button class="btn btn-primary btn-icon"&gt;...&lt;/button&gt;
+&lt;button class="btn btn-primary btn-icon btn-lg"&gt;...&lt;/button&gt;</pre>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Circular Buttons -->
+        <section class="demo-section">
+            <h2 class="demo-title">Circular Buttons</h2>
+            <p>Icon buttons with rounded corners:</p>
+            
+            <div class="mb-4">
+                <button class="btn btn-primary btn-icon btn-floating" data-bs-toggle="tooltip" title="Share">
+                    <i class="bi bi-share"></i>
+                    <span class="visually-hidden">Share</span>
+                </button>
+                <button class="btn btn-success btn-icon btn-floating" data-bs-toggle="tooltip" title="Add">
+                    <i class="bi bi-plus-lg"></i>
+                    <span class="visually-hidden">Add</span>
+                </button>
+                <button class="btn btn-danger btn-icon btn-floating" data-bs-toggle="tooltip" title="Heart">
+                    <i class="bi bi-heart"></i>
+                    <span class="visually-hidden">Heart</span>
+                </button>
+                
+                <div class="code-example">
+                    <pre>&lt;button class="btn btn-primary btn-icon btn-floating"&gt;
+    &lt;i class="bi bi-share"&gt;&lt;/i&gt;
+    &lt;span class="visually-hidden"&gt;Share&lt;/span&gt;
+&lt;/button&gt;</pre>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Outline Buttons -->
+        <section class="demo-section">
+            <h2 class="demo-title">Outline Buttons</h2>
+            <p>Icon buttons with outline style:</p>
+            
+            <div class="mb-4">
+                <button class="btn btn-outline-primary btn-icon" data-bs-toggle="tooltip" title="Download">
+                    <i class="bi bi-download"></i>
+                    <span class="visually-hidden">Download</span>
+                </button>
+                <button class="btn btn-outline-success btn-icon" data-bs-toggle="tooltip" title="Check">
+                    <i class="bi bi-check-lg"></i>
+                    <span class="visually-hidden">Check</span>
+                </button>
+                <button class="btn btn-outline-danger btn-icon" data-bs-toggle="tooltip" title="Close">
+                    <i class="bi bi-x-lg"></i>
+                    <span class="visually-hidden">Close</span>
+                </button>
+                
+                <div class="code-example">
+                    <pre>&lt;button class="btn btn-outline-primary btn-icon"&gt;
+    &lt;i class="bi bi-download"&gt;&lt;/i&gt;
+    &lt;span class="visually-hidden"&gt;Download&lt;/span&gt;
+&lt;/button&gt;</pre>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Button Groups -->
+        <section class="demo-section">
+            <h2 class="demo-title">Button Groups</h2>
+            <p>Icon buttons grouped together:</p>
+            
+            <div class="mb-4">
+                <div class="btn-group" role="group" aria-label="Basic example">
+                    <button class="btn btn-primary" data-bs-toggle="tooltip" title="Previous">
+                        <i class="bi bi-chevron-left"></i>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="btn btn-primary" data-bs-toggle="tooltip" title="Play">
+                        <i class="bi bi-play-fill"></i>
+                        <span class="visually-hidden">Play</span>
+                    </button>
+                    <button class="btn btn-primary" data-bs-toggle="tooltip" title="Next">
+                        <i class="bi bi-chevron-right"></i>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+                
+                <div class="code-example">
+                    <pre>&lt;div class="btn-group" role="group" aria-label="Basic example"&gt;
+    &lt;button class="btn btn-primary"&gt;
+        &lt;i class="bi bi-chevron-left"&gt;&lt;/i&gt;
+        &lt;span class="visually-hidden"&gt;Previous&lt;/span&gt;
+    &lt;/button&gt;
+    ...
+&lt;/div&gt;</pre>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Floating Action Buttons -->
+        <section class="demo-section">
+            <h2 class="demo-title">Floating Action Buttons</h2>
+            <p>Fixed position icon buttons:</p>
+            
+            <div class="mb-4">
+                <p>Look at the bottom right corner of the page for floating action buttons.</p>
+                
+                <div class="code-example">
+                    <pre>.action-buttons {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}</pre>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Best Practices -->
+        <section class="demo-section">
+            <h2 class="demo-title">Best Practices</h2>
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>1. Accessibility</h5>
+                    <ul>
+                        <li>Always include visually hidden text for screen readers</li>
+                        <li>Use tooltips to show button purpose on hover</li>
+                        <li>Ensure adequate touch target size (at least 44x44px)</li>
+                        <li>Maintain good color contrast</li>
+                    </ul>
+                </div>
+                
+                <div class="col-md-6">
+                    <h5>2. Visual Design</h5>
+                    <ul>
+                        <li>Keep icon styles consistent</li>
+                        <li>Use appropriate icon sizes</li>
+                        <li>Provide visual feedback on interaction</li>
+                        <li>Consider using tooltips for clarity</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Floating Action Buttons -->
+    <div class="action-buttons">
+        <button class="btn btn-primary btn-icon btn-floating btn-lg shadow" data-bs-toggle="tooltip" title="Add">
+            <i class="bi bi-plus-lg"></i>
+            <span class="visually-hidden">Add</span>
+        </button>
+        <button class="btn btn-success btn-icon btn-floating shadow" data-bs-toggle="tooltip" title="Edit">
+            <i class="bi bi-pencil"></i>
+            <span class="visually-hidden">Edit</span>
+        </button>
+        <button class="btn btn-info btn-icon btn-floating shadow" data-bs-toggle="tooltip" title="Help">
+            <i class="bi bi-question-lg"></i>
+            <span class="visually-hidden">Help</span>
+        </button>
+    </div>
+    
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Initialize tooltips
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+        var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl);
+        });
+    </script>
+</body>
+</html>

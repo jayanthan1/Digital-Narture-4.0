@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Navbar - Exercise 10.1</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .section {
+            padding: 60px 0;
+            min-height: 400px;
+            border-bottom: 1px solid #eee;
+        }
+        .navbar-brand img {
+            max-height: 40px;
+        }
+        .navbar {
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .demo-section {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .code-section {
+            background-color: #f5f5f5;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        pre {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Main Navbar Example -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+        <div class="container">
+            <!-- Logo/Brand -->
+            <a class="navbar-brand" href="#">
+                <img src="https://placeholder.pics/svg/150x50/DEDEDE/555555/BOOTSTRAP" alt="Bootstrap Logo">
+            </a>
+            
+            <!-- Mobile Toggle Button -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain" 
+                    aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <!-- Navbar Content -->
+            <div class="collapse navbar-collapse" id="navbarMain">
+                <!-- Navigation Links -->
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#features">Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#pricing">Pricing</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" 
+                           data-bs-toggle="dropdown" aria-expanded="false">
+                            Products
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#">Product 1</a></li>
+                            <li><a class="dropdown-item" href="#">Product 2</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#">Special Offers</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+                
+                <!-- Search Form -->
+                <form class="d-flex">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-light" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Content Sections -->
+    <div class="container">
+        <section id="intro" class="section">
+            <h1 class="mb-4">Bootstrap Responsive Navbar - Exercise 10.1</h1>
+            <p class="lead">This exercise demonstrates how to create a responsive navbar with Bootstrap 5, including a logo, navigation links, dropdown menu, and a search form.</p>
+            
+            <div class="alert alert-info">
+                <i class="fas fa-info-circle me-2"></i> Try resizing your browser window to see how the navbar responds to different screen sizes.
+            </div>
+        </section>
+
+        <section id="features" class="section">
+            <h2 class="mb-4">Navbar Features</h2>
+            
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div class="demo-section">
+                        <h4><i class="fas fa-mobile-alt me-2"></i> Responsive Design</h4>
+                        <p>The navbar collapses into a hamburger menu on mobile devices and smaller screens.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="demo-section">
+                        <h4><i class="fas fa-list me-2"></i> Dropdown Menu</h4>
+                        <p>Includes a dropdown menu for organizing related navigation items.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="demo-section">
+                        <h4><i class="fas fa-search me-2"></i> Search Form</h4>
+                        <p>Integrated search form that adapts to different screen sizes.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="demo-section">
+                        <h4><i class="fas fa-image me-2"></i> Brand Logo</h4>
+                        <p>Includes a brand logo that maintains visibility across all screen sizes.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="variations" class="section">
+            <h2 class="mb-4">Navbar Variations</h2>
+            
+            <!-- Light Navbar -->
+            <h4 class="mt-4 mb-3">Light Navbar</h4>
+            <nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">Light Navbar</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarLight">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarLight">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#">Features</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#">Pricing</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            
+            <!-- Dark Navbar -->
+            <h4 class="mt-4 mb-3">Dark Navbar</h4>
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">Dark Navbar</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarDark">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarDark">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#">Features</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#">Pricing</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            
+            <!-- Colorful Navbar -->
+            <h4 class="mt-4 mb-3">Colorful Navbar</h4>
+            <nav class="navbar navbar-expand-lg navbar-dark bg-success mb-4">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">Success Navbar</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSuccess">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSuccess">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#">Features</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#">Pricing</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </section>
+
+        <section id="code" class="section">
+            <h2 class="mb-4">Implementation Code</h2>
+            
+            <div class="code-section">
+                <h4 class="mb-3">Basic Navbar Structure</h4>
+                <pre><code>&lt;nav class="navbar navbar-expand-lg navbar-dark bg-primary"&gt;
+    &lt;div class="container"&gt;
+        &lt;!-- Logo/Brand --&gt;
+        &lt;a class="navbar-brand" href="#"&gt;
+            &lt;img src="logo.png" alt="Logo"&gt;
+        &lt;/a&gt;
+        
+        &lt;!-- Mobile Toggle Button --&gt;
+        &lt;button class="navbar-toggler" type="button" 
+                data-bs-toggle="collapse" data-bs-target="#navbarMain"&gt;
+            &lt;span class="navbar-toggler-icon"&gt;&lt;/span&gt;
+        &lt;/button&gt;
+        
+        &lt;!-- Navbar Content --&gt;
+        &lt;div class="collapse navbar-collapse" id="navbarMain"&gt;
+            &lt;!-- Navigation Links --&gt;
+            &lt;ul class="navbar-nav me-auto mb-2 mb-lg-0"&gt;
+                &lt;li class="nav-item"&gt;
+                    &lt;a class="nav-link active" href="#"&gt;Home&lt;/a&gt;
+                &lt;/li&gt;
+                &lt;li class="nav-item"&gt;
+                    &lt;a class="nav-link" href="#"&gt;Features&lt;/a&gt;
+                &lt;/li&gt;
+                &lt;!-- More nav items... --&gt;
+            &lt;/ul&gt;
+            
+            &lt;!-- Search Form --&gt;
+            &lt;form class="d-flex"&gt;
+                &lt;input class="form-control me-2" type="search" placeholder="Search"&gt;
+                &lt;button class="btn btn-outline-light" type="submit"&gt;Search&lt;/button&gt;
+            &lt;/form&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/nav&gt;</code></pre>
+            </div>
+        </section>
+
+        <section id="contact" class="section">
+            <h2 class="mb-4">Contact</h2>
+            <p>This is a demonstration contact section that's linked from the navbar.</p>
+        </section>
+    </div>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

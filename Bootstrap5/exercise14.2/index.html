@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 14.2 - Responsive Sidebar</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <style>
+        /* Custom styles for the sidebar */
+        body {
+            overflow-x: hidden;
+        }
+        
+        .sidebar {
+            min-height: 100vh;
+            background-color: #212529;
+            transition: all 0.3s;
+        }
+        
+        .sidebar-sticky {
+            position: sticky;
+            top: 0;
+            height: calc(100vh);
+            padding-top: 1rem;
+            overflow-x: hidden;
+            overflow-y: auto;
+        }
+        
+        .sidebar .nav-link {
+            color: rgba(255, 255, 255, 0.75);
+            padding: 0.75rem 1rem;
+            border-radius: 0.25rem;
+            margin-bottom: 0.25rem;
+        }
+        
+        .sidebar .nav-link:hover {
+            color: rgba(255, 255, 255, 0.9);
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        .sidebar .nav-link.active {
+            color: #fff;
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        .sidebar .nav-link i {
+            margin-right: 0.5rem;
+        }
+        
+        .sidebar-heading {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1rem;
+            color: rgba(255, 255, 255, 0.5);
+            padding: 1rem;
+        }
+        
+        .mobile-nav {
+            background-color: #212529;
+            padding: 1rem;
+        }
+        
+        .mobile-nav .dropdown-menu {
+            width: 100%;
+        }
+        
+        .content {
+            transition: all 0.3s;
+        }
+        
+        .device-indicator {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            z-index: 1030;
+        }
+        
+        .content-card {
+            border-radius: 0.5rem;
+            box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+            margin-bottom: 1.5rem;
+        }
+        
+        .content-card-header {
+            background-color: rgba(0, 0, 0, 0.03);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+            padding: 1rem;
+            border-top-left-radius: 0.5rem;
+            border-top-right-radius: 0.5rem;
+        }
+        
+        .content-card-body {
+            padding: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Device Size Indicator -->
+    <div class="device-indicator">
+        <span class="badge bg-danger d-block d-sm-none">XS - Mobile</span>
+        <span class="badge bg-warning text-dark d-none d-sm-block d-md-none">SM - Mobile</span>
+        <span class="badge bg-info text-dark d-none d-md-block d-lg-none">MD - Tablet</span>
+        <span class="badge bg-success d-none d-lg-block d-xl-none">LG - Desktop</span>
+        <span class="badge bg-primary d-none d-xl-block d-xxl-none">XL - Large Desktop</span>
+        <span class="badge bg-dark d-none d-xxl-block">XXL - Extra Large</span>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar - Hidden on mobile (xs, sm), visible on tablet and above (md, lg, xl, xxl) -->
+            <div class="col-md-3 col-lg-2 d-none d-md-block sidebar">
+                <div class="sidebar-sticky">
+                    <div class="d-flex align-items-center justify-content-center py-3 mb-3">
+                        <h4 class="text-white mb-0">Admin Panel</h4>
+                    </div>
+                    
+                    <div class="sidebar-heading">
+                        Main
+                    </div>
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#">
+                                <i class="bi bi-speedometer2"></i>
+                                Dashboard
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <i class="bi bi-graph-up"></i>
+                                Analytics
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <i class="bi bi-people"></i>
+                                Users
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <i class="bi bi-grid"></i>
+                                Products
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <i class="bi bi-cart"></i>
+                                Orders
+                            </a>
+                        </li>
+                    </ul>
+                    
+                    <div class="sidebar-heading mt-4">
+                        Settings
+                    </div>
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <i class="bi bi-gear"></i>
+                                General
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <i class="bi bi-shield-lock"></i>
+                                Security
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <i class="bi bi-bell"></i>
+                                Notifications
+                            </a>
+                        </li>
+                    </ul>
+                    
+                    <div class="sidebar-heading mt-4">
+                        Account
+                    </div>
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <i class="bi bi-person"></i>
+                                Profile
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <i class="bi bi-box-arrow-right"></i>
+                                Logout
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Mobile Navigation - Visible only on mobile (xs, sm), hidden on tablet and above (md, lg, xl, xxl) -->
+            <div class="d-block d-md-none w-100 mobile-nav">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h4 class="text-white mb-0">Admin Panel</h4>
+                    <div class="dropdown">
+                        <button class="btn btn-outline-light" type="button" id="mobileMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-list"></i> Menu
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="mobileMenuButton">
+                            <li><h6 class="dropdown-header">Main</h6></li>
+                            <li><a class="dropdown-item active" href="#"><i class="bi bi-speedometer2 me-2"></i>Dashboard</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="bi bi-graph-up me-2"></i>Analytics</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="bi bi-people me-2"></i>Users</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="bi bi-grid me-2"></i>Products</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="bi bi-cart me-2"></i>Orders</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><h6 class="dropdown-header">Settings</h6></li>
+                            <li><a class="dropdown-item" href="#"><i class="bi bi-gear me-2"></i>General</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="bi bi-shield-lock me-2"></i>Security</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="bi bi-bell me-2"></i>Notifications</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><h6 class="dropdown-header">Account</h6></li>
+                            <li><a class="dropdown-item" href="#"><i class="bi bi-person me-2"></i>Profile</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="bi bi-box-arrow-right me-2"></i>Logout</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Main Content - Adjusted width based on sidebar visibility -->
+            <main class="col-12 col-md-9 col-lg-10 ms-sm-auto px-md-4 content">
+                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                    <h1 class="h2">Dashboard</h1>
+                    <div class="btn-toolbar mb-2 mb-md-0">
+                        <div class="btn-group me-2">
+                            <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
+                            <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
+                        </div>
+                        <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
+                            <i class="bi bi-calendar"></i>
+                            This week
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Explanation Section -->
+                <div class="alert alert-primary mb-4">
+                    <h4 class="alert-heading">Responsive Sidebar Example</h4>
+                    <p>This example demonstrates a responsive sidebar that is:</p>
+                    <ul>
+                        <li><strong>Hidden on mobile devices</strong> (xs, sm breakpoints - below 768px)</li>
+                        <li><strong>Visible on tablets and desktops</strong> (md, lg, xl, xxl breakpoints - 768px and above)</li>
+                    </ul>
+                    <p>On mobile devices, the sidebar is replaced with a dropdown menu in the header.</p>
+                    <hr>
+                    <p class="mb-0">Resize your browser window to see how the layout changes. Look for the colored badge in the top-right corner to identify your current viewport size.</p>
+                </div>
+                
+                <!-- Content Cards -->
+                <div class="row">
+                    <div class="col-md-6 mb-4">
+                        <div class="card content-card">
+                            <div class="content-card-header d-flex justify-content-between align-items-center">
+                                <h5 class="mb-0">Implementation Details</h5>
+                                <button class="btn btn-sm btn-outline-secondary">
+                                    <i class="bi bi-info-circle"></i>
+                                </button>
+                            </div>
+                            <div class="content-card-body">
+                                <h6>Display Classes Used:</h6>
+                                <ul>
+                                    <li><code>d-none d-md-block</code> - Hide on mobile, show on tablet and above</li>
+                                    <li><code>d-block d-md-none</code> - Show on mobile, hide on tablet and above</li>
+                                    <li><code>col-12 col-md-9 col-lg-10</code> - Adjust content width based on sidebar visibility</li>
+                                </ul>
+                                
+                                <h6>Key Components:</h6>
+                                <ol>
+                                    <li>Sidebar with navigation links</li>
+                                    <li>Mobile dropdown menu alternative</li>
+                                    <li>Responsive content area that adjusts width</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6 mb-4">
+                        <div class="card content-card">
+                            <div class="content-card-header d-flex justify-content-between align-items-center">
+                                <h5 class="mb-0">Benefits of This Approach</h5>
+                                <button class="btn btn-sm btn-outline-secondary">
+                                    <i class="bi bi-lightbulb"></i>
+                                </button>
+                            </div>
+                            <div class="content-card-body">
+                                <ul>
+                                    <li><strong>Optimized for Mobile:</strong> On small screens, the sidebar is hidden to maximize content space</li>
+                                    <li><strong>Better Navigation on Larger Screens:</strong> Persistent sidebar on tablets and desktops for easy navigation</li>
+                                    <li><strong>Consistent Access to Navigation:</strong> Mobile users can still access all navigation options via the dropdown</li>
+                                    <li><strong>Clean Implementation:</strong> Uses Bootstrap's built-in display utilities without custom JavaScript</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Data Table Section -->
+                <div class="card content-card">
+                    <div class="content-card-header">
+                        <h5 class="mb-0">Recent Activity</h5>
+                    </div>
+                    <div class="content-card-body">
+                        <div class="table-responsive">
+                            <table class="table table-striped table-hover">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Date</th>
+                                        <th scope="col">Status</th>
+                                        <th scope="col">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">1</th>
+                                        <td>Project Alpha</td>
+                                        <td>May 27, 2025</td>
+                                        <td><span class="badge bg-success">Completed</span></td>
+                                        <td>
+                                            <button class="btn btn-sm btn-outline-primary">View</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">2</th>
+                                        <td>Project Beta</td>
+                                        <td>May 26, 2025</td>
+                                        <td><span class="badge bg-warning text-dark">In Progress</span></td>
+                                        <td>
+                                            <button class="btn btn-sm btn-outline-primary">View</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">3</th>
+                                        <td>Project Gamma</td>
+                                        <td>May 25, 2025</td>
+                                        <td><span class="badge bg-info text-dark">Review</span></td>
+                                        <td>
+                                            <button class="btn btn-sm btn-outline-primary">View</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">4</th>
+                                        <td>Project Delta</td>
+                                        <td>May 24, 2025</td>
+                                        <td><span class="badge bg-danger">Delayed</span></td>
+                                        <td>
+                                            <button class="btn btn-sm btn-outline-primary">View</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">5</th>
+                                        <td>Project Epsilon</td>
+                                        <td>May 23, 2025</td>
+                                        <td><span class="badge bg-success">Completed</span></td>
+                                        <td>
+                                            <button class="btn btn-sm btn-outline-primary">View</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Additional Content Section -->
+                <div class="row mt-4">
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">Quick Stats</h5>
+                                <div class="d-flex justify-content-between align-items-center mt-3">
+                                    <div>
+                                        <h6 class="text-muted">Total Users</h6>
+                                        <h3>1,254</h3>
+                                    </div>
+                                    <i class="bi bi-people text-primary" style="font-size: 2rem;"></i>
+                                </div>
+                                <div class="progress mt-3" style="height: 5px;">
+                                    <div class="progress-bar bg-primary" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                                <small class="text-muted">+12% from last month</small>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">Revenue</h5>
+                                <div class="d-flex justify-content-between align-items-center mt-3">
+                                    <div>
+                                        <h6 class="text-muted">Monthly</h6>
+                                        <h3>$24,500</h3>
+                                    </div>
+                                    <i class="bi bi-currency-dollar text-success" style="font-size: 2rem;"></i>
+                                </div>
+                                <div class="progress mt-3" style="height: 5px;">
+                                    <div class="progress-bar bg-success" role="progressbar" style="width: 65%" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                                <small class="text-muted">+8% from last month</small>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">Tasks</h5>
+                                <div class="d-flex justify-content-between align-items-center mt-3">
+                                    <div>
+                                        <h6 class="text-muted">Completed</h6>
+                                        <h3>42/50</h3>
+                                    </div>
+                                    <i class="bi bi-check2-square text-info" style="font-size: 2rem;"></i>
+                                </div>
+                                <div class="progress mt-3" style="height: 5px;">
+                                    <div class="progress-bar bg-info" role="progressbar" style="width: 84%" aria-valuenow="84" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                                <small class="text-muted">84% completion rate</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <footer class="pt-4 my-md-5 pt-md-5 border-top">
+                    <div class="row">
+                        <div class="col-12 col-md">
+                            <small class="d-block mb-3 text-muted">© 2025 Company, Inc.</small>
+                        </div>
+                        <div class="col-6 col-md">
+                            <h5>Features</h5>
+                            <ul class="list-unstyled text-small">
+                                <li><a class="link-secondary" href="#">Cool stuff</a></li>
+                                <li><a class="link-secondary" href="#">Random feature</a></li>
+                                <li><a class="link-secondary" href="#">Team feature</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-6 col-md">
+                            <h5>Resources</h5>
+                            <ul class="list-unstyled text-small">
+                                <li><a class="link-secondary" href="#">Resource</a></li>
+                                <li><a class="link-secondary" href="#">Resource name</a></li>
+                                <li><a class="link-secondary" href="#">Another resource</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-6 col-md">
+                            <h5>About</h5>
+                            <ul class="list-unstyled text-small">
+                                <li><a class="link-secondary" href="#">Team</a></li>
+                                <li><a class="link-secondary" href="#">Locations</a></li>
+                                <li><a class="link-secondary" href="#">Privacy</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </footer>
+            </main>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap Grid Alignment</title>
+    
+    <!-- Bootstrap 5 CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    
+    <style>
+        body {
+            padding-bottom: 50px;
+        }
+        
+        .demo-section {
+            margin-bottom: 50px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #dee2e6;
+        }
+        
+        .demo-box {
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            padding: 20px;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .demo-row {
+            background-color: rgba(13, 110, 253, 0.1);
+            border: 2px dashed #0d6efd;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 15px;
+            min-height: 200px;
+        }
+        
+        .demo-col {
+            background-color: rgba(25, 135, 84, 0.1);
+            border: 2px dashed #198754;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .demo-content {
+            background-color: #fff;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            padding: 15px;
+            width: 150px;
+            height: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .code-block {
+            background-color: #f1f1f1;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            font-family: monospace;
+            white-space: pre-wrap;
+        }
+        
+        .tall-row {
+            height: 400px;
+        }
+        
+        .medium-row {
+            height: 300px;
+        }
+        
+        .short-row {
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Bootstrap Grid Alignment</h1>
+        <p class="lead text-center mb-5">This example demonstrates how to use <code>justify-content-center</code> and <code>align-items-center</code> to center content inside a row.</p>
+        
+        <!-- Horizontal Alignment Section -->
+        <div class="demo-section">
+            <h2 class="mb-4">1. Horizontal Alignment with justify-content-*</h2>
+            <p>The <code>justify-content-*</code> classes align items horizontally within a row. They work with flexbox properties to position items along the main axis (horizontally in a row).</p>
+            
+            <h4 class="mt-4 mb-3">justify-content-start (Default)</h4>
+            <div class="demo-row">
+                <div class="row justify-content-start">
+                    <div class="col-4">
+                        <div class="demo-content">Column</div>
+                    </div>
+                </div>
+            </div>
+            <div class="code-block">&lt;div class="row justify-content-start"&gt;
+  &lt;div class="col-4"&gt;Column&lt;/div&gt;
+&lt;/div&gt;</div>
+            
+            <h4 class="mt-4 mb-3">justify-content-center</h4>
+            <div class="demo-row">
+                <div class="row justify-content-center">
+                    <div class="col-4">
+                        <div class="demo-content">Column</div>
+                    </div>
+                </div>
+            </div>
+            <div class="code-block">&lt;div class="row justify-content-center"&gt;
+  &lt;div class="col-4"&gt;Column&lt;/div&gt;
+&lt;/div&gt;</div>
+            
+            <h4 class="mt-4 mb-3">justify-content-end</h4>
+            <div class="demo-row">
+                <div class="row justify-content-end">
+                    <div class="col-4">
+                        <div class="demo-content">Column</div>
+                    </div>
+                </div>
+            </div>
+            <div class="code-block">&lt;div class="row justify-content-end"&gt;
+  &lt;div class="col-4"&gt;Column&lt;/div&gt;
+&lt;/div&gt;</div>
+            
+            <h4 class="mt-4 mb-3">justify-content-between</h4>
+            <div class="demo-row">
+                <div class="row justify-content-between">
+                    <div class="col-4">
+                        <div class="demo-content">Column</div>
+                    </div>
+                    <div class="col-4">
+                        <div class="demo-content">Column</div>
+                    </div>
+                </div>
+            </div>
+            <div class="code-block">&lt;div class="row justify-content-between"&gt;
+  &lt;div class="col-4"&gt;Column&lt;/div&gt;
+  &lt;div class="col-4"&gt;Column&lt;/div&gt;
+&lt;/div&gt;</div>
+            
+            <h4 class="mt-4 mb-3">justify-content-around</h4>
+            <div class="demo-row">
+                <div class="row justify-content-around">
+                    <div class="col-4">
+                        <div class="demo-content">Column</div>
+                    </div>
+                    <div class="col-4">
+                        <div class="demo-content">Column</div>
+                    </div>
+                </div>
+            </div>
+            <div class="code-block">&lt;div class="row justify-content-around"&gt;
+  &lt;div class="col-4"&gt;Column&lt;/div&gt;
+  &lt;div class="col-4"&gt;Column&lt;/div&gt;
+&lt;/div&gt;</div>
+            
+            <h4 class="mt-4 mb-3">justify-content-evenly</h4>
+            <div class="demo-row">
+                <div class="row justify-content-evenly">
+                    <div class="col-4">
+                        <div class="demo-content">Column</div>
+                    </div>
+                    <div class="col-4">
+                        <div class="demo-content">Column</div>
+                    </div>
+                </div>
+            </div>
+            <div class="code-block">&lt;div class="row justify-content-evenly"&gt;
+  &lt;div class="col-4"&gt;Column&lt;/div&gt;
+  &lt;div class="col-4"&gt;Column&lt;/div&gt;
+&lt;/div&gt;</div>
+        </div>
+        
+        <!-- Vertical Alignment Section -->
+        <div class="demo-section">
+            <h2 class="mb-4">2. Vertical Alignment with align-items-*</h2>
+            <p>The <code>align-items-*</code> classes align items vertically within a row. They work with flexbox properties to position items along the cross axis (vertically in a row).</p>
+            
+            <h4 class="mt-4 mb-3">align-items-start</h4>
+            <div class="demo-row tall-row">
+                <div class="row align-items-start h-100">
+                    <div class="col-4">
+                        <div class="demo-content">Column</div>
+                    </div>
+                    <div class="col-4">
+                        <div class="demo-content">Column</div>
+                    </div>
+                    <div class="col-4">
+                        <div class="demo-content">Column</div>
+                    </div>
+                </div>
+            </div>
+            <div class="code-block">&lt;div class="row align-items-start"&gt;
+  &lt;div class="col-4"&gt;Column&lt;/div&gt;
+  &lt;div class="col-4"&gt;Column&lt;/div&gt;
+  &lt;div class="col-4"&gt;Column&lt;/div&gt;
+&lt;/div&gt;</div>
+            
+            <h4 class="mt-4 mb-3">align-items-center</h4>
+            <div class="demo-row tall-row">
+                <div class="row align-items-center h-100">
+                    <div class="col-4">
+                        <div class="demo-content">Column</div>
+                    </div>
+                    <div class="col-4">
+                        <div class="demo-content">Column</div>
+                    </div>
+                    <div class="col-4">
+                        <div class="demo-content">Column</div>
+                    </div>
+                </div>
+            </div>
+            <div class="code-block">&lt;div class="row align-items-center"&gt;
+  &lt;div class="col-4"&gt;Column&lt;/div&gt;
+  &lt;div class="col-4"&gt;Column&lt;/div&gt;
+  &lt;div class="col-4"&gt;Column&lt;/div&gt;
+&lt;/div&gt;</div>
+            
+            <h4 class="mt-4 mb-3">align-items-end</h4>
+            <div class="demo-row tall-row">
+                <div class="row align-items-end h-100">
+                    <div class="col-4">
+                        <div class="demo-content">Column</div>
+                    </div>
+                    <div class="col-4">
+                        <div class="demo-content">Column</div>
+                    </div>
+                    <div class="col-4">
+                        <div class="demo-content">Column</div>
+                    </div>
+                </div>
+            </div>
+            <div class="code-block">&lt;div class="row align-items-end"&gt;
+  &lt;div class="col-4"&gt;Column&lt;/div&gt;
+  &lt;div class="col-4"&gt;Column&lt;/div&gt;
+  &lt;div class="col-4"&gt;Column&lt;/div&gt;
+&lt;/div&gt;</div>
+        </div>
+        
+        <!-- Individual Column Alignment -->
+        <div class="demo-section">
+            <h2 class="mb-4">3. Individual Column Alignment with align-self-*</h2>
+            <p>The <code>align-self-*</code> classes allow you to align individual columns differently within the same row.</p>
+            
+            <div class="demo-row tall-row">
+                <div class="row h-100">
+                    <div class="col-4 align-self-start">
+                        <div class="demo-content">align-self-start</div>
+                    </div>
+                    <div class="col-4 align-self-center">
+                        <div class="demo-content">align-self-center</div>
+                    </div>
+                    <div class="col-4 align-self-end">
+                        <div class="demo-content">align-self-end</div>
+                    </div>
+                </div>
+            </div>
+            <div class="code-block">&lt;div class="row"&gt;
+  &lt;div class="col-4 align-self-start"&gt;align-self-start&lt;/div&gt;
+  &lt;div class="col-4 align-self-center"&gt;align-self-center&lt;/div&gt;
+  &lt;div class="col-4 align-self-end"&gt;align-self-end&lt;/div&gt;
+&lt;/div&gt;</div>
+        </div>
+        
+        <!-- Centering Content Both Horizontally and Vertically -->
+        <div class="demo-section">
+            <h2 class="mb-4">4. Centering Content Both Horizontally and Vertically</h2>
+            <p>Combine <code>justify-content-center</code> and <code>align-items-center</code> to center content both horizontally and vertically.</p>
+            
+            <div class="demo-row tall-row">
+                <div class="row justify-content-center align-items-center h-100">
+                    <div class="col-4">
+                        <div class="demo-content">Centered Column</div>
+                    </div>
+                </div>
+            </div>
+            <div class="code-block">&lt;div class="row justify-content-center align-items-center"&gt;
+  &lt;div class="col-4"&gt;Centered Column&lt;/div&gt;
+&lt;/div&gt;</div>
+            
+            <div class="alert alert-info mt-4">
+                <h5>Perfect Centering</h5>
+                <p>This technique is perfect for creating centered elements like modals, login forms, or hero sections.</p>
+            </div>
+        </div>
+        
+        <!-- Practical Examples -->
+        <div class="demo-section">
+            <h2 class="mb-4">5. Practical Examples</h2>
+            
+            <h4 class="mt-4 mb-3">Centered Hero Section</h4>
+            <div class="demo-row tall-row" style="background-image: linear-gradient(to right, #4facfe 0%, #00f2fe 100%); color: white;">
+                <div class="row justify-content-center align-items-center h-100">
+                    <div class="col-md-6 text-center">
+                        <h2>Welcome to Our Website</h2>
+                        <p>This is a centered hero section with a background gradient.</p>
+                        <button class="btn btn-light mt-3">Get Started</button>
+                    </div>
+                </div>
+            </div>
+            <div class="code-block">&lt;div class="row justify-content-center align-items-center h-100"&gt;
+  &lt;div class="col-md-6 text-center"&gt;
+    &lt;h2&gt;Welcome to Our Website&lt;/h2&gt;
+    &lt;p&gt;This is a centered hero section with a background gradient.&lt;/p&gt;
+    &lt;button class="btn btn-light mt-3"&gt;Get Started&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</div>
+            
+            <h4 class="mt-4 mb-3">Centered Login Form</h4>
+            <div class="demo-row medium-row">
+                <div class="row justify-content-center align-items-center h-100">
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="card-header bg-primary text-white text-center">
+                                <h5 class="mb-0">Login</h5>
+                            </div>
+                            <div class="card-body">
+                                <form>
+                                    <div class="mb-3">
+                                        <label for="username" class="form-label">Username</label>
+                                        <input type="text" class="form-control" id="username">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="password" class="form-label">Password</label>
+                                        <input type="password" class="form-control" id="password">
+                                    </div>
+                                    <button type="submit" class="btn btn-primary w-100">Sign In</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="code-block">&lt;div class="row justify-content-center align-items-center h-100"&gt;
+  &lt;div class="col-md-4"&gt;
+    &lt;div class="card"&gt;
+      &lt;div class="card-header bg-primary text-white text-center"&gt;
+        &lt;h5 class="mb-0"&gt;Login&lt;/h5&gt;
+      &lt;/div&gt;
+      &lt;div class="card-body"&gt;
+        &lt;form&gt;
+          &lt;!-- Form fields here --&gt;
+          &lt;button type="submit" class="btn btn-primary w-100"&gt;Sign In&lt;/button&gt;
+        &lt;/form&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</div>
+            
+            <h4 class="mt-4 mb-3">Feature Cards with Space Between</h4>
+            <div class="demo-row">
+                <div class="row justify-content-between align-items-center h-100">
+                    <div class="col-md-3">
+                        <div class="card text-center">
+                            <div class="card-body">
+                                <h5 class="card-title">Feature 1</h5>
+                                <p class="card-text">Some quick example text.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card text-center">
+                            <div class="card-body">
+                                <h5 class="card-title">Feature 2</h5>
+                                <p class="card-text">Some quick example text.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card text-center">
+                            <div class="card-body">
+                                <h5 class="card-title">Feature 3</h5>
+                                <p class="card-text">Some quick example text.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="code-block">&lt;div class="row justify-content-between align-items-center"&gt;
+  &lt;div class="col-md-3"&gt;
+    &lt;div class="card text-center"&gt;
+      &lt;div class="card-body"&gt;
+        &lt;h5 class="card-title"&gt;Feature 1&lt;/h5&gt;
+        &lt;p class="card-text"&gt;Some quick example text.&lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;!-- Repeat for other features --&gt;
+&lt;/div&gt;</div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+</body>
+</html>

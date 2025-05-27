@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap Structure Visualization</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .folder {
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-left: 5px solid #0d6efd;
+        }
+        .file {
+            background-color: #fff;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            padding: 8px 15px;
+            margin: 5px 0;
+        }
+        .css-file { border-left: 4px solid #198754; }
+        .js-file { border-left: 4px solid #dc3545; }
+        .scss-file { border-left: 4px solid #6f42c1; }
+        .icon-file { border-left: 4px solid #fd7e14; }
+        h3 {
+            margin-top: 0;
+            color: #0d6efd;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="mb-4 text-center">Bootstrap 5 Directory Structure</h1>
+        
+        <div class="row">
+            <div class="col-md-6">
+                <div class="folder">
+                    <h3>CSS Directory</h3>
+                    <p>Contains all styling components of Bootstrap</p>
+                    <div class="file css-file">bootstrap.css</div>
+                    <div class="file css-file">bootstrap.min.css</div>
+                    <div class="file css-file">bootstrap.rtl.css</div>
+                    <div class="file css-file">bootstrap.rtl.min.css</div>
+                    <div class="file css-file">bootstrap-grid.css</div>
+                    <div class="file css-file">bootstrap-grid.min.css</div>
+                    <div class="file css-file">bootstrap-reboot.css</div>
+                    <div class="file css-file">bootstrap-reboot.min.css</div>
+                    <div class="file css-file">bootstrap-utilities.css</div>
+                    <div class="file css-file">bootstrap-utilities.min.css</div>
+                </div>
+            </div>
+            
+            <div class="col-md-6">
+                <div class="folder">
+                    <h3>JS Directory</h3>
+                    <p>Contains JavaScript for interactive components</p>
+                    <div class="file js-file">bootstrap.js</div>
+                    <div class="file js-file">bootstrap.min.js</div>
+                    <div class="file js-file">bootstrap.bundle.js</div>
+                    <div class="file js-file">bootstrap.bundle.min.js</div>
+                    <div class="file js-file">bootstrap.esm.js</div>
+                    <div class="file js-file">bootstrap.esm.min.js</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-6">
+                <div class="folder">
+                    <h3>Icons Directory</h3>
+                    <p>Contains Bootstrap Icons (separate library)</p>
+                    <div class="folder" style="border-left-color: #fd7e14;">
+                        <h5>fonts/</h5>
+                        <div class="file icon-file">bootstrap-icons.woff</div>
+                        <div class="file icon-file">bootstrap-icons.woff2</div>
+                    </div>
+                    <div class="folder" style="border-left-color: #fd7e14;">
+                        <h5>svg/</h5>
+                        <div class="file icon-file">alarm.svg</div>
+                        <div class="file icon-file">archive.svg</div>
+                        <div class="file icon-file">...</div>
+                    </div>
+                    <div class="file icon-file">bootstrap-icons.css</div>
+                </div>
+            </div>
+            
+            <div class="col-md-6">
+                <div class="folder">
+                    <h3>SCSS Directory</h3>
+                    <p>Contains source Sass files for customization</p>
+                    <div class="file scss-file">_variables.scss</div>
+                    <div class="folder" style="border-left-color: #6f42c1;">
+                        <h5>mixins/</h5>
+                        <div class="file scss-file">_breakpoints.scss</div>
+                        <div class="file scss-file">_grid.scss</div>
+                        <div class="file scss-file">...</div>
+                    </div>
+                    <div class="file scss-file">_root.scss</div>
+                    <div class="file scss-file">_reboot.scss</div>
+                    <div class="file scss-file">bootstrap.scss</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="alert alert-info mt-4">
+            <h4>Key Points About Bootstrap Structure</h4>
+            <ul>
+                <li><strong>CSS Files</strong>: Provide styling for all Bootstrap components</li>
+                <li><strong>JS Files</strong>: Enable interactive functionality (requires Popper.js for some components)</li>
+                <li><strong>Icons</strong>: Optional library for including vector icons</li>
+                <li><strong>SCSS Files</strong>: Source files for customization and theming</li>
+            </ul>
+            <p>For most projects, you'll only need <code>bootstrap.min.css</code> and <code>bootstrap.bundle.min.js</code></p>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

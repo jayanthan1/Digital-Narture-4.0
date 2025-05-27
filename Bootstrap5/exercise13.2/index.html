@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 13.2 - Gradient Backgrounds</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <style>
+        /* Custom styles for the gradient examples */
+        .hero-section {
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .feature-card {
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .testimonial-section {
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .testimonial-card {
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+        
+        .testimonial-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid rgba(255, 255, 255, 0.5);
+        }
+        
+        .cta-section {
+            min-height: 300px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .footer-section {
+            min-height: 200px;
+        }
+        
+        /* Custom gradient variations */
+        .bg-gradient-blue {
+            background: linear-gradient(135deg, #121212 0%, #1e3c72 100%);
+        }
+        
+        .bg-gradient-purple {
+            background: linear-gradient(135deg, #121212 0%, #6a11cb 100%);
+        }
+        
+        .bg-gradient-green {
+            background: linear-gradient(135deg, #121212 0%, #1d976c 100%);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark bg-gradient sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Gradient Demo</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#features">Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#testimonials">Testimonials</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+                <button class="btn btn-outline-light ms-3">Get Started</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section bg-dark bg-gradient text-white">
+        <div class="container py-5">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h1 class="display-4 fw-bold mb-4">Bootstrap Gradient Backgrounds</h1>
+                    <p class="lead mb-4">Enhance your web designs with beautiful gradient backgrounds using Bootstrap's bg-gradient utility combined with contextual background classes.</p>
+                    <div class="d-flex gap-3">
+                        <a href="#" class="btn btn-light btn-lg px-4">Learn More</a>
+                        <a href="#" class="btn btn-outline-light btn-lg px-4">View Examples</a>
+                    </div>
+                </div>
+                <div class="col-lg-6 d-none d-lg-block">
+                    <div class="p-5 text-center">
+                        <i class="bi bi-layers-fill text-white-50" style="font-size: 12rem; opacity: 0.3;"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-5">
+        <div class="container py-5">
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-6 text-center">
+                    <h2 class="mb-4">Gradient Background Examples</h2>
+                    <p class="text-muted">Explore different gradient background variations using Bootstrap's bg-gradient utility with different contextual background classes.</p>
+                </div>
+            </div>
+            
+            <div class="row g-4">
+                <!-- Feature 1 -->
+                <div class="col-md-4">
+                    <div class="card feature-card h-100 bg-dark bg-gradient text-white">
+                        <div class="card-body text-center p-5">
+                            <i class="bi bi-brush feature-icon"></i>
+                            <h4>Default Dark Gradient</h4>
+                            <p class="mb-0">Using <code>bg-dark bg-gradient</code> for a subtle dark gradient effect that works well with light text.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Feature 2 -->
+                <div class="col-md-4">
+                    <div class="card feature-card h-100 bg-gradient-blue text-white">
+                        <div class="card-body text-center p-5">
+                            <i class="bi bi-palette feature-icon"></i>
+                            <h4>Custom Blue Gradient</h4>
+                            <p class="mb-0">A custom dark blue gradient created with CSS that provides a more dramatic effect for feature highlights.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Feature 3 -->
+                <div class="col-md-4">
+                    <div class="card feature-card h-100 bg-gradient-purple text-white">
+                        <div class="card-body text-center p-5">
+                            <i class="bi bi-droplet feature-icon"></i>
+                            <h4>Custom Purple Gradient</h4>
+                            <p class="mb-0">A custom dark purple gradient that creates visual interest and depth for important content sections.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bootstrap Gradient Examples -->
+    <section class="py-5 bg-light">
+        <div class="container py-5">
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-6 text-center">
+                    <h2 class="mb-4">Bootstrap Contextual Gradients</h2>
+                    <p class="text-muted">Examples of Bootstrap's built-in gradient utility with different contextual background classes.</p>
+                </div>
+            </div>
+            
+            <div class="row g-4">
+                <!-- Primary Gradient -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100">
+                        <div class="card-header bg-primary bg-gradient text-white">
+                            <h5 class="mb-0">Primary Gradient</h5>
+                        </div>
+                        <div class="card-body">
+                            <code>.bg-primary.bg-gradient</code>
+                            <p class="mt-3 mb-0">The primary gradient adds a subtle depth to the primary blue color, making buttons and headers more visually interesting.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Success Gradient -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100">
+                        <div class="card-header bg-success bg-gradient text-white">
+                            <h5 class="mb-0">Success Gradient</h5>
+                        </div>
+                        <div class="card-body">
+                            <code>.bg-success.bg-gradient</code>
+                            <p class="mt-3 mb-0">The success gradient adds dimension to the green color, perfect for positive actions and confirmation messages.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Danger Gradient -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100">
+                        <div class="card-header bg-danger bg-gradient text-white">
+                            <h5 class="mb-0">Danger Gradient</h5>
+                        </div>
+                        <div class="card-body">
+                            <code>.bg-danger.bg-gradient</code>
+                            <p class="mt-3 mb-0">The danger gradient enhances the red color, making warning and error messages more noticeable to users.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Warning Gradient -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100">
+                        <div class="card-header bg-warning bg-gradient text-dark">
+                            <h5 class="mb-0">Warning Gradient</h5>
+                        </div>
+                        <div class="card-body">
+                            <code>.bg-warning.bg-gradient</code>
+                            <p class="mt-3 mb-0">The warning gradient adds depth to the yellow color, ideal for cautionary messages and notifications.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Info Gradient -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100">
+                        <div class="card-header bg-info bg-gradient text-dark">
+                            <h5 class="mb-0">Info Gradient</h5>
+                        </div>
+                        <div class="card-body">
+                            <code>.bg-info.bg-gradient</code>
+                            <p class="mt-3 mb-0">The info gradient enhances the light blue color, perfect for informational messages and helpful tips.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Secondary Gradient -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100">
+                        <div class="card-header bg-secondary bg-gradient text-white">
+                            <h5 class="mb-0">Secondary Gradient</h5>
+                        </div>
+                        <div class="card-body">
+                            <code>.bg-secondary.bg-gradient</code>
+                            <p class="mt-3 mb-0">The secondary gradient adds subtle dimension to the gray color, useful for less prominent UI elements.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonial Section -->
+    <section id="testimonials" class="testimonial-section bg-dark bg-gradient text-white">
+        <div class="container py-5">
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-6 text-center">
+                    <h2 class="mb-4">What Our Users Say</h2>
+                    <p class="text-white-50">Hear from designers and developers who use our gradient backgrounds in their projects.</p>
+                </div>
+            </div>
+            
+            <div class="row g-4">
+                <!-- Testimonial 1 -->
+                <div class="col-md-6">
+                    <div class="testimonial-card p-4 bg-dark bg-opacity-50">
+                        <div class="d-flex">
+                            <img src="https://source.unsplash.com/random/80x80/?portrait1" alt="User" class="testimonial-img me-3">
+                            <div>
+                                <h5 class="mb-1">Sarah Johnson</h5>
+                                <p class="text-white-50 mb-3">UX Designer</p>
+                                <p class="mb-0">"The gradient backgrounds have completely transformed my designs. They add depth and visual interest without being distracting."</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="col-md-6">
+                    <div class="testimonial-card p-4 bg-dark bg-opacity-50">
+                        <div class="d-flex">
+                            <img src="https://source.unsplash.com/random/80x80/?portrait2" alt="User" class="testimonial-img me-3">
+                            <div>
+                                <h5 class="mb-1">Michael Chen</h5>
+                                <p class="text-white-50 mb-3">Frontend Developer</p>
+                                <p class="mb-0">"I love how easy it is to implement these gradients with Bootstrap. Just a couple of classes and my interfaces look much more professional."</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section id="contact" class="cta-section bg-gradient-green text-white">
+        <div class="container py-5">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <h2 class="mb-4">Ready to enhance your designs?</h2>
+                    <p class="lead mb-5">Start using Bootstrap's gradient backgrounds today to create more visually appealing interfaces.</p>
+                    <form class="row g-3 justify-content-center">
+                        <div class="col-md-8">
+                            <input type="email" class="form-control form-control-lg" placeholder="Enter your email">
+                        </div>
+                        <div class="col-md-4">
+                            <button type="submit" class="btn btn-light btn-lg w-100">Subscribe</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer-section bg-dark bg-gradient text-white-50 py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <h5 class="text-white mb-3">Gradient Demo</h5>
+                    <p>A demonstration of Bootstrap's gradient background utilities and how they can enhance your web designs.</p>
+                </div>
+                <div class="col-md-2 mb-4 mb-md-0">
+                    <h5 class="text-white mb-3">Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white-50 text-decoration-none">Home</a></li>
+                        <li><a href="#" class="text-white-50 text-decoration-none">Features</a></li>
+                        <li><a href="#" class="text-white-50 text-decoration-none">Testimonials</a></li>
+                        <li><a href="#" class="text-white-50 text-decoration-none">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2 mb-4 mb-md-0">
+                    <h5 class="text-white mb-3">Resources</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white-50 text-decoration-none">Documentation</a></li>
+                        <li><a href="#" class="text-white-50 text-decoration-none">Tutorials</a></li>
+                        <li><a href="#" class="text-white-50 text-decoration-none">Examples</a></li>
+                        <li><a href="#" class="text-white-50 text-decoration-none">Support</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5 class="text-white mb-3">Stay Connected</h5>
+                    <div class="d-flex gap-3 mb-3">
+                        <a href="#" class="text-white-50 fs-5"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="text-white-50 fs-5"><i class="bi bi-twitter"></i></a>
+                        <a href="#" class="text-white-50 fs-5"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="text-white-50 fs-5"><i class="bi bi-github"></i></a>
+                    </div>
+                    <p class="small">Sign up for our newsletter to receive updates and tips.</p>
+                </div>
+            </div>
+            <hr class="my-4 bg-white-50">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="small mb-0">© 2025 Gradient Demo. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <p class="small mb-0">Made with <i class="bi bi-heart-fill text-danger"></i> using Bootstrap 5</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

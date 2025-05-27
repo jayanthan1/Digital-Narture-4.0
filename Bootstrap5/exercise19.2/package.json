@@ -1,0 +1,16 @@
+{
+  "name": "bootstrap-sass-customization",
+  "version": "1.0.0",
+  "description": "Customizing Bootstrap colors and border radius using Sass",
+  "main": "index.js",
+  "scripts": {
+    "sass": "sass scss/custom.scss css/styles.css --watch",
+    "build": "sass scss/custom.scss css/styles.css --style compressed"
+  },
+  "dependencies": {
+    "bootstrap": "^5.3.0"
+  },
+  "devDependencies": {
+    "sass": "^1.62.0"
+  }
+}

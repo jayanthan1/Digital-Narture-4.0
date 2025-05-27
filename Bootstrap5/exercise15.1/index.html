@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 15.1 - Border Utilities with Images</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .demo-section {
+            padding: 2rem;
+            margin-bottom: 2rem;
+            background-color: #f8f9fa;
+            border-radius: 0.5rem;
+        }
+        
+        .demo-title {
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #dee2e6;
+        }
+        
+        .image-container {
+            display: inline-block;
+            margin: 1rem;
+            text-align: center;
+        }
+        
+        .image-container img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+        }
+        
+        .code-example {
+            background-color: #f1f1f1;
+            padding: 0.5rem;
+            border-radius: 0.25rem;
+            margin-top: 0.5rem;
+            font-family: monospace;
+            font-size: 0.9rem;
+        }
+        
+        .utility-description {
+            font-size: 0.9rem;
+            color: #6c757d;
+            margin-top: 0.5rem;
+        }
+        
+        .interactive-demo {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 0.5rem;
+            margin-top: 2rem;
+        }
+        
+        .control-group {
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container py-5">
+        <h1 class="text-center mb-5">Bootstrap Border Utilities with Images</h1>
+        
+        <!-- Introduction -->
+        <div class="alert alert-primary mb-5">
+            <h4 class="alert-heading">About This Exercise</h4>
+            <p>This exercise demonstrates how to use Bootstrap's border utilities to enhance images. You'll see examples of:</p>
+            <ul>
+                <li>Basic borders with <code>border</code></li>
+                <li>Contextual border colors like <code>border-primary</code></li>
+                <li>Border width variations with <code>border-3</code></li>
+                <li>Rounded corners with <code>rounded-circle</code> and other utilities</li>
+            </ul>
+            <p class="mb-0">Each example includes the image with the applied utilities and the code used to create it.</p>
+        </div>
+        
+        <!-- Basic Borders -->
+        <section class="demo-section">
+            <h2 class="demo-title">Basic Borders</h2>
+            <p>Add a border to all sides of an image using the <code>border</code> utility class.</p>
+            
+            <div class="row">
+                <div class="col-md-3 mb-4">
+                    <div class="image-container">
+                        <img src="https://source.unsplash.com/random/300x300/?nature" alt="Nature" class="border">
+                        <div class="code-example">class="border"</div>
+                        <div class="utility-description">Default border (1px solid #dee2e6)</div>
+                    </div>
+                </div>
+                
+                <div class="col-md-3 mb-4">
+                    <div class="image-container">
+                        <img src="https://source.unsplash.com/random/300x300/?mountain" alt="Mountain" class="border-top">
+                        <div class="code-example">class="border-top"</div>
+                        <div class="utility-description">Border on top only</div>
+                    </div>
+                </div>
+                
+                <div class="col-md-3 mb-4">
+                    <div class="image-container">
+                        <img src="https://source.unsplash.com/random/300x300/?forest" alt="Forest" class="border-end">
+                        <div class="code-example">class="border-end"</div>
+                        <div class="utility-description">Border on right side only</div>
+                    </div>
+                </div>
+                
+                <div class="col-md-3 mb-4">
+                    <div class="image-container">
+                        <img src="https://source.unsplash.com/random/300x300/?water" alt="Water" class="border-bottom">
+                        <div class="code-example">class="border-bottom"</div>
+                        <div class="utility-description">Border on bottom only</div>
+                    </div>
+                </div>
+                
+                <div class="col-md-3 mb-4">
+                    <div class="image-container">
+                        <img src="https://source.unsplash.com/random/300x300/?desert" alt="Desert" class="border-start">
+                        <div class="code-example">class="border-start"</div>
+                        <div class="utility-description">Border on left side only</div>
+                    </div>
+                </div>
+                
+                <div class="col-md-3 mb-4">
+                    <div class="image-container">
+                        <img src="https://source.unsplash.com/random/300x300/?beach" alt="Beach" class="border-top border-bottom">
+                        <div class="code-example">class="border-top border-bottom"</div>
+                        <div class="utility-description">Border on top and bottom</div>
+                    </div>
+                </div>
+                
+                <div class="col-md-3 mb-4">
+                    <div class="image-container">
+                        <img src="https://source.unsplash.com/random/300x300/?sunset" alt="Sunset" class="border-start border-end">
+                        <div class="code-example">class="border-start border-end"</div>
+                        <div class="utility-description">Border on left and right</div>
+                    </div>
+                </div>
+                
+                <div class="col-md-3 mb-4">
+                    <div class="image-container">
+                        <img src="https://source.unsplash.com/random/300x300/?sky" alt="Sky" class="border-0">
+                        <div class="code-example">class="border-0"</div>
+                        <div class="utility-description">No border (removes borders)</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Contextual Border Colors -->
+        <section class="demo-section">
+            <h2 class="demo-title">Contextual Border Colors</h2>
+            <p>Apply different colors to borders using contextual classes like <code>border-primary</code>, <code>border-success</code>, etc.</p>
+            
+            <div class="row">
+                <div class="col-md-3 mb-4">
+                    <div class="image-container">
+                        <img src="https://source.unsplash.com/random/300x300/?city" alt="City" class="border border-primary">
+                        <div class="code-example">class="border border-primary"</div>
+                        <div class="utility-description">Primary color border</div>
+                    </div>
+                </div>
+                
+                <div class="col-md-3 mb-4">
+                    <div class="image-container">
+                        <img src="https://source.unsplash.com/random/300x300/?flower" alt="Flower" class="border border-secondary">
+                        <div class="code-example">class="border border-secondary"</div>
+                        <div class="utility-description">Secondary color border</div>
+                    </div>
+                </div>
+                
+                <div class="col-md-3 mb-4">
+                    <div class="image-container">
+                        <img src="https://source.unsplash.com/random/300x300/?animal" alt="Animal" class="border border-success">
+                        <div class="code-example">class="border border-success"</div>
+                        <div class="utility-description">Success color border</div>
+                    </div>
+                </div>
+                
+                <div class="col-md-3 mb-4">
+                    <div class="image-container">
+                        <img src="https://source.unsplash.com/random/300x300/?food" alt="Food" class="border border-danger">
+                        <div class="code-example">class="border border-danger"</div>
+                        <div class="utility-description">Danger color border</div>
+                    </div>
+                </div>
+                
+                <div class="col-md-3 mb-4">
+                    <div class="image-container">
+                        <img src="https://source.unsplash.com/random/300x300/?travel" alt="Travel" class="border border-warning">
+                        <div class="code-example">class="border border-warning"</div>
+                        <div class="utility-description">Warning color border</div>
+                    </div>
+                </div>
+                
+                <div class="col-md-3 mb-4">
+                    <div class="image-container">
+                        <img src="https://source.unsplash.com/random/300x300/?technology" alt="Technology" class="border border-info">
+                        <div class="code-example">class="border border-info"</div>
+                        <div class="utility-description">Info color border</div>
+                    </div>
+                </div>
+                
+                <div class="col-md-3 mb-4">
+                    <div class="image-container">
+                        <img src="https://source.unsplash.com/random/300x300/?light" alt="Light" class="border border-light">
+                        <div class="code-example">class="border border-light"</div>
+                        <div class="utility-description">Light color border</div>
+                    </div>
+                </div>
+                
+                <div class="col-md-3 mb-4">
+                    <div class="image-container">
+                        <img src="https://source.unsplash.com/random/300x300/?dark" alt="Dark" class="border border-dark">
+                        <div class="code-example">class="border border-dark"</div>
+                        <div class="utility-description">Dark color border</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Border Width -->
+        <section class="demo-section">
+            <h2 class="demo-title">Border Width</h2>
+            <p>Control the thickness of borders using <code>border-1</code> through <code>border-5</code> utilities.</p>
+            
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="image-container">
+                        <img src="https://source.unsplash.com/random/300x300/?portrait" alt="Portrait" class="border border-1 border-primary">
+                        <div class="code-example">class="border border-1 border-primary"</div>
+                        <div class="utility-description">1px border width</div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4">
+                    <div class="image-container">
+                        <img src="https://source.unsplash.com/random/300x300/?landscape" alt="Landscape" class="border border-3 border-success">
+                        <div class="code-example">class="border border-3 border-success"</div>
+                        <div class="utility-description">3px border width</div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4">
+                    <div class="image-container">
+                        <img src="https://source.unsplash.com/random/300x300/?abstract" alt="Abstract" class="border border-5 border-danger">
+                        <div class="code-example">class="border border-5 border-danger"</div>
+                        <div class="utility-description">5px border width</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Rounded Corners -->
+        <section class="demo-section">
+            <h2 class="demo-title">Rounded Corners</h2>
+            <p>Apply rounded corners to images using utilities like <code>rounded</code>, <code>rounded-circle</code>, etc.</p>
+            
+            <div class="row">
+                <div class="col-md-3 mb-4">
+                    <div class="image-container">
+                        <img src="https://source.unsplash.com/random/300x300/?person" alt="Person" class="rounded">
+                        <div class="code-example">class="rounded"</div>
+                        <div class="utility-description">Default rounded corners (0.25rem)</div>
+                    </div>
+                </div>
+                
+                <div class="col-md-3 mb-4">
+                    <div class="image-container">
+                        <img src="https://source.unsplash.com/random/300x300/?face" alt="Face" class="rounded-circle">
+                        <div class="code-example">class="rounded-circle"</div>
+                        <div class="utility-description">Circular shape (50% border-radius)</div>
+                    </div>
+                </div>
+                
+                <div class="col-md-3 mb-4">
+                    <div class="image-container">
+                        <img src="https://source.unsplash.com/random/300x300/?architecture" alt="Architecture" class="rounded-pill">
+                        <div class="code-example">class="rounded-pill"</div>
+                        <div class="utility-description">Pill shape (50rem border-radius)</div>
+                    </div>
+                </div>
+                
+                <div class="col-md-3 mb-4">
+                    <div class="image-container">
+                        <img src="https://source.unsplash.com/random/300x300/?building" alt="Building" class="rounded-0">
+                        <div class="code-example">class="rounded-0"</div>
+                        <div class="utility-description">No rounded corners</div>
+                    </div>
+                </div>
+                
+                <div class="col-md-3 mb-4">
+                    <div class="image-container">
+                        <img src="https://source.unsplash.com/random/300x300/?car" alt="Car" class="rounded-top">
+                        <div class="code-example">class="rounded-top"</div>
+                        <div class="utility-description">Rounded top corners only</div>
+                    </div>
+                </div>
+                
+                <div class="col-md-3 mb-4">
+                    <div class="image-container">
+                        <img src="https://source.unsplash.com/random/300x300/?bike" alt="Bike" class="rounded-end">
+                        <div class="code-example">class="rounded-end"</div>
+                        <div class="utility-description">Rounded right corners only</div>
+                    </div>
+                </div>
+                
+                <div class="col-md-3 mb-4">
+                    <div class="image-container">
+                        <img src="https://source.unsplash.com/random/300x300/?boat" alt="Boat" class="rounded-bottom">
+                        <div class="code-example">class="rounded-bottom"</div>
+                        <div class="utility-description">Rounded bottom corners only</div>
+                    </div>
+                </div>
+                
+                <div class="col-md-3 mb-4">
+                    <div class="image-container">
+                        <img src="https://source.unsplash.com/random/300x300/?plane" alt="Plane" class="rounded-start">
+                        <div class="code-example">class="rounded-start"</div>
+                        <div class="utility-description">Rounded left corners only</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Combined Utilities -->
+        <section class="demo-section">
+            <h2 class="demo-title">Combining Border Utilities</h2>
+            <p>Combine multiple border utilities to create more complex styles.</p>
+            
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="image-container">
+                        <img src="https://source.unsplash.com/random/300x300/?profile" alt="Profile" class="border border-3 border-primary rounded-circle">
+                        <div class="code-example">class="border border-3 border-primary rounded-circle"</div>
+                        <div class="utility-description">Thick primary border with circular shape</div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4">
+                    <div class="image-container">
+                        <img src="https://source.unsplash.com/random/300x300/?space" alt="Space" class="border border-4 border-success rounded-3">
+                        <div class="code-example">class="border border-4 border-success rounded-3"</div>
+                        <div class="utility-description">Thick success border with large rounded corners</div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4">
+                    <div class="image-container">
+                        <img src="https://source.unsplash.com/random/300x300/?galaxy" alt="Galaxy" class="border-top border-5 border-danger rounded-bottom">
+                        <div class="code-example">class="border-top border-5 border-danger rounded-bottom"</div>
+                        <div class="utility-description">Thick danger border on top with rounded bottom corners</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Interactive Demo -->
+        <section class="demo-section">
+            <h2 class="demo-title">Interactive Border Demo</h2>
+            <p>Experiment with different border utilities by selecting options below.</p>
+            
+            <div class="interactive-demo">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="text-center mb-4">
+                            <img id="demo-image" src="https://source.unsplash.com/random/300x300/?colorful" alt="Demo Image" class="border" style="width: 250px; height: 250px; object-fit: cover;">
+                        </div>
+                        
+                        <div class="bg-light p-3 rounded">
+                            <code id="current-classes">class="border"</code>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6">
+                        <div class="control-group">
+                            <label class="form-label">Border Style:</label>
+                            <div class="btn-group w-100" role="group">
+                                <input type="radio" class="btn-check" name="border-style" id="border-all" checked>
+                                <label class="btn btn-outline-primary" for="border-all">All Sides</label>
+                                
+                                <input type="radio" class="btn-check" name="border-style" id="border-top">
+                                <label class="btn btn-outline-primary" for="border-top">Top</label>
+                                
+                                <input type="radio" class="btn-check" name="border-style" id="border-bottom">
+                                <label class="btn btn-outline-primary" for="border-bottom">Bottom</label>
+                                
+                                <input type="radio" class="btn-check" name="border-style" id="border-none">
+                                <label class="btn btn-outline-primary" for="border-none">None</label>
+                            </div>
+                        </div>
+                        
+                        <div class="control-group">
+                            <label class="form-label">Border Color:</label>
+                            <div class="btn-group w-100" role="group">
+                                <input type="radio" class="btn-check" name="border-color" id="border-default" checked>
+                                <label class="btn btn-outline-secondary" for="border-default">Default</label>
+                                
+                                <input type="radio" class="btn-check" name="border-color" id="border-primary">
+                                <label class="btn btn-outline-primary" for="border-primary">Primary</label>
+                                
+                                <input type="radio" class="btn-check" name="border-color" id="border-success">
+                                <label class="btn btn-outline-success" for="border-success">Success</label>
+                                
+                                <input type="radio" class="btn-check" name="border-color" id="border-danger">
+                                <label class="btn btn-outline-danger" for="border-danger">Danger</label>
+                            </div>
+                        </div>
+                        
+                        <div class="control-group">
+                            <label class="form-label">Border Width:</label>
+                            <div class="btn-group w-100" role="group">
+                                <input type="radio" class="btn-check" name="border-width" id="border-width-1" checked>
+                                <label class="btn btn-outline-secondary" for="border-width-1">1px</label>
+                                
+                                <input type="radio" class="btn-check" name="border-width" id="border-width-3">
+                                <label class="btn btn-outline-secondary" for="border-width-3">3px</label>
+                                
+                                <input type="radio" class="btn-check" name="border-width" id="border-width-5">
+                                <label class="btn btn-outline-secondary" for="border-width-5">5px</label>
+                            </div>
+                        </div>
+                        
+                        <div class="control-group">
+                            <label class="form-label">Rounded Corners:</label>
+                            <div class="btn-group w-100" role="group">
+                                <input type="radio" class="btn-check" name="rounded" id="rounded-default" checked>
+                                <label class="btn btn-outline-secondary" for="rounded-default">Default</label>
+                                
+                                <input type="radio" class="btn-check" name="rounded" id="rounded-circle">
+                                <label class="btn btn-outline-secondary" for="rounded-circle">Circle</label>
+                                
+                                <input type="radio" class="btn-check" name="rounded" id="rounded-pill">
+                                <label class="btn btn-outline-secondary" for="rounded-pill">Pill</label>
+                                
+                                <input type="radio" class="btn-check" name="rounded" id="rounded-0">
+                                <label class="btn btn-outline-secondary" for="rounded-0">None</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JavaScript for Interactive Demo -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const demoImage = document.getElementById('demo-image');
+            const currentClasses = document.getElementById('current-classes');
+            
+            // Border Style
+            document.querySelectorAll('input[name="border-style"]').forEach(input => {
+                input.addEventListener('change', updateImageClasses);
+            });
+            
+            // Border Color
+            document.querySelectorAll('input[name="border-color"]').forEach(input => {
+                input.addEventListener('change', updateImageClasses);
+            });
+            
+            // Border Width
+            document.querySelectorAll('input[name="border-width"]').forEach(input => {
+                input.addEventListener('change', updateImageClasses);
+            });
+            
+            // Rounded Corners
+            document.querySelectorAll('input[name="rounded"]').forEach(input => {
+                input.addEventListener('change', updateImageClasses);
+            });
+            
+            function updateImageClasses() {
+                // Reset classes
+                demoImage.className = '';
+                
+                // Border Style
+                if (document.getElementById('border-all').checked) {
+                    demoImage.classList.add('border');
+                } else if (document.getElementById('border-top').checked) {
+                    demoImage.classList.add('border-top');
+                } else if (document.getElementById('border-bottom').checked) {
+                    demoImage.classList.add('border-bottom');
+                }
+                
+                // Border Color
+                if (document.getElementById('border-primary').checked) {
+                    demoImage.classList.add('border-primary');
+                } else if (document.getElementById('border-success').checked) {
+                    demoImage.classList.add('border-success');
+                } else if (document.getElementById('border-danger').checked) {
+                    demoImage.classList.add('border-danger');
+                }
+                
+                // Border Width
+                if (document.getElementById('border-width-3').checked) {
+                    demoImage.classList.add('border-3');
+                } else if (document.getElementById('border-width-5').checked) {
+                    demoImage.classList.add('border-5');
+                } else {
+                    demoImage.classList.add('border-1');
+                }
+                
+                // Rounded Corners
+                if (document.getElementById('rounded-circle').checked) {
+                    demoImage.classList.add('rounded-circle');
+                } else if (document.getElementById('rounded-pill').checked) {
+                    demoImage.classList.add('rounded-pill');
+                } else if (document.getElementById('rounded-0').checked) {
+                    demoImage.classList.add('rounded-0');
+                } else {
+                    demoImage.classList.add('rounded');
+                }
+                
+                // Update code display
+                currentClasses.textContent = `class="${demoImage.className}"`;
+            }
+        });
+    </script>
+</body>
+</html>

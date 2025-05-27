@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap Responsive Navbar with Flexbox</title>
+    
+    <!-- Bootstrap 5 CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    
+    <style>
+        body {
+            padding-bottom: 50px;
+        }
+        
+        .demo-section {
+            margin-bottom: 50px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #dee2e6;
+        }
+        
+        .custom-navbar {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            border: 1px solid #dee2e6;
+        }
+        
+        .nav-link {
+            padding: 8px 15px;
+            margin: 5px;
+            border-radius: 5px;
+            text-decoration: none;
+            color: #495057;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover, .nav-link.active {
+            background-color: #0d6efd;
+            color: white;
+        }
+        
+        .code-block {
+            background-color: #f1f1f1;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            font-family: monospace;
+            white-space: pre-wrap;
+        }
+        
+        /* Breakpoint indicator */
+        .breakpoint-indicator {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            z-index: 1000;
+        }
+        
+        /* Custom logo */
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #0d6efd;
+            margin-right: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Responsive Navbar with Flexbox Utilities</h1>
+        <p class="lead text-center mb-5">This example demonstrates how to create a responsive navbar using Bootstrap's flexbox utilities like <code>d-flex</code>, <code>flex-column</code>, and <code>flex-md-row</code>.</p>
+        
+        <!-- Basic Navbar Example -->
+        <div class="demo-section">
+            <h2 class="mb-4">1. Basic Responsive Navbar</h2>
+            <p>This navbar stacks vertically on mobile (less than 768px) and horizontally on medium screens and larger (768px and up).</p>
+            
+            <div class="custom-navbar">
+                <div class="d-flex flex-column flex-md-row align-items-center">
+                    <div class="logo mb-3 mb-md-0">Brand Logo</div>
+                    <div class="d-flex flex-column flex-md-row">
+                        <a href="#" class="nav-link active">Home</a>
+                        <a href="#" class="nav-link">About</a>
+                        <a href="#" class="nav-link">Services</a>
+                        <a href="#" class="nav-link">Portfolio</a>
+                        <a href="#" class="nav-link">Contact</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="code-block">
+&lt;div class="d-flex flex-column flex-md-row align-items-center"&gt;
+  &lt;div class="logo mb-3 mb-md-0"&gt;Brand Logo&lt;/div&gt;
+  &lt;div class="d-flex flex-column flex-md-row"&gt;
+    &lt;a href="#" class="nav-link active"&gt;Home&lt;/a&gt;
+    &lt;a href="#" class="nav-link"&gt;About&lt;/a&gt;
+    &lt;a href="#" class="nav-link"&gt;Services&lt;/a&gt;
+    &lt;a href="#" class="nav-link"&gt;Portfolio&lt;/a&gt;
+    &lt;a href="#" class="nav-link"&gt;Contact&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</div>
+            
+            <div class="alert alert-info mt-3">
+                <h5>Key Flexbox Classes Used:</h5>
+                <ul>
+                    <li><code>d-flex</code>: Creates a flexbox container</li>
+                    <li><code>flex-column</code>: Stacks flex items vertically</li>
+                    <li><code>flex-md-row</code>: Arranges flex items horizontally on medium screens and larger</li>
+                    <li><code>align-items-center</code>: Centers items vertically</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Navbar with Justify Content -->
+        <div class="demo-section">
+            <h2 class="mb-4">2. Navbar with Justified Content</h2>
+            <p>This navbar uses <code>justify-content-between</code> to place the logo on the left and navigation links on the right.</p>
+            
+            <div class="custom-navbar">
+                <div class="d-flex flex-column flex-md-row justify-content-md-between align-items-center">
+                    <div class="logo mb-3 mb-md-0">Brand Logo</div>
+                    <div class="d-flex flex-column flex-md-row">
+                        <a href="#" class="nav-link active">Home</a>
+                        <a href="#" class="nav-link">About</a>
+                        <a href="#" class="nav-link">Services</a>
+                        <a href="#" class="nav-link">Portfolio</a>
+                        <a href="#" class="nav-link">Contact</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="code-block">
+&lt;div class="d-flex flex-column flex-md-row justify-content-md-between align-items-center"&gt;
+  &lt;div class="logo mb-3 mb-md-0"&gt;Brand Logo&lt;/div&gt;
+  &lt;div class="d-flex flex-column flex-md-row"&gt;
+    &lt;a href="#" class="nav-link active"&gt;Home&lt;/a&gt;
+    &lt;a href="#" class="nav-link"&gt;About&lt;/a&gt;
+    &lt;a href="#" class="nav-link"&gt;Services&lt;/a&gt;
+    &lt;a href="#" class="nav-link"&gt;Portfolio&lt;/a&gt;
+    &lt;a href="#" class="nav-link"&gt;Contact&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</div>
+        </div>
+        
+        <!-- Navbar with Search -->
+        <div class="demo-section">
+            <h2 class="mb-4">3. Navbar with Search</h2>
+            <p>This navbar includes a search form and uses flexbox utilities to arrange all elements responsively.</p>
+            
+            <div class="custom-navbar">
+                <div class="d-flex flex-column flex-md-row justify-content-md-between align-items-center">
+                    <div class="d-flex flex-column flex-md-row align-items-center mb-3 mb-md-0">
+                        <div class="logo mb-3 mb-md-0">Brand Logo</div>
+                        <div class="d-flex flex-column flex-md-row">
+                            <a href="#" class="nav-link active">Home</a>
+                            <a href="#" class="nav-link">About</a>
+                            <a href="#" class="nav-link">Services</a>
+                            <a href="#" class="nav-link">Contact</a>
+                        </div>
+                    </div>
+                    <div class="d-flex">
+                        <input type="text" class="form-control me-2" placeholder="Search">
+                        <button class="btn btn-outline-primary">Search</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="code-block">
+&lt;div class="d-flex flex-column flex-md-row justify-content-md-between align-items-center"&gt;
+  &lt;div class="d-flex flex-column flex-md-row align-items-center mb-3 mb-md-0"&gt;
+    &lt;div class="logo mb-3 mb-md-0"&gt;Brand Logo&lt;/div&gt;
+    &lt;div class="d-flex flex-column flex-md-row"&gt;
+      &lt;a href="#" class="nav-link active"&gt;Home&lt;/a&gt;
+      &lt;a href="#" class="nav-link"&gt;About&lt;/a&gt;
+      &lt;a href="#" class="nav-link"&gt;Services&lt;/a&gt;
+      &lt;a href="#" class="nav-link"&gt;Contact&lt;/a&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="d-flex"&gt;
+    &lt;input type="text" class="form-control me-2" placeholder="Search"&gt;
+    &lt;button class="btn btn-outline-primary"&gt;Search&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</div>
+        </div>
+        
+        <!-- Navbar with Dropdown -->
+        <div class="demo-section">
+            <h2 class="mb-4">4. Navbar with Dropdown</h2>
+            <p>This example shows how to integrate a dropdown menu within a responsive navbar.</p>
+            
+            <div class="custom-navbar">
+                <div class="d-flex flex-column flex-md-row align-items-center">
+                    <div class="logo mb-3 mb-md-0">Brand Logo</div>
+                    <div class="d-flex flex-column flex-md-row">
+                        <a href="#" class="nav-link active">Home</a>
+                        <a href="#" class="nav-link">About</a>
+                        <div class="dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Services
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="#">Web Design</a></li>
+                                <li><a class="dropdown-item" href="#">Development</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="#">Consulting</a></li>
+                            </ul>
+                        </div>
+                        <a href="#" class="nav-link">Portfolio</a>
+                        <a href="#" class="nav-link">Contact</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="alert alert-warning mt-3">
+                <strong>Note:</strong> The dropdown functionality requires Bootstrap's JavaScript. Make sure to include <code>bootstrap.bundle.min.js</code> in your project.
+            </div>
+        </div>
+        
+        <!-- Full Responsive Navbar Example -->
+        <div class="demo-section">
+            <h2 class="mb-4">5. Full Responsive Navbar Example</h2>
+            <p>This example combines all the previous concepts into a complete responsive navbar with a toggle button for mobile view.</p>
+            
+            <nav class="navbar navbar-expand-md navbar-light bg-light">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">Brand Logo</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarExample" aria-controls="navbarExample" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarExample">
+                        <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">About</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Services
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <li><a class="dropdown-item" href="#">Web Design</a></li>
+                                    <li><a class="dropdown-item" href="#">Development</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item" href="#">Consulting</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Portfolio</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Contact</a>
+                            </li>
+                        </ul>
+                        <form class="d-flex">
+                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                            <button class="btn btn-outline-success" type="submit">Search</button>
+                        </form>
+                    </div>
+                </div>
+            </nav>
+            
+            <div class="alert alert-info mt-3">
+                <h5>Bootstrap's Built-in Navbar Component</h5>
+                <p>While we've been building custom navbars with flexbox utilities, Bootstrap also provides a complete navbar component with built-in responsive behavior.</p>
+                <p>The example above uses Bootstrap's <code>navbar</code> component, which automatically handles the responsive behavior and includes a toggle button for mobile view.</p>
+            </div>
+        </div>
+        
+        <!-- Understanding Flexbox Utilities -->
+        <div class="demo-section">
+            <h2 class="mb-4">6. Understanding Flexbox Utilities in Bootstrap</h2>
+            
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h4 class="mb-0">Key Flexbox Utilities</h4>
+                </div>
+                <div class="card-body">
+                    <table class="table table-bordered">
+                        <thead class="table-light">
+                            <tr>
+                                <th>Utility Class</th>
+                                <th>Description</th>
+                                <th>CSS Equivalent</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>d-flex</code></td>
+                                <td>Creates a flexbox container</td>
+                                <td><code>display: flex;</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>d-inline-flex</code></td>
+                                <td>Creates an inline flexbox container</td>
+                                <td><code>display: inline-flex;</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>flex-row</code></td>
+                                <td>Sets the flex direction to row (horizontal)</td>
+                                <td><code>flex-direction: row;</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>flex-column</code></td>
+                                <td>Sets the flex direction to column (vertical)</td>
+                                <td><code>flex-direction: column;</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>flex-{breakpoint}-{row|column}</code></td>
+                                <td>Responsive flex direction (e.g., <code>flex-md-row</code>)</td>
+                                <td>Media query with flex-direction</td>
+                            </tr>
+                            <tr>
+                                <td><code>justify-content-{value}</code></td>
+                                <td>Aligns items horizontally (start, end, center, between, around, evenly)</td>
+                                <td><code>justify-content: {value};</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>align-items-{value}</code></td>
+                                <td>Aligns items vertically (start, end, center, baseline, stretch)</td>
+                                <td><code>align-items: {value};</code></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Breakpoint Indicator -->
+    <div class="breakpoint-indicator">
+        <div class="d-block d-sm-none">Extra Small (xs)</div>
+        <div class="d-none d-sm-block d-md-none">Small (sm)</div>
+        <div class="d-none d-md-block d-lg-none">Medium (md)</div>
+        <div class="d-none d-lg-block d-xl-none">Large (lg)</div>
+        <div class="d-none d-xl-block d-xxl-none">Extra Large (xl)</div>
+        <div class="d-none d-xxl-block">Extra Extra Large (xxl)</div>
+    </div>
+
+    <!-- Bootstrap 5 JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+</body>
+</html>
